@@ -1,0 +1,14 @@
+- name: Bill Mills
+  affiliation: Mozilla Science Lab
+  github: BillMills
+  interests:
+    - Programming
+    - Open Science
+
+- name: Jeff Hollister
+  affiliation: US EPA and URI
+  github: jhollist
+  interests:
+     - R
+     - Open Science
+     - Landscape Ecology, Lakes, and GIS
