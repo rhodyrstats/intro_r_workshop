@@ -1,0 +1,48 @@
+<!-- Portfolio Grid Section -->
+    <section id="portfolio" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Events</h2>
+                    <h3 class="section-subheading text-muted">Our upcoming and recent events:</h3>
+                </div>
+            </div>
+            <div class="col-lg-12">
+              <ul class='events'>
+              {% assign isEvent = 0 %}
+              {% for post in site.posts reversed %}
+                {% capture nowyear %}{{'now' | date: '%Y'}}{% endcapture %}
+                {% capture postyear %}{{post.date | date: '%Y'}}{% endcapture %}
+                {% capture nowday %}{{'now' | date: '%j'}}{% endcapture %}
+                {% capture postday %}{{post.date | date: '%j'}}{% endcapture %}
+                {% assign postday = postday | plus: 0 %}
+                {% assign nowday = nowday | minus: 2 %}
+                {% if postyear > nowyear or postday >= nowday and postyear >= nowyear %}
+                  {% assign isEvent = 1 %}
+                  <li>
+                    <a class='eventTitle' href="{{ post.link }}">{{ post.title }}, {{ post.location }}, {{ post.date | date: "%-d %B %Y"}}</a>
+                    <div class='eventSub'>{{ post.text }}</div>
+                  </li>
+                {% endif %}
+              {% endfor %}
+              {% if isEvent == 0 %}
+                <a class='eventTitle' href="https://github.com/rhodyrstats/rhodyrstats.github.io/issues">Nothing yet! Propose an event here.</a>
+              {% else %}
+              <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <a href="https://github.com/rhodyrstats/rhodyrstats.github.io/issues" class="btn btn-xl eventSuggest">Suggest an Event</a>
+                    </div>
+              </div>
+              {% endif %}
+              </ul>
+            </div>
+            <div class="col-lg-12">
+              <h3 class="section-heading eventInstructions">Want to be notified of our upcoming events?</h3>
+              <h3 class="section-subheading text-muted eventSubinstructions">Head over to <a href="https://github.com/rhodyrstats/rhodyrstats.github.io">GitHub</a> and watch our repository, like this:</h3>
+              <figure>
+                <img src="https://help.github.com/assets/images/help/notifications/watcher_picker.gif"></img>
+                <figcaption>Look in the top right-hand corner of <a href="https://github.com/rhodyrstats/rhodyrstats.github.io">our repo</a>, and click 'Watching.' <br>You can undo this at any time in the same place.</figcaption>
+              </figure>
+            </div>
+        </div>
+    </section>

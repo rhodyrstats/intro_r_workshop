@@ -1,0 +1,46 @@
+#Setup ~~~
+#Follow these 3 steps to set up your site.
+
+#Step 1: change mozillascience to the user name you chose on GitHub:
+user: rhodyrstats
+
+#Step 2: give your study group a name and a short description:
+title: Rhody R Stats
+description: "The Rhode Island R Study Group is open to all that have an interest 
+in working together to learn R, data management skills, and data science.  While
+this is primarily for URI students, any and all are welcome."
+
+#Step 3: press the green 'Commit Changes' button at the bottom of this page.
+
+# That's it, your website is all set up!
+# You can see it at http://YourUserName.github.io/studyGroup/
+# No need to change anything below this line.
+# To make your first event, check out the instructions at https://github.com/mozillascience/studyGroup#how-to-launch-a-new-event
+# Having trouble? Open a new issue at https://github.com/mozillascience/studyGroup/issues and we'll help you out ASAP!
+
+# Optional Configuration
+# None of these things need to be changed - but feel free!
+
+#titleBackground: "https://s3-us-west-2.amazonaws.com/webmaker-kits/learning%402x.jpg"
+titleBackground: "http://www.asergeev.com/pictures/archives/2004/426/jpeg/24.jpg"
+headlineSmall: "The Rhode Island R and Data Science Study Group"
+headlineMain: "Rhody R Stats"
+
+
+#========================================
+# No touching anything below this line :)
+#========================================
+# Color settings (hex-codes without the leading hash-tag)
+#color:
+#  primary: fed136
+#  secondary: fec503
+#  secondary-dark: 333
+color:
+   primary: D5D693
+   secondary: 198C7E
+   secondary-dark: 333
+
+
+# Build settings
+markdown: kramdown
+permalink: pretty
