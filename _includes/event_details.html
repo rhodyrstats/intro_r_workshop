@@ -4,8 +4,24 @@
     <div class="row">
       <div class="col-lg-12 text-center">
         <h1> {{ page.event }} </h1>
-        <p> {{ page.description }} </p>
-        <p> {{ page.date }} </p>
+        <p> {{ page.description | markdownify }} </p>
+        {% if page.address || page.location %}
+          <h3>Location:</h3>
+          <p>
+            <a href="{{page.location.URL}}">{{page.location.name}} </a>
+            <a href="https://maps.google.com/?q={{page.address}}">(map)</a>
+          </p>
+        {% endif %}
+
+        {% if page.date %}
+          <h3>Date(s):</h3>
+        {% endif %}
+        {% for dates in page.date %}
+          <li>
+            <span><time datetime="{{dates}}"> {{ dates | date: "%b %-d, %Y %H:%M"}} </time></span>
+          </li>
+        {% endfor %}
+
       </div>
     </div>
   </div>
