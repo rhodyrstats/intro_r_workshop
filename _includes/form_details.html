@@ -1,7 +1,10 @@
+---
+ssid: '11N7NXHEEjpPPth9VvbwdEjKsCKf6PFdA7GtubwnjQVk'
+---
 <section id="form">
   <form action="https://script.google.com/macros/s/AKfycbzkF_wHxE3jg_WcUNQCD4kDWoPFp_cIE4mR-yUa4-Fktwgaufg/exec" accept-charset="UTF-8" method="get">
-  <!-- the redirect_to is optional, the form will redirect to the referrer on submission -->
-  <input type='hidden' name='redirect_to' value='http://rhodyrstats.org' />
+  <!-- Google Spreadsheet ID taken from YAML -->
+  <input type='hidden' name='ssid' value='{{ssid}}' />
   <!-- all your input fields here.... -->
   <input type="email" name="email" placeholder="Your Email">
   <input type="text" name="name" placeholder="Your Name">
