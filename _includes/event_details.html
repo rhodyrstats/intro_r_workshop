@@ -21,7 +21,9 @@
             <span><time datetime="{{dates}}"> {{ dates | date: "%b %-d, %Y %H:%M"}} </time></span>
           </li>
         {% endfor %}
-
+        {% if page.note %}
+          <h2><emph>NOTE:</emph> {{page.note | markdownify}}</h2>
+        {% endif %}
       </div>
     </div>
   </div>
