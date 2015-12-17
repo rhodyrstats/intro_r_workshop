@@ -1,14 +1,20 @@
----
-ssid: '11N7NXHEEjpPPth9VvbwdEjKsCKf6PFdA7GtubwnjQVk'
----
+<!-- Form Details Section -->
 <section id="form">
-  <form action="https://script.google.com/macros/s/AKfycbzkF_wHxE3jg_WcUNQCD4kDWoPFp_cIE4mR-yUa4-Fktwgaufg/exec" accept-charset="UTF-8" method="get">
-  <!-- Google Spreadsheet ID taken from YAML -->
-  <input  name='ssid' value='{{page.ssid}}' />
-  <!-- all your input fields here.... -->
-  <input type="email" name="email" placeholder="Your Email">
-  <input type="text" name="name" placeholder="Your Name">
-  <input type="url" name="url" placeholder="Your Website">
-  <button type="submit">Submit</button>
-</form>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <form action="https://script.google.com/macros/s/AKfycbzkF_wHxE3jg_WcUNQCD4kDWoPFp_cIE4mR-yUa4-Fktwgaufg/exec" accept-charset="UTF-8" method="get">
+          <!-- Enter Google Spreadsheet ID in the value -->
+          <!-- Awful hack to put id in 0 spot - -->
+          <!-- keep name of "a" as values are passed alphabetically  -->
+          <input type="hidden" name="a" value='1F_WWGr8fetFpNLThuKQcPrfOv2fwz8nSKUotsZclKAY' />
+          <!-- all your input fields here.... -->
+          <input type="text" name="name" placeholder="First Name Last Name" required> </br>
+          <input type="email" name="email" placeholder="Your Email" required> </br>
+          <input type="range" min=1 max=5 name="programming_experience"></br>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </section>
