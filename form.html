@@ -1,5 +1,63 @@
 ---
-layout: default_form
+id: 1F_WWGr8fetFpNLThuKQcPrfOv2fwz8nSKUotsZclKAY
 ---
 
+<!DOCTYPE html>
+<html>
 
+  {% include head.html %}
+
+
+    <body id="page-top" class="index">
+    {% include header.html %}
+
+    <!-- Form Details Section -->
+    <section id="form">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <form action="https://script.google.com/macros/s/AKfycbzkF_wHxE3jg_WcUNQCD4kDWoPFp_cIE4mR-yUa4-Fktwgaufg/exec" accept-charset="UTF-8" method="get">
+              <!-- Enter Google Spreadsheet ID in the yaml -->
+              <!-- Awful hack to put id in 0 spot - -->
+              <!-- keep name of "a" as values are passed alphabetically  -->
+              <input type="hidden" name="a" value='{{ page.id }}' />
+              <!-- all your input fields here.... -->
+              <fieldset>
+                <legend>Contact Information</legend>
+                  <div>
+                  <label for="name">Name (required): </label>
+                  <input type="text" name="name" placeholder="First Name Last Name" tabindex="1" required>
+                  </div>
+                  <div>
+                  <label for="email">Email (required): </label>
+                  <input type="email" name="email" placeholder="Your Email" tabindex="2" required>
+                  </div>
+                  <div>
+                  <label for="website">Your Webpage: </label>
+                  <input type="url" name="website" placeholder="http://rhodyrstats.org" tabindex="3" required>
+                  </div>
+              </fieldset>
+
+              <fieldset>
+                <legend>Programming Experience</legend>
+
+                  <label for="programming_experience"><p>Indicate your overall experience with programming.  One(1) indicates little to no experience and Five (5) indicates very significant experience.</p></br></label>
+                  <input type="radio" name="programming_experience" value="1"> 1
+                  <input type="radio" name="programming_experience" value="2"> 2
+                  <input type="radio" name="programming_experience" value="3"> 3
+                  <input type="radio" name="programming_experience" value="4"> 4
+                  <input type="radio" name="programming_experience" value="5"> 5
+
+              </fieldset>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% include footer.html %}
+    {% include js.html %}
+
+    </body>
+</html>
