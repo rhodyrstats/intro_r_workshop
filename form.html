@@ -16,6 +16,7 @@ id: 1F_WWGr8fetFpNLThuKQcPrfOv2fwz8nSKUotsZclKAY
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
+            <p>Our January workshops are now full.  Thanks for your interest.  If you'd like to be added to the waitlist or if you want us to keep in touch about future events (we expect these to start shortly after the workshops), please fill out the form below.</p>
             <form action="https://script.google.com/macros/s/AKfycbzkF_wHxE3jg_WcUNQCD4kDWoPFp_cIE4mR-yUa4-Fktwgaufg/exec" accept-charset="UTF-8" method="get">
               <!-- Enter Google Spreadsheet ID in the yaml -->
               <!-- Awful hack to put id in 0 spot - -->
@@ -29,15 +30,20 @@ id: 1F_WWGr8fetFpNLThuKQcPrfOv2fwz8nSKUotsZclKAY
                   <input type="text" name="name" placeholder="First Name Last Name" tabindex="1" required>
                   </div>
                   <div>
-                  <label for="email">Email (required): </label>
-                  <input type="email" name="email" placeholder="Your Email" tabindex="2" required>
+                  <label for="email">Email (required): </label></br>
+                  <input type="email" name="email" placeholder="Your Email" tabindex="2" required></br>
                   </div>
                   <div>
-                  <label for="website">Your Webpage: </label>
-                  <input type="url" name="website" placeholder="http://rhodyrstats.org" tabindex="3" required>
+                  <label for="website">Your Webpage: </label></br>
+                  <input type="url" name="website" placeholder="http://rhodyrstats.org" tabindex="3"></br>
+                  </div>
+                  <div>
+                  <label for="listserv">Would you like to be added to the Rhody R Stats listserv: </label></br>
+                  <input type="radio" name="listserv" value="Yes" tabindex="4"> Yes</br>
+                  <input type="radio" name="listserv" value="No" tabindex="5"> No</br>
                   </div>
               </fieldset>
-
+              <!--
               <fieldset>
                 <legend>Programming Experience</legend>
 
@@ -49,6 +55,7 @@ id: 1F_WWGr8fetFpNLThuKQcPrfOv2fwz8nSKUotsZclKAY
                   <input type="radio" name="programming_experience" value="5"> 5
 
               </fieldset>
+              -->
               <button type="submit">Submit</button>
             </form>
           </div>
