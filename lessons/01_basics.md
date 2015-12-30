@@ -18,17 +18,25 @@ getting help.
 - [Exercise 1.3](#exercise-13)
 
 ###Working with R and RStudio
+-----------------------------
 
 ###Exercise 1.1
+-----------------------------
 
 ###Functions and basic syntax
+-----------------------------
 
 ###Packages
+-----------------------------
 
-##Exercise 1.2
+###Exercise 1.2
+-----------------------------
 
 ###Working in the console
+-----------------------------
 
-##Exercise 1.3
+###Exercise 1.3
+-----------------------------
 
 ###Getting help
+-----------------------------
