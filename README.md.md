@@ -10,10 +10,15 @@ workshop outline see below.
  - Jeff Hollister
  
 ## Helpers
+ - Aurelia Moser, Mozilla Science Lab (Wed)
  - TBD
- 
-# Workshop Schedule and Links to Materials
 
+## Rosters
+
+ - [Tuesday, January 12](tuesday_roster.md)
+ - [Wednesday, January 13](wednesday_roster.md)
+
+# Workshop Schedule and Links to Materials
 
 | Time                | Topic                                     | 
 | ------------------- | ----------------------------------------- | 
