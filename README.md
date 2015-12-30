@@ -15,17 +15,17 @@ workshop outline see below.
 # Workshop Schedule and Links to Materials
 
 
-| Time                | Topic                                 | 
-| ------------------- | ------------------------------------- | 
-| 8:00 AM - 8:15 AM   | Breakfast and Set-up                  |
-| 8:15 AM - 8:30 AM   | Welcome, Introductions, and Logistics |
-| 8:30 AM - 8:45 AM   | Sofware Set-up                        |
-| 8:45 AM - 10:00 AM  | R Basics                              |
-| 10:00 AM - 10:15 AM | *BREAK*                               |
-| 10:15 AM - 12:00 PM | Data in R                             |       
-| 12:00 PM - 1:00 PM  | *LUNCH*                               |
-| 1:00 PM - 2:15 PM   | Data Wrangling                        |
-| 2:15 PM - 2:30 PM   | *BREAK*                               |
-| 2:30 PM - 4:30 PM   | Data Viz                              |
+| Time                | Topic                                     | 
+| ------------------- | ----------------------------------------- | 
+| 8:00 AM - 8:15 AM   | Breakfast and Set-up                      |
+| 8:15 AM - 8:30 AM   | Welcome, Introductions, and Logistics     |
+| 8:30 AM - 8:45 AM   | Sofware Set-up                            |
+| 8:45 AM - 10:00 AM  | [R Basics](lessons/01_basics.md)          | 
+| 10:00 AM - 10:15 AM | *BREAK*                                   |
+| 10:15 AM - 12:00 PM | [Data in R](lessons/02_data.md)           |       
+| 12:00 PM - 1:00 PM  | *LUNCH*                                   |
+| 1:00 PM - 2:15 PM   | [Data Wrangling](lessons/03_wrangling.md) |
+| 2:15 PM - 2:30 PM   | *BREAK*                                   |
+| 2:30 PM - 4:30 PM   | [Data Viz](lessons/04_viz.md)             |
 
 
