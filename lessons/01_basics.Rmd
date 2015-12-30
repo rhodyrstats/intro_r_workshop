@@ -13,9 +13,9 @@ getting help.
 - [Getting help](#getting-help)
 
 ## Lesson Exercises:
-- [Exercise 1.1](#exercise-1.1)
-- [Exercise 1.2](#exercise-1.2)
-- [Exercise 1.3](#exercise-1.3)
+- [Exercise 1.1](#exercise-11)
+- [Exercise 1.2](#exercise-12)
+- [Exercise 1.3](#exercise-13)
 
 ###Working with R and RStudio
 
