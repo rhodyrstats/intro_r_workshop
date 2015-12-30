@@ -21,15 +21,15 @@ is time, we will show a bit of Hadley Wickham's `dplyr` package.
 
 ##Indexing vectors
 
-Exercise 3.1
+##Exercise 3.1
 
 ##Indexing lists
 
-Exercise 3.2
+##Exercise 3.2
 
 ##Indexing data frames
 
-Exercise 3.3
+##Exercise 3.3
 
 ##`dplyr`
 
