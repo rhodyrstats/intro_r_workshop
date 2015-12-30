@@ -9,7 +9,8 @@ getting help.
 - [Working with R and RStudio](#working-with-r-and-rstudio)
 - [Functions and basic syntax](#functions-and-basic-syntax)
 - [Packages](#packages)
-- [Working in the console](#working-in-the-console)
+- [Console vs. script](#console-vs-script)
+- [Operators and objects](#operators-and-objects)
 - [Getting help](#getting-help)
 
 ## Lesson Exercises:
@@ -17,26 +18,26 @@ getting help.
 - [Exercise 1.2](#exercise-12)
 - [Exercise 1.3](#exercise-13)
 
-###Working with R and RStudio
------------------------------
+##Working with R and RStudio
 
-###Exercise 1.1
------------------------------
 
-###Functions and basic syntax
------------------------------
+##Exercise 1.1
+http://usepa.github.io/introR/2015/01/14/01-Introduction/#exercise-1
 
-###Packages
------------------------------
+##Functions and basic syntax
 
-###Exercise 1.2
------------------------------
 
-###Working in the console
------------------------------
+##Packages
 
-###Exercise 1.3
------------------------------
 
-###Getting help
------------------------------
+##Exercise 1.2
+http://usepa.github.io/introR/2015/01/14/01-Introduction/#exercise-2
+
+##Working in the console or script
+
+##Operators and objects
+
+##Exercise 1.3
+http://usepa.github.io/introR/2015/01/14/02-Get/#exercise-1
+
+##Getting help
