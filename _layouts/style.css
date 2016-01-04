@@ -6,3 +6,10 @@
 .btn {
   border: 0px;
 }
+
+/* Edit by jwh to change link styling in event */
+
+#event a {
+  color: #D5D693;
+  text-decoration: underline;
+}
