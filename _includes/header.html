@@ -6,12 +6,16 @@
           <li class="hidden">
             <a href="http://rhodyrstats.org"></a>
           </li>
+          {% if page.repo %}
           <li>
             <a href="{{ page.repo }}">Event Repository</a>
           </li>
+          {% endif %}
+          {% if page.registration %}
           <li>
             <a href="{{ page.registration }}">Registration</a>
           </li>
+          {% endif %}
         </ul>
     </div>
 </nav>
