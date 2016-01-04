@@ -3,7 +3,8 @@
 In this lesson we are going to focus on data and how it is dealt with by R.  
 This will include a discussion of the basic data types as well as data 
 structures.  Lastly we will cover ways to get data that lives in other files into
-R.  
+R.  We will work through examples using base R. I will demo other ways of 
+getting data into R with some additional packages
 
 ## Lesson Outline:
 
@@ -11,6 +12,7 @@ R.
 - [Data stuctures](#data-stuctures)
 - [Reading external data](#reading-external-data)
 - [Look at your data](#look-at-your-data)
+- [Other ways to read data](#other-ways-to-read-data)
 
 ## Lesson Exercises:
 
@@ -35,3 +37,7 @@ R.
 - explore data
 http://usepa.github.io/introR/2015/01/14/02-Get/#exercise-2
 http://usepa.github.io/introR/2015/01/14/04-Explore/#exercise-1
+
+##Other ways to read data
+- readr readxls
+- rio
