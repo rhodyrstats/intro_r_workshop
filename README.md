@@ -10,7 +10,7 @@ workshop outline see below.
  - Jeff Hollister
  
 ## Helpers
- - Aurelia Moser, Mozilla Science Lab (Wed)
+ - Betty Kreakie, US EPA (Tues and Wed) 
  - TBD
 
 ## Rosters
