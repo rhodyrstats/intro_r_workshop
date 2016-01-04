@@ -18,19 +18,17 @@ learning.
 ## Lesson Exercises:
 - [Exercise 4.1](#exercise-41)
 - [Exercise 4.2](#exercise-42)
-- [Exercise 4.3](#exercise-43)
-
 
 ##Simple plots with base R
 
-##Exercise 4.1
-
 ##Introduction to `ggplot2`
 
-##Exercise 4.2
+##Exercise 4.1
+http://usepa.github.io/introR/2015/01/15/07-Visualize/#exercise-1
 
 ##Customizing `ggplot2` plots
 
-##Exercise 4.3
+##Exercise 4.2
+http://usepa.github.io/introR/2015/01/15/07-Visualize/#exercise-2
 
 ##Getting help with `ggplot2`

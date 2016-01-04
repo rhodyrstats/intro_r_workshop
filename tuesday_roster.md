@@ -14,15 +14,11 @@ Jacqueline Corbett
 
 Joshua Sargent
 
-Juyoung Lee
-
 Kristofer Gomes
 
 Laura Meyerson
 
 Maggie You Ming Tsai
-
-Marguerite vantangoli
 
 Matthew Birk
 
