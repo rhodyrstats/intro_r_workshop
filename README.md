@@ -27,8 +27,8 @@ download and install the version appropriate for your operating system.  The
 latest versions for Mac and Windows are linked below.  If you run into issus, 
 please contact Jeff.
 
-- R: [Windows](https://cran.r-project.org/bin/windows/base/R-3.2.3-win.exe) [Mac OS X 10.9+ (Mavericks) ](https://cran.r-project.org/bin/macosx/R-3.2.3.pkg) [Others](https://cran.r-project.org/)
-- RStudio: [Windows](https://download1.rstudio.org/RStudio-0.99.491.exe) [Mac OS X 10.6+ (Snow Leopard) ](https://download1.rstudio.org/RStudio-0.99.491.dmg) [Others](https://www.rstudio.com/products/rstudio/download/)
+- R: [Windows](https://cran.r-project.org/bin/windows/base/R-3.2.3-win.exe) | [Mac OS X 10.9+ (Mavericks) ](https://cran.r-project.org/bin/macosx/R-3.2.3.pkg) |  [Others](https://cran.r-project.org/)
+- RStudio: [Windows](https://download1.rstudio.org/RStudio-0.99.491.exe) | [Mac OS X 10.6+ (Snow Leopard) ](https://download1.rstudio.org/RStudio-0.99.491.dmg) |  [Others](https://www.rstudio.com/products/rstudio/download/)
 
 # Workshop Schedule and Links to Materials
 
