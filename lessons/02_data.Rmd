@@ -226,7 +226,22 @@ If you want to learn more about lists or any other data structure, [Hadley Wickh
 
 
 ##Exercise 2.1
-- make df from scratch
+
+For the first exercise of lesson 2, we are going to build a data frame from 
+scratch.  
+
+1.) Create a new script for this exercise and call it "exercise2_1.R".  All of 
+the code for this exercise will be put into this script.  Don't forget to use
+comments!
+
+2.) Create three vectors.  One with numeric data, one with character, and a 
+third with boolean data.  Each vector must contain at least 10 values.
+
+3.) Combine these three vectors into a data frame (hint: `data.frame()`) that is
+stored in an object called `my_df`.
+
+4.) Now from the console, explore `my_df` with some of the functions we talked
+about earlier.
 
 ##Reading external data
 - read.csv()
