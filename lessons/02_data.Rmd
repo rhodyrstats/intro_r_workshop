@@ -244,7 +244,31 @@ stored in an object called `my_df`.
 about earlier.
 
 ##Reading external data
-- read.csv()
+Completely creating a data frame from scratch is useful (especially when you 
+start writing your own functions), but more often than not data is stored in an
+external file that you need to read into R.  These may be delimited text files, 
+spreadsheets, relational databases, SAS files ...  You get the idea.  Instead of
+treating this subject exhaustively, we will focus just on a single file type, 
+`.csv` that is very commonly encountered and (usually) easy to create from other 
+file types.  For this, we will use `read.csv()`. 
+
+`read.csv()` is a specialized version of `read.table()` that focuses on, big surprise here, .csv files. This command assumes a header row with column names and that the delimiter is a comma. The expected
+no data value is NA and by default, strings are converted to factors (this can trip people up).
+
+Source files for read.csv() can either be on a local hard drive or, and this is pretty cool, on the web. We will be using the later for our examples and exercises. If you had a local file it would be accessed like `mydf <- read.csv("C:/path/to/local/file.csv")`. As an aside, paths and use of forward vs back slash is important. R is looking for forward slashes ("/"), or unix-like paths. You can use these in place of the back slash and be fine. You can use a back slash but it needs to be a double back slash ("\"). This is becuase the single backslash in an escape character that is used to indicate things like newlines or tabs. 
+
+For now we are going to be focusing on grabbing data from a website, which just requires using an URL in the read.csv() function.
+
+Let's give it a try.
+
+```{r readcsv}
+#Grab data from the web
+web_df <- read.csv("http://jwhollister.com/public/files/example.csv")
+head(web_df)
+str(web_df)
+dim(web_df)
+summary(web_df)
+```
 
 
 ##Exercise 2.2
