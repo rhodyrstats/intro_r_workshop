@@ -37,10 +37,18 @@ fire it up.  Once done, it should look something like:
 ![rstudio](figures/rstudio.jpg)
 
 ###Create a Project
+Projects are a way to organize your work in RStudio.  Essentially they are 
+simply folders, but with a few added files so that you can manage some options
+on a per project basis.  To create a new projecect use File:New Project, or use
+the dropdown on the top right of the RStudio window.  It will look like this 
+after you select "New Project..."
 
 ![rstudio proj](figures/rstudio_proj.jpg)
 
 ###Create a Script
+Scripts are text files that you write code in.  We will be work both with scripts
+and the console during this workshop.  To create a new script you use File:New 
+File:R Script.
 
 ![rstudio script](figures/rstudio_script.jpg)
 
@@ -107,21 +115,21 @@ rnorm(100,mean=10,sd=2)
 ```
 
 ```
-##   [1] 11.184264 11.126925  6.976424  6.389131 10.817268  9.351972 12.949773
-##   [8] 11.710127  8.817100  9.332350 10.184143  9.996194  9.587547  9.249695
-##  [15] 12.360761 11.839719 11.357039 10.571633 15.162711  7.735661  6.763632
-##  [22]  8.144333 12.879842 10.870090  5.434347  9.958084  6.203272 10.376188
-##  [29] 11.237480 10.688089 13.043315 11.459033 10.624655  9.765522  6.032449
-##  [36] 12.934519 13.998310  7.972885 12.877938  9.535597  9.400220 14.501153
-##  [43] 11.126206 10.720455  7.431093  5.923241 10.431796 10.001259 13.622826
-##  [50]  9.941724  9.233545 10.884922 11.655294 10.717312 12.432981  7.708573
-##  [57] 12.171473 10.728586  6.044942 10.648446  9.394644 11.745697 12.808881
-##  [64]  7.701708  9.851748  8.459089  9.628926 10.584074  9.343564  9.255094
-##  [71] 12.168678 12.464041 11.326793  9.284290  8.793153  9.031677 13.285710
-##  [78] 11.184080  9.873987  7.661629 13.209413 10.215851 10.210475  8.841699
-##  [85] 11.094678 10.725675  7.276522  9.096686  4.833441  9.400037  7.995219
-##  [92] 12.402108 10.181361  7.702834  9.966944 10.091543 10.054165  8.377058
-##  [99] 11.293339 11.477051
+##   [1]  8.912209 10.619066  5.616422 10.558677 11.996750 15.322949  8.681030
+##   [8]  6.432855  8.605885  9.160567  6.341856 11.879839  9.058914 12.933078
+##  [15]  7.839579  8.624568  8.782286  9.665456  7.972145  7.606033  7.570884
+##  [22]  9.965342 10.626669  9.162619  8.140038  9.728973 11.885643  9.883527
+##  [29]  7.554731  8.353225  7.294829 11.935809  8.577767 10.611786  9.615014
+##  [36] 11.572621  7.965723 10.943305  8.461735 11.018244  8.066925  9.328238
+##  [43]  9.159620  8.657189  6.001371 11.367231 10.080068 11.099541  9.809614
+##  [50]  8.081416  9.831148  7.921557 15.220105 10.684866 11.395647  5.117847
+##  [57] 10.315040 10.615416  9.760010 12.146070 10.614413 10.570915  9.498018
+##  [64]  9.648868  9.216602  8.763251 10.958504 13.348504  9.143712 11.916351
+##  [71]  9.743186 11.732873 10.171351  8.500511 11.704614  8.241656  9.383954
+##  [78] 11.874513  6.864128 10.411968  6.191826 10.516233 10.063313  8.887754
+##  [85] 12.802523  8.399374  9.770241  9.660721  6.509167  8.853436 13.214411
+##  [92] 13.381408 10.535387 11.185358  7.599730 11.606043  8.619972 13.632420
+##  [99]  9.626633 12.417677
 ```
 
 ```r
@@ -130,7 +138,7 @@ mean(rnorm(100))
 ```
 
 ```
-## [1] 0.1590516
+## [1] -0.0131137
 ```
 
 ```r
@@ -139,7 +147,7 @@ sum(rnorm(100))
 ```
 
 ```
-## [1] 3.563394
+## [1] -8.764283
 ```
 
 A few side notes.  The `#` indicates a comment.  You can put whatever else you'd like after this, but on the same line as the `#`.  R will not evaluate it.  When commenting your code, err on the side of too much!  Also, you will see `()`, `[]`, and `{}` used in R code.  The `()` indicates a function (almost always), the `[]` indicates indexing (grabbing values by the location), and the `{}` groups code that is meant to be run together and is usually used when programming functions in R.

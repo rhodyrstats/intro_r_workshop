@@ -37,10 +37,18 @@ fire it up.  Once done, it should look something like:
 ![rstudio](figures/rstudio.jpg)
 
 ###Create a Project
+Projects are a way to organize your work in RStudio.  Essentially they are 
+simply folders, but with a few added files so that you can manage some options
+on a per project basis.  To create a new projecect use File:New Project, or use
+the dropdown on the top right of the RStudio window.  It will look like this 
+after you select "New Project..."
 
 ![rstudio proj](figures/rstudio_proj.jpg)
 
 ###Create a Script
+Scripts are text files that you write code in.  We will be work both with scripts
+and the console during this workshop.  To create a new script you use File:New 
+File:R Script.
 
 ![rstudio script](figures/rstudio_script.jpg)
 
