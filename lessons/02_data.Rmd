@@ -8,8 +8,7 @@ getting data into R with some additional packages
 
 ## Lesson Outline:
 
-- [Data types](#ata-types)
-- [Data stuctures](#data-stuctures)
+- [Data types and data structures in R](#data-types-and-data-structures-in-r)
 - [Reading external data](#reading-external-data)
 - [Look at your data](#look-at-your-data)
 - [Other ways to read data](#other-ways-to-read-data)
@@ -19,18 +18,219 @@ getting data into R with some additional packages
 - [Exercise 2.1](#exercise-21)
 - [Exercise 2.2](#exercise-22)
 
-##Data types
+##Data types and data structures in R
+*Borrowed liberally from Jenny Bryan's [course materials on r](http://www.stat.ubc.ca/~jenny/STAT545A/quick-index.html) and Karthik Ram's [material from the Canberra Software Carpentry R Bootcamp](https://github.com/swcarpentry/2013-10-09-canberra).  Anything good is because of Jenny and Karthik.  Mistakes are all mine.*
 
-##Data structures
+Remember that everything in R is an object.  With regards to data, those objects have some specific characteristics that help R (and us) know what kind of data we are dealing with and what kind of operations can be done on that data.  This stuff may be a bit dry, but a basic understanding will help as so much of what we do with analysis has to do with the organization and type of data we have. First, lets discuss the atomic data types.
+
+###Data types
+
+There are 6 basic atomic classes: character, numeric (real or decimal), integer, logical, complex, and raw.
+
+| Example 				 | Type 		 |
+| :--------------- | --------: |
+| "a", "swc" 			 | character |
+| 2, 15.5 				 | numeric 	 | 
+| 2L 							 | integer 	 |
+| `TRUE`, `FALSE`  | logical 	 |
+| 1+4i 						 | complex 	 |
+| 62 6f 62         | raw			 |
+
+In this workshop we will deal almost exclusively with three (and these are, in my experience, by far the most common): character, numeric, and logical.  
+
+### NA, Inf, and NaN
+There are values that you will run across on ocassion that aren't really data types but are important to know about.  
+
+`NA` is R's value for missing data.  You will see this often and need to figure out how to deal with them in your analysis.  A few built in functions are useful for dealing with `NA`.  We will show their usage a bit later.
+
+```{r na_examples, eval=FALSE}
+na.omit()#na.omit - removes them
+na.exclude()#similar to omit, but has different behavior with some functions.
+is.na()#Will tell you if a value is NA
+```
+
+`Inf` is infinity. You can have positive or negative infinity.
+
+```{r}
+1/0
+# [1] Inf
+1/Inf
+# [1] 0
+```
+
+`NaN` means Not a number. it's an undefined value.
+
+```{r}
+0/0
+NaN.
+```
+
+###Data structures
+The next set of information relates to the many data structures in R.  
+
+The data structures in base R include:
+
+- vector
+- list
+- matrix
+- data frame
+- factors
+- tables
+
+Our efforts will focus on vectors and data frames.  We will discuss just the basics of lists and factors.  I will leave it to your curiousity to explore the matrix and table data structures.
+
+### Vectors
+A vector is the most common and basic data structure in `R` and is pretty much the workhorse of R. 
+
+A vector can be a vector of characters, logical, integers or numeric and all values in the vector must be of the same data type.  Specifically, these are known as atomic vectors.
+
+There are many ways to create vectors, but we will focus on one, `c()`, which is a very common way to create a vector from a set of values.  `c()` combines a set of arguments into a single vector.  For instance,
+
+```{r use_c}
+char_vector <- c("Joe","Bob","Sue")
+num_vector <- c(1,6,99,-2)
+logical_vector <- c(TRUE,FALSE,FALSE,TRUE,T,F)
+```
+
+Now that we have these we can use some functions to examine the vectors. 
+
+```{r examine_vector}
+#Print the vector
+print(char_vector)
+char_vector
+
+#Examine the vector
+typeof(char_vector)
+length(logical_vector)
+class(num_vector)
+str(char_vector)
+```
+
+We can also add to existing vectors using `c()`.
+
+```{r add_to_vec}
+char_vector <- c(char_vector, "Jeff")
+char_vector
+```
+
+There are some ways to speed up entry of values.
+
+```{r vector_shortcuts}
+#Create a series
+series <- 1:10
+seq(10)
+seq(1, 10, by = 0.1)
+
+#Repeat values
+fives<-rep(5,10)
+fives
+laugh<-rep("Ha", 100)
+laugh
+```
+
+Lastly, R can operate directly on vectors.  This means we can use use our arithmetic functions on vectors and also many functions can deal with vectors directly.  The result of this is another vector, equal to the length of the longest one.
+
+```{r vectorized_examp}
+#A numeric example
+x<-1:10
+y<-10:1
+z<-x+y
+z
+
+#another one, with different lengths
+a<-1
+b<-1:10
+c<-a+b
+c
+
+
+#A character example with paste()
+first<-c("Buggs","Elmer","Pepe", "Foghorn")
+last<-c("Bunny", "Fudd","Le Pew", "Leghorn")
+first_last<-paste(first, last)
+first_last
+```
+
+### Data frames
+
+Data frames are the data structure you will most often use when doing data analysis.  They are the most spreadsheet like data structure in R, but unlike spreadsheets there are some rules that must be followed. This is a good thing!
+
+Data frames are made up of rows and columns.  Each column is a vector and those vectors must be of the same length.  Essentially, anything that can be saved in a `.csv` file can be read in as a data frame.  Data frames have several attributes.  The ones you will interact with the most are column names, row names, dimension.  
+
+So one way to create a data frame is from some vectors and the `data.frame()` command:
+
+```{r create_data_frame}
+numbers <- c(1:26,NA)
+letters <- c(NA,letters) #letters is a special object available from base R
+logical <- c(rep(TRUE,13),NA,rep(FALSE,13))
+examp_df <- data.frame(letters,numbers,logical)
+```
+
+Now that we have this data frame we probably want to do something with it.  We can examine it in many ways.
+
+```{r examine_data_frame}
+#See the first 6 rows
+head(examp_df)
+#See the last 6 rows
+tail(examp_df)
+#See column names
+names(examp_df)
+#see row names
+rownames(examp_df)
+#Show structure of full data frame
+str(examp_df)
+#Show number of rows and colums
+dim(examp_df)
+nrow(examp_df)
+ncol(examp_df)
+#Get summary info
+summary(examp_df)
+#remove NA
+na.omit(examp_df)
+```
+
+### Factors and Lists
+
+Factors are special vectors that represent categorical data. Factors can be ordered or unordered and are often important with modelling functions such as `lm()` and `glm()` (think dummy variables) and also in plot methods.
+
+Factors are pretty much integers that have labels on them.  While factors look (and often behave) like character vectors, they are actually integers under the hood, and you need to be careful when treating them like strings. Some string methods will coerce factors to strings, while others will throw an error.
+
+Factors may be ordered (e.g., low, medium, high) or unordered (e.g. male, female).
+
+Factors can be created with `factor()`. Input is a character vector.
+
+```{r factor_examples}
+#An unordered factor
+yn <- factor(c("yes", "no", "no", "yes", "yes"))
+yn
+
+#An ordered factor
+lmh <- factor (c("high","high","low","medium","low","medium","high"),levels=c("low","medium","high"),ordered=TRUE )
+lmh
+```
+
+### List
+
+Lists are actually a special type of vector, but it is probably best to think of them as their own thing.  Lists can contain multiple items, of multiple types, and of multiple structures.  They are very versatile and often used inside functions or as an output of functions.  
+
+Also, lists don't print out like a vector. They print a new line for each element.
+
+Lists are made simply with the `list()` function.
+
+```{r list_examples}
+examp_list<-list(letters=c("x","y","z"),animals=c("cat","dog","bird","fish"),numbers=1:100,df=examp_df)
+examp_list
+```
+
+If you want to learn more about lists or any other data structure, [Hadley Wickham's Advanced R section on data structures](http://adv-r.had.co.nz/Data-structures.html) is good.
+
 
 ##Exercise 2.1
 - make df from scratch
 
 ##Reading external data
 - read.csv()
-- readr::read_csv()
-- word on databases (DBI and dplyr)
-- readxl
+
 
 ##Exercise 2.2
 - read in df and make sure looks good
@@ -41,3 +241,6 @@ http://usepa.github.io/introR/2015/01/14/04-Explore/#exercise-1
 ##Other ways to read data
 - readr readxls
 - rio
+- readr::read_csv()
+- word on databases (DBI and dplyr)
+- readxl
