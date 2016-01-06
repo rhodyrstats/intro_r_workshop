@@ -547,18 +547,136 @@ stored in an object called `my_df`.
 about earlier.
 
 ##Reading external data
-- read.csv()
+Completely creating a data frame from scratch is useful (especially when you 
+start writing your own functions), but more often than not data is stored in an
+external file that you need to read into R.  These may be delimited text files, 
+spreadsheets, relational databases, SAS files ...  You get the idea.  Instead of
+treating this subject exhaustively, we will focus just on a single file type, 
+`.csv` that is very commonly encountered and (usually) easy to create from other 
+file types.  For this, we will use `read.csv()`. 
+
+`read.csv()` is a specialized version of `read.table()` that focuses on, big surprise here, .csv files. This command assumes a header row with column names and that the delimiter is a comma. The expected
+no data value is NA and by default, strings are converted to factors (this can trip people up).
+
+Source files for read.csv() can either be on a local hard drive or, and this is pretty cool, on the web. We will be using the later for our examples and exercises. If you had a local file it would be accessed like `mydf <- read.csv("C:/path/to/local/file.csv")`. As an aside, paths and use of forward vs back slash is important. R is looking for forward slashes ("/"), or unix-like paths. You can use these in place of the back slash and be fine. You can use a back slash but it needs to be a double back slash ("\"). This is becuase the single backslash in an escape character that is used to indicate things like newlines or tabs. 
+
+For now we are going to be focusing on grabbing data from a website, which just requires using an URL in the read.csv() function.
+
+Let's give it a try.
+
+
+```r
+#Grab data from the web
+web_df <- read.csv("http://jwhollister.com/public/files/example.csv")
+head(web_df)
+```
+
+```
+##   X id      data1    data2 groups
+## 1 1  1  0.1739595 54.21928      1
+## 2 2  2  0.4947904 69.92845      1
+## 3 3  3  2.1739104 47.50045      1
+## 4 4  4 -2.1275110 30.16031      1
+## 5 5  5  0.5302878 84.45975      1
+## 6 6  6  0.3000054 56.41225      1
+```
+
+```r
+str(web_df)
+```
+
+```
+## 'data.frame':	100 obs. of  5 variables:
+##  $ X     : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ id    : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ data1 : num  0.174 0.495 2.174 -2.128 0.53 ...
+##  $ data2 : num  54.2 69.9 47.5 30.2 84.5 ...
+##  $ groups: int  1 1 1 1 1 1 1 1 1 1 ...
+```
+
+```r
+dim(web_df)
+```
+
+```
+## [1] 100   5
+```
+
+```r
+summary(web_df)
+```
+
+```
+##        X                id             data1              data2      
+##  Min.   :  1.00   Min.   :  1.00   Min.   :-2.12751   Min.   :11.13  
+##  1st Qu.: 25.75   1st Qu.: 25.75   1st Qu.:-0.57451   1st Qu.:31.47  
+##  Median : 50.50   Median : 50.50   Median :-0.02109   Median :52.09  
+##  Mean   : 50.50   Mean   : 50.50   Mean   : 0.07867   Mean   :54.14  
+##  3rd Qu.: 75.25   3rd Qu.: 75.25   3rd Qu.: 0.79215   3rd Qu.:78.42  
+##  Max.   :100.00   Max.   :100.00   Max.   : 2.20980   Max.   :99.52  
+##      groups    
+##  Min.   :1.00  
+##  1st Qu.:1.00  
+##  Median :2.00  
+##  Mean   :2.30  
+##  3rd Qu.:3.25  
+##  Max.   :4.00
+```
 
 
 ##Exercise 2.2
-- read in df and make sure looks good
-- explore data
-http://usepa.github.io/introR/2015/01/14/02-Get/#exercise-2
-http://usepa.github.io/introR/2015/01/14/04-Explore/#exercise-1
+From here on out I hope to have these exercises begin to build on each other. We may not do that 100%, but there should at least be a modicum of continuity. For this exercise we are going to grab some data, look at that data, and be able to describe some basic information about that dataset.  The data we are using is the 2007 National Lakes Assessment.
+
+1. Create a new script in RStudio.  Name it "nla_analysis.R"
+2. As you write the script comment as you go.
+3. Add commands to your script that creates two data frames: One named `nla_wq` that contains all of the data located at http://bit.ly/nla_wq and another named `nla_sites` from http://bit.ly/nla_sites.  Both of these links point to .csv files on the NLA site.
+4. Add commands to your script that will provides details on the structure (hint: `str`) of each newly created data frame
+5. Run the script and make sure it doesn't throw any errors and you do in fact get the two data frames.
+6. Explore the data frames using some of the functions we covered (e.g. `head()`,`summary()`, or `str()`).  This part does not need to be included in the script.  If you are feeling adventorous, try some of the following on some columns of this data frame: `IQR()`,`range()`, `mean()`,`max()`,`min()`, `quantile()`.
+
 
 ##Other ways to read data
-- readr readxls
-- rio
-- readr::read_csv()
-- word on databases (DBI and dplyr)
-- readxl
+Although, `read.csv()` and `read.table()` are very flexible, they are not the 
+only options for reading in data.  In this section we will discuss some other 
+packages developed for reading in data.  
+
+###readr and readxl
+Two packages developed by Hadley Wickham for reading in data are `readr` and 
+`readxl`.  `readr` was developed to provide a more consistent and firendlier 
+interface for reading in data.  It also address many of the idiosyncracies 
+(annoyances??) in `read.csv()`.  The `readxl` pacakge does just that, it reads
+in Excel spreadsheets.  Other packages also exist for this but they all have 
+external dependencies (e.g. Java or perl) that can make install a bit more 
+challenging.  Both of these are available from CRAN. Links to the GitHub 
+repositories are below:
+
+- [readr](https://github.com/hadley/readr)
+- [readxl](https://github.com/hadley/readxl)
+
+###rio
+The `rio` package was developed as a general purpose data import and export 
+tool.  It includes and impressive array of file types that it supports.  Like 
+`readr` a goal of the package was to simplify the process.  As such the primary 
+functions area `import()` and `export()`.  The functions are smart enough to 
+guess the file type.  It is availble from CRAN as well as via the 
+[GitHub repo](https://github.com/leeper/rio).
+
+###A word on working with databases in R.
+This is a big topic, so we clearly won't really be addressing it.  That being 
+said I wanted to at least provide some suggestions that can get you going in 
+the right direction if you want to work directly with data stored in an external
+database.  A number of packages exist that allow you to work with a variety of 
+databases.  A few that will cover most of what you encounter are:
+
+- `DBI`: This package, short for database interface, supports connections to a 
+number of databases, including SQLite, MySQL, and PostgreSQL.
+- `RODBC`: This is an R implementation of the ODBC connectivity.  It allows you 
+to connect with, among other things, Microsoft Access databases.  
+
+Each of these provide a fairly low-level interface and have a bit of a learning 
+curve.  An higher-level way to access your dabases is through the use of `dplyr`.
+`dplyr` uses DBI to connect direcly to databases and allows query of that 
+database through the use of the `dplyr` functions.  To learn more, read the 
+[vignette on databases](https://cran.r-project.org/web/packages/dplyr/vignettes/databases.html).  That provides a lot of good examples.  We will be 
+working some with `dplyr` in the next lesson, but won't have time to get into the 
+database connections.
