@@ -30,16 +30,89 @@ see how to do this with base R and will practice how to do it with Hadley Wickha
 
 ## Lesson Exercises:
 - [Exercise 3.1](#exercise-31)
+- [Exercise 3.2](#exercise-32)
 
 
 ##Indexing vectors
 
+In base R you can use a indexing to select out rows and columns.  You will see 
+this quite often in other peoples' code or in other sources for help. So, we
+should at least cover it so that it isn't foreign when you see it elsewhere.
+
+First lets work with indexing vectors.
+
+```{r indexing_examp}
+#Create a vector
+x<-c(10:19)
+x
+#Positive indexing returns just the value in the ith place
+x[7]
+#Negative indexing returns all values except the value in the ith place
+x[-3]
+#Ranges work too
+x[8:10]
+#A vector can be used to index
+#Can be numeric
+x[c(2,6,10)]
+#Can be boolean - will repeat the pattern 
+x[c(TRUE,FALSE)]
+#Can even get fancy
+x[x%%2==0]
+```
+
 
 ##Indexing lists
+Basic indexing of lists isn't too much different than indexing a vector, but 
+remember for our discussion of lists, that you can have any R object stored in 
+a list (e.g., a vector, another list, a data.frame).  So to get the item you want
+can be a bit tricky.  A few simple examples.
 
+```{r list_index}
+x_list <- list(1:10,letters[1:10])
+x_list
+#Get the first item of the list
+x_list[[1]]
+#Or the second item
+x_list[[2]]
+#And now the letter "g"
+x_list[[2]][7]
+```
 
 ##Indexing data frames
+You can also index a data frame or select individual columns of a data frame.  Since a data frame has two dimensions, you need to specify an index for both the row and the column.  You can specify both and get a single value like `data_frame[row,column]`,specify just the row and the get the whole row back like `data_frame[row,]` or get just the column with `data_frame[,column]`.   These examples show that.
 
+```{r data_frame_index}
+#Let's use one of the stock data frames in R, iris
+head(iris)
+#And grab a specific value
+iris[1,1]
+#A whole column
+petal_len<-iris[,3]
+petal_len
+#A row
+obs15<-iris[15,]
+obs15
+#Many rows
+obs3to7<-iris[3:7,]
+obs3to7
+```
+
+Also remember that data frames have column names.  We can use those too.  Let's try it.
+
+```{r more_data_frame_index}
+#First, there are a couple of ways to use the column names
+iris$Petal.Length
+head(iris["Petal.Length"])
+#Multiple colums
+head(iris[c("Petal.Length","Species")])
+#Now we can combine what we have seen to do some more complex queries
+#Lets get all the data for Species with a petal length greater than 6
+big_iris<-iris[iris$Petal.Length>=6,]
+head(big_iris)
+#Or maybe we want just the sepal widths of the virginica species
+virginica_iris<-iris$Sepal.Width[iris$Species=="virginica"]
+head(virginica_iris)
+```
 
 ##dplyr
 
@@ -50,4 +123,130 @@ This addresses a common problem with R in that all operations are conducted in m
 - [`dplyr` GitHub repo](https://github.com/hadley/dplyr)
 - [CRAN page: vignettes here](http://cran.rstudio.com/web/packages/dplyr/)
 
+###Using dplyr
+So, base R can do what you need, but it is a bit complicated and the syntax is a bit dense.  In `dplyr` this can be done with two functions, `select()` and `filter()`.  The code can be a bit more verbose, but it allows you to write code that is much more readable.  Before we start we need to make sure we've got everything installed and loaded.  If you do not have R Version 3.0.2 or greater you will have some problems (i.e. no `dplyr` for you).
+
+```{r real_setup, echo=FALSE, include=FALSE, purl=FALSE}
+if(!require("dplyr")){
+  install.packages("dplyr")
+}
+library("dplyr")
+```
+
+```{r setup_dplyr,eval=FALSE}
+install.packages("dplyr")
+library("dplyr")
+```
+
+I am going to repeat some of what I showed above on data frames but now with `dplyr`.  This is what we will be using in the exercises.
+
+
+```{r more_data_frame_dplyr}
+#First, select some columns
+dplyr_sel<-select(iris,Sepal.Length,Petal.Length,Species)
+#That's it.  Select one or many columns
+#Now select some, like before
+dplyr_big_iris<-filter(iris, Petal.Length>=6)
+head(dplyr_big_iris)
+#Or maybe we want just the virginica species
+virginica_iris<-filter(iris,Species=="virginica")
+head(virginica_iris)
+```
+
+But what if I wanted to select and filter?  There are three ways to do this: use intermediate steps, nested functions, or pipes.  With the intermediate steps, you essentially create a temporary data frame and use that as input to the next function.  You can also nest functions (i.e. one function inside of another).  This is handy, but can be difficult to read if too many functions are nested as the process from inside out.  The last option, pipes, are a fairly recent addition to R.  Pipes in the unix/linux world are not new and allow you to chain commands together where the output of one command is the input to the next.  This provides a more natural way to read the commands in that they are executed in the way you conceptualize it and make the interpretation of the code a bit easier.  Pipes in R look like `%>%` and are made available via th `magrittr` package, which is installed as part of `dplyr`.  Let's try all three with the same analysis: selecting out a subset of columns but for only a single species.
+
+```{r combine_commands}
+#Intermediate data frames
+#Select First: note the order of the output, neat too!
+dplyr_big_iris_tmp1<-select(iris,Species,Sepal.Length,Petal.Length)
+dplyr_big_iris_tmp<-filter(dplyr_big_iris_tmp1,Petal.Length>=6)
+head(dplyr_big_iris_tmp)
+
+#Nested function
+dplyr_big_iris_nest<-filter(select(iris,Species,Sepal.Length,Petal.Length),Species=="virginica")
+head(dplyr_big_iris_nest)
+
+#Pipes
+dplyr_big_iris_pipe<-select(iris,Species,Sepal.Length,Petal.Length) %>%
+  filter(Species=="virginica")
+head(dplyr_big_iris_pipe)
+```
+
 ##Exercise 3.1
+This exercise is going to focus on using what we just covered on `dplyr` to start to clean up the National Lakes Assessment data files.  Remember to use the stickies: green when you're done, red if you have a problem.
+
+1. If it isn't already open, make sure you have the script we created, "nla_analysis.R" opened up.
+2. Start a new section of code in this script by simply putting in a line or two of comments indicating what it is this set of code does.
+3. Our goal for this is to create a new data frame that represents a subset of the observations as well as a subset of the columns. 
+4. Subset the water quality data from `nla_wq` and store that in a new data frame calles `nla_wq_subset`.  The columns we want for this are: SITE_ID, VISIT_NO, SITE_TYPE, ST, EPA_REG, LAKE_ORIGIN, WSA_ECO9, TURB, NTL, PTL, CHLA, and SECMEAN. 
+6. Last thing we are going to need to do is get a subset of the observations.  We need only the lakes with VISIT_NO equal to 1 and SITE_TYPE equal to "PROB_Lake".  Keep the same name, `nla_wq_subset`, for this data frames.
+
+###Modifying and summarizing with dplyr
+One area where it really shines is in modifying and summarizing.   We will do more here than we did with base, but first lets walk through one of the examples we did previously, aggregating.  We can do this with `group_by()` and  `summarize()`.
+
+First, we'll look at an example of grouping a data frame and summarizing the data within those groups.
+
+```{r aggregate_examp}
+#Chained with Pipes
+group_by(iris,Species)%>%
+  summarize(mean(Sepal.Length),
+            mean(Sepal.Width),
+            mean(Petal.Length),
+            mean(Petal.Width))
+```
+
+There are many other functions in `dplyr` that are useful.  Much of what they do, can certainly be accomplished with base R, but not quite as intuitively.  Let's run through some examples with `arrange()`, `slice()`,  and `mutate()`.
+
+First `arrange()` will re-order a data frame based on the values of a columns.  It will take multiple columns and can be in descending or ascending order. I think `iris` is getting a bit tired, let's try a different stock data frame this time:  `mtcars`.  If you are interested you can try `data()` to see what is available.
+
+```{r arrange_example}
+head(mtcars)
+#ascending order is default
+head(arrange(mtcars,mpg))
+#descending
+head(arrange(mtcars,desc(mpg)))
+#multiple columns: most cyl with best mpg at top
+head(arrange(mtcars,desc(cyl),desc(mpg)))
+```
+
+Now `slice()` which accomplishes what we did with the numeric indices before.  Remembering back to that, we'd could grab rows of the data frame with something like `x[1:3,]`.  
+
+```{r slice_example}
+#grab rows 3 through 10
+slice(mtcars,3:10)
+```
+
+`mutate()` allows us to add new columns based on expressions applied to existing columns
+
+```{r mutate_example}
+head(mutate(mtcars,kml=mpg*0.425))
+```
+
+Lastly, one more function, `rowwise()` allows us run rowwise, operations.  Let's use a bit of a contrived example for this.
+
+```{r rowwise_examp}
+#First a dataset of temperatures, recorded weekly at 100 sites.
+temp_df<-data.frame(id=1:100,week1=runif(100,20,25), week2=runif(100,19,24), 
+                    week3=runif(100,18,26), week4=runif(100,17,23))
+head(temp_df)
+#To add row means to the dataset, without the ID
+temp_df2<-temp_df %>% 
+  rowwise() %>% 
+  mutate(site_mean = mean(c(week1,week2,week3,week4)))
+head(temp_df2)
+```
+
+We now have quite a few tools that we can use to clean and manipulate data in R.  We have barely touched what both base R and `dplyr` are capable of accomplishing, but hopefully you now have some basics to build on.  I personally think the database connection in `dplyr` are going to prove very useful.
+
+Let's practice some of these last functions with our NLA data.
+
+
+
+##Exercise 3.2
+
+Add a new section to our script to calculate the nla water quality means. 
+
+1. Use `nla_wq_subset` that we created in the previous exercise.
+2. Add some lines to your script to calculate the mean by LAKE_ORIGIN, for TURB, NTL, PTL,CHLA, and SECMEAN. Save to a data frame named nla_wq_means_orig.
+3. Repeat the same analysis but for the WSA_ECO9 ecoregions.  Save this to a data frame named `nla_wq_means_eco`.
+4. It might be interesting to compare the grouped means to the means of each value for the entire dataset.  Using `summarize()`, calculate the mean wq for all lakes (hint: no groups!).  Save this as `nla_wq_means`.
