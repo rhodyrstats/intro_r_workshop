@@ -241,7 +241,6 @@ We now have quite a few tools that we can use to clean and manipulate data in R.
 Let's practice some of these last functions with our NLA data.
 
 
-
 ##Exercise 3.2
 
 Add a new section to our script to calculate the nla water quality means. 
