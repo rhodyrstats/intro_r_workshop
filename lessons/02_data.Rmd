@@ -272,14 +272,32 @@ summary(web_df)
 
 
 ##Exercise 2.2
-- read in df and make sure looks good
-- explore data
-http://usepa.github.io/introR/2015/01/14/02-Get/#exercise-2
-http://usepa.github.io/introR/2015/01/14/04-Explore/#exercise-1
+From here on out I hope to have these exercises begin to build on each other. We may not do that 100%, but there should at least be a modicum of continuity. For this exercise we are going to grab some data, look at that data, and be able to describe some basic information about that dataset.  The data we are using is the 2007 National Lakes Assessment.
+
+1. Create a new script in RStudio.  Name it "nla_analysis.R"
+2. As you write the script comment as you go.
+3. Add commands to your script that creates two data frames: One named `nla_wq` that contains all of the data located at http://bit.ly/nla_wq and another named `nla_sites` from http://bit.ly/nla_sites.  Both of these links point to .csv files on the NLA site.
+4. Add commands to your script that will provides details on the structure (hint: `str`) of each newly created data frame
+5. Run the script and make sure it doesn't throw any errors and you do in fact get the two data frames.
+6. Explore the data frames using some of the functions we covered (e.g. `head()`,`summary()`, or `str()`).  This part does not need to be included in the script.  If you are feeling adventorous, try some of the following on some columns of this data frame: `IQR()`,`range()`, `mean()`,`max()`,`min()`, `quantile()`.
+
 
 ##Other ways to read data
-- readr readxls
-- rio
-- readr::read_csv()
+Although, `read.csv()` and `read.table()` are very flexible, they are not the 
+only options for reading in data.  In this section we will discuss some other 
+packages developed for reading in data.  
+
+###readr and readxl
+Two packages developed by Hadley Wickham for reading in data are `readr` and 
+`readxl`.  `readr` was developed to provide a more consistent and firendlier 
+interface for reading in data.  It also address many of the idiosyncracies 
+(annoyances??) in `read.csv()`.  The `readxl` pacakge does just that, it reads
+in Excel spreadsheets.  Other packages also exist for this but they all have 
+external dependencies (e.g. Java or perl) that can make install a bit more 
+challenging.  Both of these are available from CRAN.
+
+###rio
+The `rio` package
+
+###Databases
 - word on databases (DBI and dplyr)
-- readxl
