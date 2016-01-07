@@ -91,21 +91,21 @@ rnorm(100,mean=10,sd=2)
 ```
 
 ```
-##   [1] 12.236662 10.120606 12.327740 10.727791 11.443010 12.204460  9.365100
-##   [8]  8.063209  8.559222  9.331450  7.622630 10.343365  6.059598 10.854704
-##  [15]  9.952850 11.280175  7.901149  8.614432  4.072736  8.203632  9.122852
-##  [22] 10.443557  8.306299  8.601458  8.558880  9.828365  9.252862  9.285875
-##  [29]  9.242941 14.559981 12.272598  7.540178  9.992908  8.631076 10.950375
-##  [36] 12.622502 11.411209 12.524507  6.806520 10.676125  9.065749 12.509752
-##  [43]  7.776544  7.058581 10.339987 12.051007 10.618690  9.175891  9.246064
-##  [50] 12.286371  8.908423 11.274207 10.746469  9.896417  7.128786 10.240662
-##  [57] 12.636722  5.813274  7.572962 10.309046 10.373243  9.366912  6.788016
-##  [64]  6.904548 11.442797  7.546601  8.741465  8.446392  8.407576 11.338363
-##  [71] 11.156355  8.997909  7.533375 12.466981  6.011973 10.052098 13.542413
-##  [78] 10.856998 10.073390 12.794961  9.897972  8.774299 11.627486  9.642381
-##  [85] 12.643314  9.740845 10.179584  7.333294  8.486799 10.625884  6.955609
-##  [92]  8.416151 11.176036  8.011419 12.258681 10.900050 10.779702 12.357042
-##  [99]  5.156383 10.847905
+##   [1]  9.100213 11.017412 11.049705  7.011339  9.152137  9.876728  9.566672
+##   [8]  8.406353 11.810995 10.811084  4.770660  9.501318  8.289817  6.538756
+##  [15] 12.687344  5.356128  5.568811 10.114317 11.456960  9.771180  6.087872
+##  [22] 11.434669 10.245039  7.496191 13.761911  7.124721  8.171701 13.079742
+##  [29]  8.039464 10.678669 12.004462  9.692060  6.223065  7.198484  9.472366
+##  [36]  9.161629  8.818987 11.917787  9.870811  9.720025 13.508501  7.697857
+##  [43]  7.900307 11.338980  8.142775 10.622423 11.362088  9.219126  8.746795
+##  [50]  8.350694  9.918475 10.016958  9.903801  7.907243  7.797224  7.232808
+##  [57]  7.694136 13.832836  8.505540 12.699302  8.340019 10.884427  9.339792
+##  [64] 10.022396  9.924147 10.885749  9.515681  9.351362  9.238856  6.517017
+##  [71]  4.861058 10.896478 10.594107  9.195001 13.552080 13.477791  8.329987
+##  [78]  9.403179  8.178279  9.733667 10.008560 11.342960 12.059867 10.841015
+##  [85]  9.674532 10.723598  9.258909 12.400330 11.702059  9.492354 10.078549
+##  [92] 12.133646 11.914941 11.623133  8.870410  9.400232 10.851268 11.866378
+##  [99]  6.778000 10.624476
 ```
 
 ```r
@@ -114,7 +114,7 @@ mean(rnorm(100))
 ```
 
 ```
-## [1] -0.005894993
+## [1] -0.006996341
 ```
 
 ```r
@@ -123,10 +123,10 @@ sum(rnorm(100))
 ```
 
 ```
-## [1] 12.32565
+## [1] 1.867837
 ```
 
-A few side notes.  The `#` indicates a comment.  You can put whatever else you'd like after this, but on the same line as the `#`.  R will not evaluate it.  When commenting your code, err on the side of too much!  Also, you will see `()`, `[]`, and `{}` used in R code.  The `()` indicates a function (almost always), the `[]` indicates indexing (grabbing values by the location), and the `{}` groups code that is meant to be run together and is usually used when programming functions in R.
+A few side notes.  The `#` indicates a comment.  You can put whatever else you'd like after this, but on the same line as the `#`.  R will not evaluate it. Mulitple `#####`, are still just seen as a comment.    When commenting your code, err on the side of too much!  Also, you will see `()`, `[]`, and `{}` used in R code.  The `()` indicates a function (almost always), the `[]` indicates indexing (grabbing values by the location), and the `{}` groups code that is meant to be run together and is usually used when programming functions in R.
 
 ##Packages
 
@@ -467,9 +467,10 @@ list.files()
 ```
 
 ```
-## [1] "01_basics.md"     "01_basics.Rmd"    "02_data.md"      
-## [4] "02_data.Rmd"      "03_wrangling.md"  "03_wrangling.Rmd"
-## [7] "04_viz.md"        "04_viz.Rmd"       "figures"
+##  [1] "01_basics.md"     "01_basics.Rmd"    "02_data.md"      
+##  [4] "02_data.Rmd"      "03_wrangling.md"  "03_wrangling.Rmd"
+##  [7] "04_viz.md"        "04_viz.Rmd"       "figures"         
+## [10] "purl_all.R"
 ```
 
 While you can do this directly from the console, it is going to be better practice to mostly use RStudio projects to manage your folders, working directory etc.  You can also navigate using the Files, etc. pane. 
