@@ -2,11 +2,7 @@
 
 # Basic Data Wrangling with R
 
-Data wrangling (manipulation, jujitsu, cleaning, etc.) is the part of any data
-analysis that will take the most time.  While it may not necessarily be fun, it
-is foundational to all the work that follows.  For this workshop we are just 
-going to cover the bare essentialls of working with data frames in R.  We will 
-see how to do this with base R and will practice how to do it with Hadley Wickham's `dplyr` package.
+Data wrangling (manipulation, jujitsu, cleaning, etc.) is the part of any data analysis that will take the most time.  While it may not necessarily be fun, it is foundational to all the work that follows.  For this workshop we are just going to cover the bare essentialls of working with data frames in R.  We will see how to do this with base R and will practice how to do it with Hadley Wickham's `dplyr` package.
 
 ## Lesson Outline:
 
@@ -22,9 +18,7 @@ see how to do this with base R and will practice how to do it with Hadley Wickha
 
 ##Indexing vectors
 
-In base R you can use a indexing to select out rows and columns.  You will see 
-this quite often in other peoples' code or in other sources for help. So, we
-should at least cover it so that it isn't foreign when you see it elsewhere.
+In base R you can use a indexing to select out rows and columns.  You will see this quite often in other peoples' code or in other sources for help. So, we should at least cover it so that it isn't foreign when you see it elsewhere.
 
 First lets work with indexing vectors.
 
@@ -96,10 +90,7 @@ x[x%%2==0]
 
 
 ##Indexing lists
-Basic indexing of lists isn't too much different than indexing a vector, but 
-remember for our discussion of lists, that you can have any R object stored in 
-a list (e.g., a vector, another list, a data.frame).  So to get the item you want
-can be a bit tricky.  A few simple examples.
+Basic indexing of lists isn't too much different than indexing a vector, but remember for our discussion of lists, that you can have any R object stored in a list (e.g., a vector, another list, a data.frame).  So to get the item you want can be a bit tricky.  A few simple examples.
 
 
 ```r
@@ -551,12 +542,12 @@ head(temp_df)
 
 ```
 ##   id    week1    week2    week3    week4
-## 1  1 21.87489 23.30522 19.32678 22.25884
-## 2  2 20.88324 20.00690 18.61943 18.09312
-## 3  3 22.27576 20.41094 22.49174 20.71510
-## 4  4 21.34317 22.22555 20.35155 21.80851
-## 5  5 20.05200 23.97792 24.60550 17.40550
-## 6  6 24.12871 22.60130 23.75513 20.15486
+## 1  1 24.24051 22.78783 24.56553 18.32588
+## 2  2 21.62073 20.21796 20.80626 22.42832
+## 3  3 24.07638 20.17650 19.48044 21.05857
+## 4  4 22.28287 22.13759 23.43707 22.33961
+## 5  5 20.20335 20.91566 22.67006 17.19318
+## 6  6 20.94812 23.80542 18.40719 18.71113
 ```
 
 ```r
@@ -572,12 +563,12 @@ head(temp_df2)
 ## 
 ##      id    week1    week2    week3    week4 site_mean
 ##   (int)    (dbl)    (dbl)    (dbl)    (dbl)     (dbl)
-## 1     1 21.87489 23.30522 19.32678 22.25884  21.69143
-## 2     2 20.88324 20.00690 18.61943 18.09312  19.40067
-## 3     3 22.27576 20.41094 22.49174 20.71510  21.47338
-## 4     4 21.34317 22.22555 20.35155 21.80851  21.43220
-## 5     5 20.05200 23.97792 24.60550 17.40550  21.51023
-## 6     6 24.12871 22.60130 23.75513 20.15486  22.66000
+## 1     1 24.24051 22.78783 24.56553 18.32588  22.47993
+## 2     2 21.62073 20.21796 20.80626 22.42832  21.26832
+## 3     3 24.07638 20.17650 19.48044 21.05857  21.19797
+## 4     4 22.28287 22.13759 23.43707 22.33961  22.54928
+## 5     5 20.20335 20.91566 22.67006 17.19318  20.24556
+## 6     6 20.94812 23.80542 18.40719 18.71113  20.46796
 ```
 
 We now have quite a few tools that we can use to clean and manipulate data in R.  We have barely touched what both base R and `dplyr` are capable of accomplishing, but hopefully you now have some basics to build on.  I personally think the database connection in `dplyr` are going to prove very useful.

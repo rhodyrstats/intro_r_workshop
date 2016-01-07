@@ -19,57 +19,35 @@ getting help.
 - [Exercise 1.3](#exercise-13)
 
 ##Working with R and RStudio
-Over the last several years, RStudio has become a very popular IDE (integrated 
-development environment) for R.  In addition to interacting with the R Console, 
-RStudio has many extras built in including version control integration, package 
-building, reproducible research, de-bugging, and built-in text editor with smart 
-highlighting and code completion.  This is the environment we will be using for 
-the workshop and should set you up for continued learning with R.
+Over the last several years, RStudio has become a very popular IDE (integrated development environment) for R.  In addition to interacting with the R Console, RStudio has many extras built in including version control integration, package building, reproducible research, de-bugging, and built-in text editor with smart highlighting and code completion.  This is the environment we will be using for the workshop and should set you up for continued learning with R.
 
-Before we get to the first exercise, let's spend a bit of time working with 
-RStudio. Just watch as I demo this.  The first exercise will have you doing 
-these steps.
+Before we get to the first exercise, let's spend a bit of time working with RStudio. Just watch as I demo this.  The first exercise will have you doing these steps.
 
 ###Fire up R and RStudio
-This one is easy.  Find the RStudio shortcut or menu (OS specific of course) and 
-fire it up.  Once done, it should look something like:
+This one is easy.  Find the RStudio shortcut or menu (OS specific of course) and fire it up.  Once done, it should look something like:
 
 ![rstudio](figures/rstudio.jpg)
 
 ###Create a Project
-Projects are a way to organize your work in RStudio.  Essentially they are 
-simply folders, but with a few added files so that you can manage some options
-on a per project basis.  To create a new projecect use File:New Project, or use
-the dropdown on the top right of the RStudio window.  It will look like this 
-after you select "New Project..."
+Projects are a way to organize your work in RStudio.  Essentially they are simply folders, but with a few added files so that you can manage some optionson a per project basis.  To create a new projecect use File:New Project, or usethe dropdown on the top right of the RStudio window.  It will look like this after you select "New Project..."
 
 ![rstudio proj](figures/rstudio_proj.jpg)
 
 ###Create a Script
-Scripts are text files that you write code in.  We will be work both with scripts
-and the console during this workshop.  To create a new script you use File:New 
-File:R Script.
+Scripts are text files that you write code in.  We will be work both with scriptsand the console during this workshop.  To create a new script you use File:New File:R Script.
 
 ![rstudio script](figures/rstudio_script.jpg)
 
 ##Exercise 1.1
-This exercise will make sure R and RStudio are working and that you can get 
-around the basics in RStudio.  Use the green stickies when you have completed, 
-and red stickies if you are running into problems.
+This exercise will make sure R and RStudio are working and that you can get around the basics in RStudio.  Use the green stickies when you have completed, and red stickies if you are running into problems.
 
-1. Start RStudio: To start both R and RStudio requires only firing up RStudio.  
-RStudio should be available from All Programs at the Start Menu.  Fire up 
-RStudio. 
+1. Start RStudio: To start both R and RStudio requires only firing up RStudio.  RStudio should be available from All Programs at the Start Menu.  Fire up RStudio. 
 
-2. Take a few minutes to look around RStudio.  Find the Console Pane. Find 
-Global and Project Options (hint: look in Tools).  Look at the Environment, 
-History Pane.  Look at the Files, Plots, Packages, etc. pane.
+2. Take a few minutes to look around RStudio.  Find the Console Pane. Find Global and Project Options (hint: look in Tools).  Look at the Environment, History Pane.  Look at the Files, Plots, Packages, etc. pane.
 
-3. Create a new project.  Name it "intro_r_workshop".  We will use this for the 
-rest of the workshop.
+3. Create a new project.  Name it "intro_r_workshop".  We will use this for the rest of the workshop.
 
-4. Create a new "R Script"" in the Source Pane, save that file into your newly 
-created project and name it "lesson1.R". 
+4. Create a new "R Script"" in the Source Pane, save that file into your newly created project and name it "lesson1.R". 
 
 ##Workflow
 Before we jump into details on data in R we need to introduce a few of the basics about working in the console, working via scripts, and workspaces/projects.  We will also start working with some simple, yet important R functions.
@@ -115,21 +93,21 @@ rnorm(100,mean=10,sd=2)
 ```
 
 ```
-##   [1] 11.086863 10.194049 10.111972  8.859261  9.904166  5.883811 11.259950
-##   [8] 12.802555 10.429163 11.458339  8.979084 10.384957  7.815250  8.783025
-##  [15]  8.356136 14.207173 12.450202  9.256107  8.639685  9.409530  8.277131
-##  [22] 10.950707 10.541921 14.726677 10.286893  9.180025 10.287565  9.498922
-##  [29] 12.357490 12.993087  8.464350 10.158612 13.879225 13.242800 10.951769
-##  [36] 11.612361  9.659245 10.327940 10.065877 10.611813 10.042763 14.759378
-##  [43]  7.298668  9.693820 10.969880  8.676564  9.395541 11.431963  9.467905
-##  [50]  8.302996 10.386176 12.556773 10.692899  8.561593  7.185298 10.747374
-##  [57]  8.940544 10.885090 11.192785  8.648918  7.142645 10.379303  8.947369
-##  [64] 11.606492  9.036703  8.861425  8.478071  9.206767 11.374596  9.754203
-##  [71]  9.413230  8.579851 11.178005 10.253856 10.550495 10.167741 11.486537
-##  [78]  8.583975  9.311981 10.112859 13.763185 11.964692  7.846240  6.570031
-##  [85] 12.236414  9.291531 14.547720  9.435192  5.912639  8.729589 11.280221
-##  [92] 13.074208  6.425164 12.983512  7.421711  9.317313 10.745837 10.008412
-##  [99]  5.509619 11.649763
+##   [1] 10.018366 12.828515 11.064388  9.813153  7.502712 12.847749 10.436867
+##   [8] 12.244979 10.825743 10.259964 12.014580  9.902988 13.735882 12.719328
+##  [15]  9.360903 11.476710 12.007994  7.971841 11.848462  7.864155 14.584410
+##  [22]  9.041840 11.216605 10.520015  9.748770 11.166498  8.950615  9.385415
+##  [29] 10.570464 11.948590  9.699142 10.276271 12.200034  9.138415  9.270037
+##  [36] 11.218812 12.009224  7.736595  8.523351 10.249788 11.333087 10.891077
+##  [43] 10.642593  8.916853  9.067392 10.294082  8.010906 11.115262 10.994050
+##  [50]  9.858571 16.195897 10.433896 10.033605 11.711817  9.801012  8.555231
+##  [57]  7.349530  8.008912 10.167064 10.922311  9.176859 10.707514 10.324423
+##  [64]  8.758580  7.449687  8.824902 10.227543 10.953265 10.687002 11.635269
+##  [71] 12.169937  8.588204  9.725400 11.754268 10.262789 11.489435 10.914561
+##  [78] 10.643586 11.625780  9.204227  8.951972  8.911431 11.519045 11.897436
+##  [85]  8.575564  9.053632 10.989165 11.563413 12.511554  8.939148  7.893301
+##  [92] 11.298762  6.362502 10.446948 11.886398  8.948300 11.362964 12.412731
+##  [99] 12.784627 13.990753
 ```
 
 ```r
@@ -138,7 +116,7 @@ mean(rnorm(100))
 ```
 
 ```
-## [1] -0.1515303
+## [1] -0.05121371
 ```
 
 ```r
@@ -147,7 +125,7 @@ sum(rnorm(100))
 ```
 
 ```
-## [1] 7.461339
+## [1] -6.61592
 ```
 
 A few side notes.  The `#` indicates a comment.  You can put whatever else you'd like after this, but on the same line as the `#`.  R will not evaluate it.  When commenting your code, err on the side of too much!  Also, you will see `()`, `[]`, and `{}` used in R code.  The `()` indicates a function (almost always), the `[]` indicates indexing (grabbing values by the location), and the `{}` groups code that is meant to be run together and is usually used when programming functions in R.
@@ -491,10 +469,9 @@ list.files()
 ```
 
 ```
-##  [1] "01_basics.md"     "01_basics.Rmd"    "02_data.md"      
-##  [4] "02_data.Rmd"      "03_wrangling.md"  "03_wrangling.Rmd"
-##  [7] "04_viz.md"        "04_viz.Rmd"       "figures"         
-## [10] "lesson2_ay.RData" "lesson2.RData"
+## [1] "01_basics.md"     "01_basics.Rmd"    "02_data.md"      
+## [4] "02_data.Rmd"      "03_wrangling.md"  "03_wrangling.Rmd"
+## [7] "04_viz.md"        "04_viz.Rmd"       "figures"
 ```
 
 While you can do this directly from the console, it is going to be better practice to mostly use RStudio projects to manage your folders, working directory etc.  You can also navigate using the Files, etc. pane. 

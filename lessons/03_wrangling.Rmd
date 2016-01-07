@@ -15,11 +15,7 @@ library("dplyr")
 
 # Basic Data Wrangling with R
 
-Data wrangling (manipulation, jujitsu, cleaning, etc.) is the part of any data
-analysis that will take the most time.  While it may not necessarily be fun, it
-is foundational to all the work that follows.  For this workshop we are just 
-going to cover the bare essentialls of working with data frames in R.  We will 
-see how to do this with base R and will practice how to do it with Hadley Wickham's `dplyr` package.
+Data wrangling (manipulation, jujitsu, cleaning, etc.) is the part of any data analysis that will take the most time.  While it may not necessarily be fun, it is foundational to all the work that follows.  For this workshop we are just going to cover the bare essentialls of working with data frames in R.  We will see how to do this with base R and will practice how to do it with Hadley Wickham's `dplyr` package.
 
 ## Lesson Outline:
 
@@ -35,9 +31,7 @@ see how to do this with base R and will practice how to do it with Hadley Wickha
 
 ##Indexing vectors
 
-In base R you can use a indexing to select out rows and columns.  You will see 
-this quite often in other peoples' code or in other sources for help. So, we
-should at least cover it so that it isn't foreign when you see it elsewhere.
+In base R you can use a indexing to select out rows and columns.  You will see this quite often in other peoples' code or in other sources for help. So, we should at least cover it so that it isn't foreign when you see it elsewhere.
 
 First lets work with indexing vectors.
 
@@ -62,10 +56,7 @@ x[x%%2==0]
 
 
 ##Indexing lists
-Basic indexing of lists isn't too much different than indexing a vector, but 
-remember for our discussion of lists, that you can have any R object stored in 
-a list (e.g., a vector, another list, a data.frame).  So to get the item you want
-can be a bit tricky.  A few simple examples.
+Basic indexing of lists isn't too much different than indexing a vector, but remember for our discussion of lists, that you can have any R object stored in a list (e.g., a vector, another list, a data.frame).  So to get the item you want can be a bit tricky.  A few simple examples.
 
 ```{r list_index}
 x_list <- list(1:10,letters[1:10])

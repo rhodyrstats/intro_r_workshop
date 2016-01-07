@@ -19,57 +19,35 @@ getting help.
 - [Exercise 1.3](#exercise-13)
 
 ##Working with R and RStudio
-Over the last several years, RStudio has become a very popular IDE (integrated 
-development environment) for R.  In addition to interacting with the R Console, 
-RStudio has many extras built in including version control integration, package 
-building, reproducible research, de-bugging, and built-in text editor with smart 
-highlighting and code completion.  This is the environment we will be using for 
-the workshop and should set you up for continued learning with R.
+Over the last several years, RStudio has become a very popular IDE (integrated development environment) for R.  In addition to interacting with the R Console, RStudio has many extras built in including version control integration, package building, reproducible research, de-bugging, and built-in text editor with smart highlighting and code completion.  This is the environment we will be using for the workshop and should set you up for continued learning with R.
 
-Before we get to the first exercise, let's spend a bit of time working with 
-RStudio. Just watch as I demo this.  The first exercise will have you doing 
-these steps.
+Before we get to the first exercise, let's spend a bit of time working with RStudio. Just watch as I demo this.  The first exercise will have you doing these steps.
 
 ###Fire up R and RStudio
-This one is easy.  Find the RStudio shortcut or menu (OS specific of course) and 
-fire it up.  Once done, it should look something like:
+This one is easy.  Find the RStudio shortcut or menu (OS specific of course) and fire it up.  Once done, it should look something like:
 
 ![rstudio](figures/rstudio.jpg)
 
 ###Create a Project
-Projects are a way to organize your work in RStudio.  Essentially they are 
-simply folders, but with a few added files so that you can manage some options
-on a per project basis.  To create a new projecect use File:New Project, or use
-the dropdown on the top right of the RStudio window.  It will look like this 
-after you select "New Project..."
+Projects are a way to organize your work in RStudio.  Essentially they are simply folders, but with a few added files so that you can manage some optionson a per project basis.  To create a new projecect use File:New Project, or usethe dropdown on the top right of the RStudio window.  It will look like this after you select "New Project..."
 
 ![rstudio proj](figures/rstudio_proj.jpg)
 
 ###Create a Script
-Scripts are text files that you write code in.  We will be work both with scripts
-and the console during this workshop.  To create a new script you use File:New 
-File:R Script.
+Scripts are text files that you write code in.  We will be work both with scriptsand the console during this workshop.  To create a new script you use File:New File:R Script.
 
 ![rstudio script](figures/rstudio_script.jpg)
 
 ##Exercise 1.1
-This exercise will make sure R and RStudio are working and that you can get 
-around the basics in RStudio.  Use the green stickies when you have completed, 
-and red stickies if you are running into problems.
+This exercise will make sure R and RStudio are working and that you can get around the basics in RStudio.  Use the green stickies when you have completed, and red stickies if you are running into problems.
 
-1. Start RStudio: To start both R and RStudio requires only firing up RStudio.  
-RStudio should be available from All Programs at the Start Menu.  Fire up 
-RStudio. 
+1. Start RStudio: To start both R and RStudio requires only firing up RStudio.  RStudio should be available from All Programs at the Start Menu.  Fire up RStudio. 
 
-2. Take a few minutes to look around RStudio.  Find the Console Pane. Find 
-Global and Project Options (hint: look in Tools).  Look at the Environment, 
-History Pane.  Look at the Files, Plots, Packages, etc. pane.
+2. Take a few minutes to look around RStudio.  Find the Console Pane. Find Global and Project Options (hint: look in Tools).  Look at the Environment, History Pane.  Look at the Files, Plots, Packages, etc. pane.
 
-3. Create a new project.  Name it "intro_r_workshop".  We will use this for the 
-rest of the workshop.
+3. Create a new project.  Name it "intro_r_workshop".  We will use this for the rest of the workshop.
 
-4. Create a new "R Script"" in the Source Pane, save that file into your newly 
-created project and name it "lesson1.R". 
+4. Create a new "R Script"" in the Source Pane, save that file into your newly created project and name it "lesson1.R". 
 
 ##Workflow
 Before we jump into details on data in R we need to introduce a few of the basics about working in the console, working via scripts, and workspaces/projects.  We will also start working with some simple, yet important R functions.
