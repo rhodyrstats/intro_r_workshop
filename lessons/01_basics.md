@@ -47,7 +47,7 @@ This exercise will make sure R and RStudio are working and that you can get arou
 
 4. Create a new "R Script"" in the Source Pane, save that file into your newly created project and name it "lesson1.R". It'll just be a blank text file at this point.
 
-5. Download the [R code for the workshop](intro_r_code.R) and save it in the project folder. 
+5. Download the [R code for the workshop](https://raw.githubusercontent.com/rhodyrstats/intro_r_workshop/master/lessons/intro_r_code.R) and save it in the project folder. 
 
 ##Workflow
 Before we jump into details on data in R we need to introduce a few of the basics about working in the console, working via scripts, and workspaces/projects.  We will also start working with some simple, yet important R functions.
@@ -93,21 +93,21 @@ rnorm(100,mean=10,sd=2)
 ```
 
 ```
-##   [1]  5.596465  9.124963  7.115178 13.708527  7.401312 10.390951  9.971438
-##   [8]  9.387529  9.578027 11.463849  8.352470  8.039836 10.836373  9.999832
-##  [15] 11.553937  9.152335 10.986409  7.736936  9.818391 12.121629  9.680735
-##  [22]  9.884060 10.951229 11.204786 11.825361 13.094068 12.228266  6.069756
-##  [29] 11.249906 15.241404  7.834856 13.081331  6.984397  6.395657 12.558067
-##  [36]  8.508695  7.877737 10.655726 13.692557  9.912792  8.995087 10.640257
-##  [43]  8.204109  7.804139 10.075024  7.509071  7.876923  8.418599 11.086633
-##  [50] 11.560996  8.074231  5.906994  9.944337 11.252600  8.268836  8.325659
-##  [57] 12.135121  8.496401  9.549792  8.255667 10.258866  8.474052  9.018801
-##  [64] 12.308974 11.331778 10.853399  9.516827 12.615479 11.764078 10.726099
-##  [71] 10.960715  9.081749  8.376442  7.291154 11.031359  8.628856  8.573548
-##  [78] 11.779005 10.903118  7.549239 10.255923  9.358165 10.320114 10.725047
-##  [85] 11.533478  7.804073 10.417562  9.414462 10.507971 12.047209 12.422383
-##  [92] 10.572402 12.364129 10.094877  5.880554 11.063987 11.685948 12.039890
-##  [99]  6.349108  8.166255
+##   [1] 13.506103  9.375769 12.211666  8.643994 10.091582  8.697399 11.638805
+##   [8] 12.055136 11.751103  8.217274  7.446344  9.566550  8.405950 10.290652
+##  [15]  8.876460 14.927977  7.052760  9.334002  9.395355 13.548983  8.307646
+##  [22] 11.732771 12.738585 10.547351 10.712308  7.577404  9.234850  9.032016
+##  [29] 11.235310  8.141308  9.332976 10.891928  9.273219 10.917621 10.019575
+##  [36] 10.027097 10.123218 11.207861 10.930294 10.168309  5.434397  7.586755
+##  [43]  9.024402  8.800172 10.533504 11.255566  8.855901  4.881101  7.313210
+##  [50] 12.986460  8.771650  7.387972  9.845944 11.728302  9.317721  9.199367
+##  [57]  8.247990  9.783359  9.941615 10.794671 11.213545 13.121123 13.281822
+##  [64] 13.455016  8.816780 10.080079 11.528674 10.782017  7.470963 12.614867
+##  [71]  6.710987  9.102667  9.222644 13.297408 10.317434  9.190436 13.464342
+##  [78] 10.742083  9.102032 11.477903 12.702695 11.806190  8.850585  8.935012
+##  [85]  7.496455 12.535371  9.309383  8.936234  9.452102  8.173359 12.794208
+##  [92]  7.595717  8.828052 10.527426 10.770102  6.162319  9.646320  5.918783
+##  [99] 12.889223 10.634970
 ```
 
 ```r
@@ -116,7 +116,7 @@ mean(rnorm(100))
 ```
 
 ```
-## [1] -0.07313291
+## [1] 0.03882115
 ```
 
 ```r
@@ -125,7 +125,7 @@ sum(rnorm(100))
 ```
 
 ```
-## [1] 6.706811
+## [1] -1.488568
 ```
 
 A few side notes.  The `#` indicates a comment.  You can put whatever else you'd like after this, but on the same line as the `#`.  R will not evaluate it. Mulitple `#####`, are still just seen as a comment.  When commenting your code, err on the side of too much!  Also, you will see `()`, `[]`, and `{}` used in R code.  The `()` indicates a function (almost always), the `[]` indicates indexing (grabbing values by the location), and the `{}` groups code that is meant to be run together and is usually used when programming functions in R.

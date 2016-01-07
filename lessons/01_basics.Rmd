@@ -47,7 +47,7 @@ This exercise will make sure R and RStudio are working and that you can get arou
 
 4. Create a new "R Script"" in the Source Pane, save that file into your newly created project and name it "lesson1.R". It'll just be a blank text file at this point.
 
-5. Download the [R code for the workshop](intro_r_code.R) and save it in the project folder. 
+5. Download the [R code for the workshop](https://raw.githubusercontent.com/rhodyrstats/intro_r_workshop/master/lessons/intro_r_code.R) and save it in the project folder. 
 
 ##Workflow
 Before we jump into details on data in R we need to introduce a few of the basics about working in the console, working via scripts, and workspaces/projects.  We will also start working with some simple, yet important R functions.
