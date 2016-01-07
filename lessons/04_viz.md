@@ -7,7 +7,7 @@ spend on this, but hopefully it will provide enough of a foundation for future l
 
 ## Lesson Outline:
 
-- [Simple plots with base R](#ximple-plots-with-base-r)
+- [Simple plots with base R](#simple-plots-with-base-r)
 - [Introduction to `ggplot2`](#introduction-to-ggplot2)
 - [Customizing `ggplot2` plots](#customizing-ggplot2-plots)
 - [Cool stuff and getting help with `ggplot2`](#cool-stuff-and-getting-help-with-ggplot2)
@@ -26,7 +26,7 @@ The workhorse function for plotting data in R is `plot()`.  With this one comman
 plot(mtcars$hp,mtcars$qsec)
 ```
 
-![plot of chunk plot_examp](figure/plot_examp-1.png) 
+![plot of chunk plot_examp](lessons/figuresplot_examp-1.png) 
 
 Hey, a plot!  Not bad.  Let's customize a bit because those axis labels aren't terribly useful and we need a title. For that we can use the `main`, `xlab`, and `ylab` arguments.
 
@@ -36,7 +36,7 @@ plot(mtcars$hp,mtcars$qsec,main="Changes in Quartermile time as function of hors
      xlab="Total Horsepower",ylab="Quartermile Time (secs)")
 ```
 
-![plot of chunk plot_examp_2](figure/plot_examp_2-1.png) 
+![plot of chunk plot_examp_2](lessons/figuresplot_examp_2-1.png) 
 
 Not sure if this will apply to everyone, but I use scatterplots ALL the time.  So, for me I could almost (not really) stop here.  But lets move on.  Let's say we want to look at more than just one relationship at a time with a pairs plot.  Again, `plot()` is our friend.  If you pass a data frame to `plot()` instead of an x and y vector it will plot all possible pairs.  Be careful though, as too many columns will produce an unintelligble plot.  Let's go back to `iris`.
 
@@ -45,7 +45,7 @@ Not sure if this will apply to everyone, but I use scatterplots ALL the time.  S
 plot(iris, main="Iris Pairs Plot")
 ```
 
-![plot of chunk pairs_examp](figure/pairs_examp-1.png) 
+![plot of chunk pairs_examp](lessons/figurespairs_examp-1.png) 
 
 Last thing I will show with plot is how to add a line.  The one I use most often for exploratory analysis is a straight line defined by slope and intercept.  We do this with `abline()`.
 
@@ -62,7 +62,7 @@ abline(v=1.5)
 abline(0,1)
 ```
 
-![plot of chunk abline_examp](figure/abline_examp-1.png) 
+![plot of chunk abline_examp](lessons/figuresabline_examp-1.png) 
 
 This is useful if you have a known value that you want to compare to your data.  Next example is putting a regression line on the plot.  We haven't talked about regression in R yet, but this example is simple enough I think we can get away with introducing it.  
 
@@ -74,7 +74,7 @@ plot(iris$Petal.Width,iris$Petal.Length, main="Petal Dimensions")
 abline(lm(Petal.Length~Petal.Width,data=iris))
 ```
 
-![plot of chunk abline_examp_lm](figure/abline_examp_lm-1.png) 
+![plot of chunk abline_examp_lm](lessons/figuresabline_examp_lm-1.png) 
 
 So, we detoured a bit.  Let's get back to a few more examples of exploratory plots.  We will look at boxplots, histograms, and cumulative distribution functions then call it quits on the exploratory analyis (and the first day, whew!)
 
@@ -85,7 +85,7 @@ Two great ways to use boxplots are straight up and then by groups in a factor. F
 boxplot(iris$Petal.Length, main="Boxplot of Petal Length",ylab="Length(cm)")
 ```
 
-![plot of chunk boxplot_examp](figure/boxplot_examp-1.png) 
+![plot of chunk boxplot_examp](lessons/figuresboxplot_examp-1.png) 
 
 As plots go, well, um, not great.  Let's try it with a bit more info and create a boxplot for each of the groups.
 
@@ -94,7 +94,7 @@ As plots go, well, um, not great.  Let's try it with a bit more info and create 
 boxplot(iris$Petal.Length~iris$Species, main="Boxplot of Petal Length by Species",ylab="Length(cm)")
 ```
 
-![plot of chunk boxplot_grps_examp](figure/boxplot_grps_examp-1.png) 
+![plot of chunk boxplot_grps_examp](lessons/figuresboxplot_grps_examp-1.png) 
 
 Lastly, let's look at two other ways to plot our distributions.  First, histograms.
 
@@ -103,13 +103,13 @@ Lastly, let's look at two other ways to plot our distributions.  First, histogra
 hist(iris$Sepal.Length)
 ```
 
-![plot of chunk base_hist_examp](figure/base_hist_examp-1.png) 
+![plot of chunk base_hist_examp](lessons/figuresbase_hist_examp-1.png) 
 
 ```r
 hist(airquality$Temp,breaks=10)
 ```
 
-![plot of chunk base_hist_examp](figure/base_hist_examp-2.png) 
+![plot of chunk base_hist_examp](lessons/figuresbase_hist_examp-2.png) 
 
 And finally, cumulative distribution functions.  Since CDF's are actually a function of the distribution we need to get that function first.  This requires that we combine `plot()` and `ecdf()`, the emprical CDF function.
 
@@ -119,7 +119,7 @@ aq_temp_ecdf<-ecdf(airquality$Temp)
 plot(aq_temp_ecdf)
 ```
 
-![plot of chunk cdf_examp](figure/cdf_examp-1.png) 
+![plot of chunk cdf_examp](lessons/figurescdf_examp-1.png) 
 
 ##Introduction to `ggplot2`
 
@@ -156,7 +156,7 @@ iris_gg +
   geom_point()
 ```
 
-![plot of chunk points_examp](figure/points_examp-1.png) 
+![plot of chunk points_examp](lessons/figurespoints_examp-1.png) 
 
 ```r
 #This too can be saved to an object
@@ -167,7 +167,7 @@ iris_scatter<-iris_gg +
 iris_scatter
 ```
 
-![plot of chunk points_examp](figure/points_examp-2.png) 
+![plot of chunk points_examp](lessons/figurespoints_examp-2.png) 
 
 Not appreciably better than base, in my opinion.  But what if we want to add some stuff...
 
@@ -181,7 +181,7 @@ iris_scatter<-iris_scatter +
 iris_scatter
 ```
 
-![plot of chunk iris_labels](figure/iris_labels-1.png) 
+![plot of chunk iris_labels](lessons/figuresiris_labels-1.png) 
 
 Now to add some colors, shapes etc to the point.  Look at the `geom_point()` documentation for this.
 
@@ -192,7 +192,7 @@ iris_scatter<- iris_scatter +
 iris_scatter
 ```
 
-![plot of chunk iris_colors](figure/iris_colors-1.png) 
+![plot of chunk iris_colors](lessons/figuresiris_colors-1.png) 
 
 Much easier than using base.  Now `ggplot2` really shines when you want to add stats (regression lines, intervals, etc.). 
 
@@ -205,11 +205,7 @@ iris_scatter_loess<-iris_scatter +
 iris_scatter_loess
 ```
 
-```
-## geom_smooth: method="auto" and size of largest group is <1000, so using loess. Use 'method = x' to change the smoothing method.
-```
-
-![plot of chunk iris_loess](figure/iris_loess-1.png) 
+![plot of chunk iris_loess](lessons/figuresiris_loess-1.png) 
 
 Try that in `base` with so little code!
 
@@ -222,7 +218,7 @@ iris_scatter_lm<-iris_scatter +
 iris_scatter_lm
 ```
 
-![plot of chunk iris_lm](figure/iris_lm-1.png) 
+![plot of chunk iris_lm](lessons/figuresiris_lm-1.png) 
 
 And if we are interested in the regressions by group we could do it this way.
 
@@ -234,7 +230,7 @@ iris_scatter_lm_group<-iris_scatter+
 iris_scatter_lm_group
 ```
 
-![plot of chunk iris_lm_groups](figure/iris_lm_groups-1.png) 
+![plot of chunk iris_lm_groups](lessons/figuresiris_lm_groups-1.png) 
 
 Or, if we wanted our regression lines to match the color.
 
@@ -246,7 +242,7 @@ iris_scatter_lm_color<-iris_scatter+
 iris_scatter_lm_color
 ```
 
-![plot of chunk iris_lm_color](figure/iris_lm_color-1.png) 
+![plot of chunk iris_lm_color](lessons/figuresiris_lm_color-1.png) 
 
 
 You'll notice that I had to specify the `aes()` again, but for `geom_smooth()`.  We only specified the x and y in the original `ggplot` object, so if want to do something different in the subsequent functions we need to overwrite it for the function in which we want a different mapping (i.e. groups).
@@ -265,7 +261,7 @@ ggplot(iris,aes(x=Species,y=Sepal.Width)) +
   geom_boxplot()
 ```
 
-![plot of chunk gg_box_examp](figure/gg_box_examp-1.png) 
+![plot of chunk gg_box_examp](lessons/figuresgg_box_examp-1.png) 
 
 ###Histograms
 
@@ -275,7 +271,7 @@ ggplot(iris,aes(x=Sepal.Width))+
   geom_histogram(binwidth=0.25)
 ```
 
-![plot of chunk gg_hist_examp](figure/gg_hist_examp-1.png) 
+![plot of chunk gg_hist_examp](lessons/figuresgg_hist_examp-1.png) 
 
 ###Barplots
 Barplots can be done easily but often you want to plot a summary statistic (e.g. mean value) for different groups.  This requires setting up the data in the correct format first.  We can do that with `dplyr` first, then pass the result to `ggplot()`.
@@ -289,7 +285,7 @@ iris_meanpl_bar<-ggplot(iris_species_mean,aes(x=Species,y=mean_pl))+
 iris_meanpl_bar
 ```
 
-![plot of chunk gg_bar_examp2](figure/gg_bar_examp2-1.png) 
+![plot of chunk gg_bar_examp2](lessons/figuresgg_bar_examp2-1.png) 
 
 ##Exercise 4.1
 Let's now build some plots with `ggplot2`
@@ -317,7 +313,7 @@ scatter_p<-ggplot(iris,aes(x=Petal.Width,y=Petal.Length)) +
 scatter_p
 ```
 
-![plot of chunk themes_examp](figure/themes_examp-1.png) 
+![plot of chunk themes_examp](lessons/figuresthemes_examp-1.png) 
 
 Nothing new there.  Let's now edit some of this theme by dropping the grey background and the grid, and changing our font.
 
@@ -331,7 +327,7 @@ scatter_p_base<-scatter_p +
 scatter_p_base
 ```
 
-![plot of chunk themes_examp_custom](figure/themes_examp_custom-1.png) 
+![plot of chunk themes_examp_custom](lessons/figuresthemes_examp_custom-1.png) 
 
 Still not great, but it shows the basics.  You can build on this and edit EVERYTHING in the plot.  To get an idea of what you have access to, take a look at the help on `theme()` (e.g. `help("theme")`).
 
@@ -342,13 +338,13 @@ There are a few alterantive themes available by default (use `help("ggtheme")`) 
 scatter_p + theme_bw()
 ```
 
-![plot of chunk themes_examp_stock](figure/themes_examp_stock-1.png) 
+![plot of chunk themes_examp_stock](lessons/figuresthemes_examp_stock-1.png) 
 
 ```r
 scatter_p + theme_classic()
 ```
 
-![plot of chunk themes_examp_stock](figure/themes_examp_stock-2.png) 
+![plot of chunk themes_examp_stock](lessons/figuresthemes_examp_stock-2.png) 
 
 Let's build on one of these and try to create a more polished plot.  We will start from scratch and add in some custom colors too.
 
@@ -371,7 +367,7 @@ scatter_polished <- ggplot(iris,aes(x=Petal.Width,y=Petal.Length)) +
 scatter_polished 
 ```
 
-![plot of chunk themes_examp_polished](figure/themes_examp_polished-1.png) 
+![plot of chunk themes_examp_polished](lessons/figuresthemes_examp_polished-1.png) 
 
 A bit complicated for some of the custom stuff, but that is the price you have to pay to get complete control over the output.  Last thing we probably want to do now is to save the plot.  Since we have our plot as a `ggplot` object we can use the `ggsave()` function.
 
@@ -410,14 +406,14 @@ p <- ggplot(mtcars, aes(mpg, wt)) + geom_point()
 p + facet_grid(cyl ~ .)
 ```
 
-![plot of chunk facet_grid_example](figure/facet_grid_example-1.png) 
+![plot of chunk facet_grid_example](lessons/figuresfacet_grid_example-1.png) 
 
 ```r
 # With two variables
 p + facet_grid(vs ~ am)
 ```
 
-![plot of chunk facet_grid_example](figure/facet_grid_example-2.png) 
+![plot of chunk facet_grid_example](lessons/figuresfacet_grid_example-2.png) 
 
 And a parting example using the NLA data.
 

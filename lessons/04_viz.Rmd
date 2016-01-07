@@ -1,5 +1,6 @@
 ```{r setup, echo=FALSE, warning=FALSE, purl=FALSE, message=FALSE}
 options(repos="http://cran.rstudio.com/")
+opts_chunk$set(fig.path="lessons/figures")
 if(!require("ggplot2")){
   install.packages("ggplot2")
 }
@@ -20,7 +21,7 @@ spend on this, but hopefully it will provide enough of a foundation for future l
 
 ## Lesson Outline:
 
-- [Simple plots with base R](#ximple-plots-with-base-r)
+- [Simple plots with base R](#simple-plots-with-base-r)
 - [Introduction to `ggplot2`](#introduction-to-ggplot2)
 - [Customizing `ggplot2` plots](#customizing-ggplot2-plots)
 - [Cool stuff and getting help with `ggplot2`](#cool-stuff-and-getting-help-with-ggplot2)

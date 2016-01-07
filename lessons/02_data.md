@@ -8,7 +8,6 @@ In this lesson we are going to focus on data and how it is dealt with by R.  Thi
 
 - [Data types and data structures in R](#data-types-and-data-structures-in-r)
 - [Reading external data](#reading-external-data)
-- [Look at your data](#look-at-your-data)
 - [Other ways to read data](#other-ways-to-read-data)
 
 ## Lesson Exercises:
