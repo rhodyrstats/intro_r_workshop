@@ -50,7 +50,7 @@ This exercise will make sure R and RStudio are working and that you can get arou
 ##Workflow
 Before we jump into details on data in R we need to introduce a few of the basics about working in the console, working via scripts, and workspaces/projects.  We will also start working with some simple, yet important R functions.
 
-Being thoughtful about workflow from the beginning of a project is something that gets overlooked a lot, but a little up-front effort can provide a big benefit.  For our purposes we are going to make use of RStudio projects and will script *EVERYTHING*.  The console has its utility and we will use it plenty, especially when we are first figuring out how to use commands.  But beyond that, we will store all of our work in a script.  The basic workflow I am going to advocate is:
+Being thoughtful about workflow from the beginning of a project is something that gets overlooked a lot, but a little up-front effort can provide a big benefit.  For our purposes we are going to make use of RStudio projects and will script almost everything.  The console has its utility and we will use it plenty, especially when we are first figuring out how to use commands.  But beyond that, we will store all of our work in a script.  The basic workflow I am going to advocate is:
 
 1. Use a single project for this workshop (we created that in Lesson 1: Exercise 1).
 2. Start everything in a script and use copy/paste or the RStudio tools to send to the console.

@@ -50,7 +50,7 @@ This exercise will make sure R and RStudio are working and that you can get arou
 ##Workflow
 Before we jump into details on data in R we need to introduce a few of the basics about working in the console, working via scripts, and workspaces/projects.  We will also start working with some simple, yet important R functions.
 
-Being thoughtful about workflow from the beginning of a project is something that gets overlooked a lot, but a little up-front effort can provide a big benefit.  For our purposes we are going to make use of RStudio projects and will script *EVERYTHING*.  The console has its utility and we will use it plenty, especially when we are first figuring out how to use commands.  But beyond that, we will store all of our work in a script.  The basic workflow I am going to advocate is:
+Being thoughtful about workflow from the beginning of a project is something that gets overlooked a lot, but a little up-front effort can provide a big benefit.  For our purposes we are going to make use of RStudio projects and will script almost everything.  The console has its utility and we will use it plenty, especially when we are first figuring out how to use commands.  But beyond that, we will store all of our work in a script.  The basic workflow I am going to advocate is:
 
 1. Use a single project for this workshop (we created that in Lesson 1: Exercise 1).
 2. Start everything in a script and use copy/paste or the RStudio tools to send to the console.
@@ -91,21 +91,21 @@ rnorm(100,mean=10,sd=2)
 ```
 
 ```
-##   [1]  8.906285 10.270202  7.420091  8.333225  6.111583 12.028781  8.057831
-##   [8]  8.489328  7.639267  9.664297 11.661602  8.118020  8.297651 12.018116
-##  [15] 11.511758 10.396072 13.150473  9.881968  8.969291  7.847164 17.834126
-##  [22]  9.684901  9.295321  8.012273 10.400295  9.747403 10.807216 10.256638
-##  [29] 13.612146  9.873398  8.613057  5.500867 13.486024  8.784510  9.457265
-##  [36] 12.276049  8.953758  8.837154 11.790179  8.605971 10.053878 10.249177
-##  [43] 11.211041  9.592776  8.131395 10.969108 10.349483 12.104871  8.672134
-##  [50] 14.663412 12.221376 10.604334 10.092268 10.119688  9.511413 12.457080
-##  [57] 12.467595  7.126190  7.669007  6.207116 12.274203  9.590360  9.941504
-##  [64] 10.982404  8.554959  8.252664 11.796933  8.756382 10.646676  7.807341
-##  [71]  7.339238 11.804295 13.316328 12.913291  8.623936 10.663602 11.429138
-##  [78]  9.945065  8.653638  8.365070  8.411795  9.564857 12.046526  8.223742
-##  [85]  8.873998  8.616631  6.601496 10.646319 13.393515 10.925448 10.672754
-##  [92] 10.812997 12.560261  8.699100  5.572080 11.284927 11.950958  8.075895
-##  [99]  8.378397 12.072392
+##   [1] 12.236662 10.120606 12.327740 10.727791 11.443010 12.204460  9.365100
+##   [8]  8.063209  8.559222  9.331450  7.622630 10.343365  6.059598 10.854704
+##  [15]  9.952850 11.280175  7.901149  8.614432  4.072736  8.203632  9.122852
+##  [22] 10.443557  8.306299  8.601458  8.558880  9.828365  9.252862  9.285875
+##  [29]  9.242941 14.559981 12.272598  7.540178  9.992908  8.631076 10.950375
+##  [36] 12.622502 11.411209 12.524507  6.806520 10.676125  9.065749 12.509752
+##  [43]  7.776544  7.058581 10.339987 12.051007 10.618690  9.175891  9.246064
+##  [50] 12.286371  8.908423 11.274207 10.746469  9.896417  7.128786 10.240662
+##  [57] 12.636722  5.813274  7.572962 10.309046 10.373243  9.366912  6.788016
+##  [64]  6.904548 11.442797  7.546601  8.741465  8.446392  8.407576 11.338363
+##  [71] 11.156355  8.997909  7.533375 12.466981  6.011973 10.052098 13.542413
+##  [78] 10.856998 10.073390 12.794961  9.897972  8.774299 11.627486  9.642381
+##  [85] 12.643314  9.740845 10.179584  7.333294  8.486799 10.625884  6.955609
+##  [92]  8.416151 11.176036  8.011419 12.258681 10.900050 10.779702 12.357042
+##  [99]  5.156383 10.847905
 ```
 
 ```r
@@ -114,7 +114,7 @@ mean(rnorm(100))
 ```
 
 ```
-## [1] -0.06534281
+## [1] -0.005894993
 ```
 
 ```r
@@ -123,7 +123,7 @@ sum(rnorm(100))
 ```
 
 ```
-## [1] 1.821907
+## [1] 12.32565
 ```
 
 A few side notes.  The `#` indicates a comment.  You can put whatever else you'd like after this, but on the same line as the `#`.  R will not evaluate it.  When commenting your code, err on the side of too much!  Also, you will see `()`, `[]`, and `{}` used in R code.  The `()` indicates a function (almost always), the `[]` indicates indexing (grabbing values by the location), and the `{}` groups code that is meant to be run together and is usually used when programming functions in R.
