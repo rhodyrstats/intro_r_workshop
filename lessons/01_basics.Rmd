@@ -1,8 +1,6 @@
 # R Basics
 
-In this first lesson we are going to go over the very basics of R, cover some 
-basic terminology, talk a little about syntax and point you to resources for 
-getting help.
+In this first lesson we are going to go over the very basics of R, cover some basic terminology, talk a little about syntax and point you to resources for getting help.
 
 ## Lesson Outline:
 
