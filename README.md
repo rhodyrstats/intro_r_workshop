@@ -45,3 +45,5 @@ please contact Jeff.
 | 2:30 PM - 4:30 PM   | [Data Viz](lessons/04_viz.md)             |
 
 
+###Note: 
+Much of the material for this workshop was (slightly) modified from <http://usepa.github.io/introR>.  Similarity between the two workshops is intentional!

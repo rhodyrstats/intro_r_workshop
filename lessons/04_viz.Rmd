@@ -299,7 +299,7 @@ scatter_polished
 
 A bit complicated for some of the custom stuff, but that is the price you have to pay to get complete control over the output.  Last thing we probably want to do now is to save the plot.  Since we have our plot as a `ggplot` object we can use the `ggsave()` function.
 
-```{r ggsave_examp}
+```{r ggsave_examp, eval=FALSE}
 #Save as jpg, with 600dpi, and set width and height
 #Many other options in the help
 ggsave(plot=scatter_polished,

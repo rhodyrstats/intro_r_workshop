@@ -386,10 +386,6 @@ ggsave(plot=scatter_polished,
        file="Fig1.pdf")
 ```
 
-```
-## Saving 7 x 7 in image
-```
-
 ##Exercise 4.2
 From Exercise 1 you should have a good start on a plot.  Let's tweak this some.
 
