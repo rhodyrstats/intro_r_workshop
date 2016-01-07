@@ -66,7 +66,7 @@ R is built off of functions and most of everything you do uses a function.
 
 The basic syntax of function follows the form: `function_name(arg1, arg2, ...)`.  With the base install, you will gain access to many.  For instance:
 
-```{r function_examples, cache=FALSE}
+```{r function_examples}
 #Print
 print("hello world!")
 #A sequence
@@ -92,7 +92,7 @@ One of the reasons for R's popularity is CRAN, [The Comprehensive R Archive Netw
 When a package gets installed, that means the source (or packaged binary for Windows) is downloaded and put into your library.  A default library location is set for you so no need to worry about that.  In fact on Windows most of this is pretty automatic.  Let's give it a shot.
 
 
-```{r install_package, cache=FALSE}
+```{r install_package, }
 #Install dplyr and ggplot2
 install.packages("ggplot2")
 install.packages("dplyr")

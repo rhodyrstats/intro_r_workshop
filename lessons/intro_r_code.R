@@ -1,7 +1,7 @@
 ################################################################################
 # lessons//01_basics.R
 ################################################################################
-## ----function_examples, cache=FALSE--------------------------------------
+## ----function_examples---------------------------------------------------
 #Print
 print("hello world!")
 #A sequence
@@ -13,7 +13,7 @@ mean(rnorm(100))
 #Sum
 sum(rnorm(100))
 
-## ----install_package, cache=FALSE----------------------------------------
+## ----install_package-----------------------------------------------------
 #Install dplyr and ggplot2
 install.packages("ggplot2")
 install.packages("dplyr")
