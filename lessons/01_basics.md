@@ -1,3 +1,5 @@
+
+
 # R Basics
 
 In this first lesson we are going to go over the very basics of R, cover some basic terminology, talk a little about syntax and point you to resources for getting help.
@@ -93,21 +95,21 @@ rnorm(100,mean=10,sd=2)
 ```
 
 ```
-##   [1] 13.506103  9.375769 12.211666  8.643994 10.091582  8.697399 11.638805
-##   [8] 12.055136 11.751103  8.217274  7.446344  9.566550  8.405950 10.290652
-##  [15]  8.876460 14.927977  7.052760  9.334002  9.395355 13.548983  8.307646
-##  [22] 11.732771 12.738585 10.547351 10.712308  7.577404  9.234850  9.032016
-##  [29] 11.235310  8.141308  9.332976 10.891928  9.273219 10.917621 10.019575
-##  [36] 10.027097 10.123218 11.207861 10.930294 10.168309  5.434397  7.586755
-##  [43]  9.024402  8.800172 10.533504 11.255566  8.855901  4.881101  7.313210
-##  [50] 12.986460  8.771650  7.387972  9.845944 11.728302  9.317721  9.199367
-##  [57]  8.247990  9.783359  9.941615 10.794671 11.213545 13.121123 13.281822
-##  [64] 13.455016  8.816780 10.080079 11.528674 10.782017  7.470963 12.614867
-##  [71]  6.710987  9.102667  9.222644 13.297408 10.317434  9.190436 13.464342
-##  [78] 10.742083  9.102032 11.477903 12.702695 11.806190  8.850585  8.935012
-##  [85]  7.496455 12.535371  9.309383  8.936234  9.452102  8.173359 12.794208
-##  [92]  7.595717  8.828052 10.527426 10.770102  6.162319  9.646320  5.918783
-##  [99] 12.889223 10.634970
+##   [1] 10.097592 11.104450 13.218822 10.325077 10.753681 14.644973 11.194647
+##   [8] 10.732123 10.346695 13.392036 11.040522 11.116823  9.582856  8.156830
+##  [15]  7.485175 10.223045 12.123418 11.682411 16.804050  9.002796 12.103742
+##  [22] 10.852130 11.809714 12.889225  9.862204  9.387005 11.072356 10.709722
+##  [29] 11.584223 12.262654 10.692594  9.994376  7.699187  8.453345 10.776394
+##  [36]  8.149819 10.701605  9.933366 10.402809  8.460684 11.053216 11.910332
+##  [43]  9.364680  9.680460 13.536296 11.693663 12.148007 10.545201  9.537733
+##  [50]  7.923727 12.489401 11.231428  6.034919 10.339734 10.517302  9.745458
+##  [57] 10.278567 15.135604  7.202211  9.425323 11.243899 10.751670  8.564083
+##  [64] 10.532044  7.366062  8.645408 12.207093  9.619091 10.702978  9.546807
+##  [71]  8.513987  9.444071  9.814848 10.034325 10.322150 11.667842 12.461482
+##  [78]  9.105862  9.371643  9.372708 12.087519 10.564689  8.524046 10.345242
+##  [85] 10.070633 10.607429 13.746567  8.880704  8.298742  8.199368 12.836396
+##  [92]  5.851581  8.369447  8.611566  8.134221 12.575717  8.112092  8.098381
+##  [99] 13.220838 12.032838
 ```
 
 ```r
@@ -116,7 +118,7 @@ mean(rnorm(100))
 ```
 
 ```
-## [1] 0.03882115
+## [1] 0.08910737
 ```
 
 ```r
@@ -125,7 +127,7 @@ sum(rnorm(100))
 ```
 
 ```
-## [1] -1.488568
+## [1] 17.83306
 ```
 
 A few side notes.  The `#` indicates a comment.  You can put whatever else you'd like after this, but on the same line as the `#`.  R will not evaluate it. Mulitple `#####`, are still just seen as a comment.  When commenting your code, err on the side of too much!  Also, you will see `()`, `[]`, and `{}` used in R code.  The `()` indicates a function (almost always), the `[]` indicates indexing (grabbing values by the location), and the `{}` groups code that is meant to be run together and is usually used when programming functions in R.
@@ -150,10 +152,13 @@ install.packages("ggplot2")
 ```
 ## Installing package into '/data/jhollist/R/x86_64-redhat-linux-gnu-library/3.2'
 ## (as 'lib' is unspecified)
+## also installing the dependency 'scales'
 ```
 
 ```
-## Error in contrib.url(repos, type): trying to use CRAN without setting a mirror
+## 
+## The downloaded source packages are in
+## 	'/tmp/RtmpfwZi75/downloaded_packages'
 ```
 
 ```r
@@ -166,7 +171,9 @@ install.packages("dplyr")
 ```
 
 ```
-## Error in contrib.url(repos, type): trying to use CRAN without setting a mirror
+## 
+## The downloaded source packages are in
+## 	'/tmp/RtmpfwZi75/downloaded_packages'
 ```
 
 ```r
@@ -180,7 +187,9 @@ install.packages(c("randomForest","formatR"))
 ```
 
 ```
-## Error in contrib.url(repos, type): trying to use CRAN without setting a mirror
+## 
+## The downloaded source packages are in
+## 	'/tmp/RtmpfwZi75/downloaded_packages'
 ```
 
 ###Loading packages
@@ -190,13 +199,6 @@ One source of confusion that many have is when they cannot access a package that
 ```r
 #Add libraries to your R Session
 library("ggplot2")
-```
-
-```
-## Loading required package: methods
-```
-
-```r
 library("dplyr")
 ```
 

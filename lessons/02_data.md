@@ -1,3 +1,5 @@
+
+
 # Working With Data in R
 
 In this lesson we are going to focus on data and how it is dealt with by R.  This will include a discussion of the basic data types as well as data structures.  Lastly we will cover ways to get data that lives in other files into R.  We will work through examples using base R. I will demo other ways of getting data into R with some additional packages
