@@ -1,7 +1,4 @@
 
-```
-## Error in setwd("lessons"): cannot change working directory
-```
 
 # Data Visualization
 

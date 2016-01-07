@@ -1,6 +1,5 @@
 ```{r setup, echo=FALSE, warning=FALSE, purl=FALSE, message=FALSE}
 options(repos="http://cran.rstudio.com/")
-setwd("lessons")
 opts_chunk$set(fig.path="figures/")
 if(!require("ggplot2")){
   install.packages("ggplot2")
