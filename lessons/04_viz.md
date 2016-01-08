@@ -2,7 +2,7 @@
 
 # Data Visualization
 
-Visualizing  data is an area where R really shines.  We are going to again take a split approach.  I will show some quick and easy graphics that we can produce with base R, but we won't spend anytime customizing them. Instead, we will move on quickly to `ggplot2`, which is now (I have no data to back this up), the de-facto standard for visualizing data in R.  We have only a very short time to
+Visualizing  data is an area where R really shines.  Again, will split our focus between base and and installed package, `ggplot2`.  I will show some quick and easy graphics that we can produce with base R, but we won't spend anytime customizing them. Instead, we will move on quickly to `ggplot2`, which is now (I have no data to back this up), the de-facto standard for visualizing data in R.  We have only a very short time to
 spend on this, but hopefully it will provide enough of a foundation for future learning.
 
 ## Lesson Outline:
