@@ -515,7 +515,7 @@ p + facet_grid(cyl ~ .)
 p + facet_grid(vs ~ am)
 
 ## ----facet_grid_nla, warning=FALSE, message=FALSE------------------------
-tp_chla <- ggplot(nla_data,aes(x=log10(PTL),y=log10(CHLA))) + geom_point()
+tp_chla <- ggplot(nla_wq,aes(x=log10(PTL),y=log10(CHLA))) + geom_point()
 
 tp_chla + facet_grid(RT_NLA ~ .)
 

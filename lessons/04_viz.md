@@ -418,39 +418,16 @@ p + facet_grid(vs ~ am)
 And a parting example using the NLA data.
 
 
-```
-## Error in eval(expr, envir, enclos): object 'SITE_ID' not found
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'SITE_ID' not found
-```
-
-```
-## Error in subset(nla_wq_subset, subset = VISIT_NO == 1): object 'nla_wq_subset' not found
-```
-
-```
-## Error in merge(nla_wq_subset, nla_sites_subset, by = "SITE_ID", all.x = TRUE): object 'nla_wq_subset' not found
-```
 
 
 
 ```r
-tp_chla <- ggplot(nla_data,aes(x=log10(PTL),y=log10(CHLA))) + geom_point()
-```
+tp_chla <- ggplot(nla_wq,aes(x=log10(PTL),y=log10(CHLA))) + geom_point()
 
-```
-## Error in ggplot(nla_data, aes(x = log10(PTL), y = log10(CHLA))): object 'nla_data' not found
-```
-
-```r
 tp_chla + facet_grid(RT_NLA ~ .)
 ```
 
-```
-## Error in eval(expr, envir, enclos): object 'tp_chla' not found
-```
+![plot of chunk facet_grid_nla](figures/facet_grid_nla-1.png) 
 
 ```r
 tp_chla +
@@ -458,9 +435,7 @@ tp_chla +
   facet_grid(RT_NLA ~ LAKE_ORIGIN)
 ```
 
-```
-## Error in eval(expr, envir, enclos): object 'tp_chla' not found
-```
+![plot of chunk facet_grid_nla](figures/facet_grid_nla-2.png) 
 
 ###Sources of Help on `ggplot2`
 - [Winston Chang's Cookbook](http://www.cookbook-r.com/Graphs/): Many great step-by-step examples.  Good starting point for you own plots
