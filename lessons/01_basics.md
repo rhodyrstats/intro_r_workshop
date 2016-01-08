@@ -19,22 +19,22 @@ In this first lesson we are going to go over the very basics of R, cover some ba
 - [Exercise 1.3](#exercise-13)
 
 ##Working with R and RStudio
-Over the last several years, RStudio has become a very popular IDE (integrated development environment) for R.  In addition to interacting with the R Console, RStudio has many extras built in including version control integration, package building, reproducible research, de-bugging, and built-in text editor with smart highlighting and code completion.  This is the environment we will be using for the workshop and should set you up for continued learning with R.
+Over the last several years, RStudio has become a very popular IDE (integrated development environment) for R. In addition to interacting with the R Console, RStudio has many extras built in including version control integration, package building, reproducible research, de-bugging, and built-in text editor with smart highlighting and code completion.  This is the environment we will be using for the workshop and should set you up for continued learning with R.
 
 Before we get to the first exercise, let's spend a bit of time working with RStudio. Just watch as I demo this.  The first exercise will have you doing these steps.
 
 ###Fire up R and RStudio
-This one is easy.  Find the RStudio shortcut or menu (OS specific of course) and fire it up.  Once done, it should look something like:
+Find the RStudio shortcut or menu (OS specific of course) and fire it up.  Once done, it should look something like:
 
 ![rstudio](figures/rstudio.jpg)
 
 ###Create a Project
-Projects are a way to organize your work in RStudio.  Essentially they are simply folders, but with a few added files so that you can manage some optionson a per project basis.  To create a new projecect use File:New Project, or usethe dropdown on the top right of the RStudio window.  It will look like this after you select "New Project..."
+Projects are a way to organize your work in RStudio.  Essentially they are simply folders, but with a few added files so that you can manage some options on a per project basis.  To create a new projecect use File:New Project, or use the dropdown on the top right of the RStudio window.  It will look like this after you select "New Project..."
 
 ![rstudio proj](figures/rstudio_proj.jpg)
 
 ###Create a Script
-Scripts are text files that you write code in.  We will be work both with scriptsand the console during this workshop.  To create a new script you use File:New File:R Script.
+Scripts are text files that hold the code you write.  We will work both with scripts and the console during this workshop.  To create a new script you use "File:New File:R Script".
 
 ![rstudio script](figures/rstudio_script.jpg)
 
@@ -47,12 +47,12 @@ This exercise will make sure R and RStudio are working and that you can get arou
 
 3. Create a new project.  Name it "intro_r_workshop".  We will use this for the rest of the workshop.
 
-4. Create a new "R Script"" in the Source Pane, save that file into your newly created project and name it "lesson1.R". It'll just be a blank text file at this point.
+4. Create a new "R Script" in the Source Pane, save that file into your newly created project and name it "lesson1.R". It'll just be a blank text file at this point.
 
 5. Download the [R code for the workshop](https://raw.githubusercontent.com/rhodyrstats/intro_r_workshop/master/lessons/intro_r_code.R) and save it in the project folder. 
 
 ##Workflow
-Before we jump into details on data in R we need to introduce a few of the basics about working in the console, working via scripts, and workspaces/projects.  We will also start working with some simple, yet important R functions.
+Before we move on, we need to introduce a few of the basics about working in the console, working via scripts, and workspaces/projects.  We will also start working with some simple, yet important R functions.
 
 Being thoughtful about workflow from the beginning of a project is something that gets overlooked a lot, but a little up-front effort can provide a big benefit.  For our purposes we are going to make use of RStudio projects and will script almost everything.  The console has its utility and we will use it plenty, especially when we are first figuring out how to use commands.  But beyond that, we will store all of our work in a script.  The basic workflow I am going to advocate is:
 
@@ -95,21 +95,21 @@ rnorm(100,mean=10,sd=2)
 ```
 
 ```
-##   [1] 10.097592 11.104450 13.218822 10.325077 10.753681 14.644973 11.194647
-##   [8] 10.732123 10.346695 13.392036 11.040522 11.116823  9.582856  8.156830
-##  [15]  7.485175 10.223045 12.123418 11.682411 16.804050  9.002796 12.103742
-##  [22] 10.852130 11.809714 12.889225  9.862204  9.387005 11.072356 10.709722
-##  [29] 11.584223 12.262654 10.692594  9.994376  7.699187  8.453345 10.776394
-##  [36]  8.149819 10.701605  9.933366 10.402809  8.460684 11.053216 11.910332
-##  [43]  9.364680  9.680460 13.536296 11.693663 12.148007 10.545201  9.537733
-##  [50]  7.923727 12.489401 11.231428  6.034919 10.339734 10.517302  9.745458
-##  [57] 10.278567 15.135604  7.202211  9.425323 11.243899 10.751670  8.564083
-##  [64] 10.532044  7.366062  8.645408 12.207093  9.619091 10.702978  9.546807
-##  [71]  8.513987  9.444071  9.814848 10.034325 10.322150 11.667842 12.461482
-##  [78]  9.105862  9.371643  9.372708 12.087519 10.564689  8.524046 10.345242
-##  [85] 10.070633 10.607429 13.746567  8.880704  8.298742  8.199368 12.836396
-##  [92]  5.851581  8.369447  8.611566  8.134221 12.575717  8.112092  8.098381
-##  [99] 13.220838 12.032838
+##   [1]  7.231961 13.165360  7.872159  6.361365  8.189678 10.921240  9.280605
+##   [8]  9.483567 13.891638 10.869648 13.109308  8.493192 11.806309 10.024787
+##  [15]  8.623052  9.430759 11.154636  9.601158  8.807766 10.649750 10.503611
+##  [22] 10.178590 12.097972  8.248356 11.504627  8.270888  8.458476  7.320197
+##  [29] 12.245265  9.730863  8.826531 12.783734 12.427084 12.157860  7.938126
+##  [36]  8.359723 10.380824 10.459463  6.931437  6.668098  8.801776 10.335934
+##  [43]  6.680043  9.850224 11.387494 12.461898  9.568078  9.252362  6.056281
+##  [50]  8.843857 14.163437  7.995819 10.218011  9.589292  7.701610 11.117396
+##  [57] 11.017302 10.933255  8.362784 10.253360  5.215154  6.906530  7.586481
+##  [64]  9.522100 13.537432  8.685994  9.037410 11.606745  7.851116  9.797842
+##  [71]  9.073337  8.799807 10.268179 10.123286 10.955453 12.512415 11.333131
+##  [78] 11.504225 10.898037  7.504828  7.806781  6.404368  7.831100  9.646890
+##  [85]  8.094416  6.386310  9.370105 10.299834 11.472947  6.726300 11.849530
+##  [92] 12.240473  8.967628  9.861790  9.510496  9.214280 10.626424  8.934512
+##  [99]  9.163168 10.993130
 ```
 
 ```r
@@ -118,7 +118,7 @@ mean(rnorm(100))
 ```
 
 ```
-## [1] 0.08910737
+## [1] -0.1038513
 ```
 
 ```r
@@ -127,7 +127,7 @@ sum(rnorm(100))
 ```
 
 ```
-## [1] 17.83306
+## [1] 10.41072
 ```
 
 A few side notes.  The `#` indicates a comment.  You can put whatever else you'd like after this, but on the same line as the `#`.  R will not evaluate it. Mulitple `#####`, are still just seen as a comment.  When commenting your code, err on the side of too much!  Also, you will see `()`, `[]`, and `{}` used in R code.  The `()` indicates a function (almost always), the `[]` indicates indexing (grabbing values by the location), and the `{}` groups code that is meant to be run together and is usually used when programming functions in R.
@@ -140,7 +140,7 @@ The base install of R is quite powerful, but you will soon have a need or desire
 One of the reasons for R's popularity is CRAN, [The Comprehensive R Archive Network](http://cran.r-project.org/).  This is where you download R and also where most will gain access to packages (there are other places, but that is for later).  Not much else to say about this now other than to be aware of it.
 
 ###Installing packages
-When a package gets installed, that means the source (or packaged binary for Windows) is downloaded and put into your library.  A default library location is set for you so no need to worry about that.  In fact on Windows most of this is pretty automatic.  Let's give it a shot.
+When a package gets installed, that means the source is downloaded and put into your library.  A default library location is set for you so no need to worry about that.  In fact on Windows most of this is pretty automatic.  Let's give it a shot.
 
 
 
@@ -152,13 +152,12 @@ install.packages("ggplot2")
 ```
 ## Installing package into '/data/jhollist/R/x86_64-redhat-linux-gnu-library/3.2'
 ## (as 'lib' is unspecified)
-## also installing the dependency 'scales'
 ```
 
 ```
 ## 
 ## The downloaded source packages are in
-## 	'/tmp/RtmpfwZi75/downloaded_packages'
+## 	'/tmp/RtmpQXWHvP/downloaded_packages'
 ```
 
 ```r
@@ -173,7 +172,7 @@ install.packages("dplyr")
 ```
 ## 
 ## The downloaded source packages are in
-## 	'/tmp/RtmpfwZi75/downloaded_packages'
+## 	'/tmp/RtmpQXWHvP/downloaded_packages'
 ```
 
 ```r
@@ -189,7 +188,7 @@ install.packages(c("randomForest","formatR"))
 ```
 ## 
 ## The downloaded source packages are in
-## 	'/tmp/RtmpfwZi75/downloaded_packages'
+## 	'/tmp/RtmpQXWHvP/downloaded_packages'
 ```
 
 ###Loading packages
@@ -245,18 +244,16 @@ update.packages()
 
 Lastly, a quick note on pacakges and libraries.  You will often hear people use the terms interchangably.  This is not correct.  A package is what is submitted to CRAN, it is what contains a group of functions that address a common problem, and it is what has allowed R to expand.  A library is, more or less, where you packages are stored.  You have a path to that library and this is where R puts new packages that you install (e.g. via `install.packages()`).  These two terms are related, but most certainly different.  Apologies up front if I slip and use one when I actually mean the other...
 
-
-
 ##Exercise 1.2
 For this second exercise we are going to get used to using some basic functions, working with scripts and not just the console, and look through some task views and get used to basic navigation around packages.  Use the green stickies when you have completed, and red stickies if you are running into problems.
 
 1. If it is not already open, open the "lesson1.R" file you created in Exercise 1. Enter your commands into this script.
-2. Use the `print` function to print something to the screen.
+2. Add the `print` function to your script.  Copy/past this or use the "run" button in RSutdio to have R interpret it and print something to the screen.
 3. Combine `mean` and `rnorm` to return the mean value of a set of random numbers.
-4. Open up a [task view](http://cran.r-project.org/web/views/) of your choosing.  Select a package and install it. 
-5. Load the package into your library.
-6. Open the help for the package.
-7. Save all these functions inside your "lesson1.R" script.  Run the script using the "Run" button at the top right of the editor.
+4. Install the pacakge, `dplyr`
+5. Load `dplyr` into your library.
+6. Open the help for the `dplyr`.
+7. Make sure to save all these functions inside your "lesson1.R" script.  
 
 ##Operators and objects
 As I mentioned above, the console and using R interactively is very powerful.  We will do this quite a bit.  Let's spend a little time playing around in the console and learn a few new functions.
@@ -363,7 +360,9 @@ R can be used as a calculator and a way to compare values.  Some examples of the
 
 That's neat, but so what...  
 
-Well, it could be interesting to do something with those values and save them for re-use.  We can do that with objects (everything in R is an object) and use the assignment operator, `<-`.  Know that object names cannot start with a number, contain spaces, or (most) special characters.  Underscore and periods are allowed.
+Well, it could be interesting to do something with those values and save them for re-use.  We can do that with objects (everything in R is an object) and use the assignment operator, `<-`.  Know that object names cannot start with a number, contain spaces, or (most) special characters.  Underscore and periods are allowed.  
+
+**NOTE:** If you have experience with other, object-oriented languages, then just be aware that R objects, at least the general use of the term, are different.  
 
 
 ```r
@@ -458,29 +457,36 @@ getwd()
 
 ```r
 #Change the directory
-setwd("temp")
-```
+setwd("figures")
 
-```
-## Error in setwd("temp"): cannot change working directory
-```
-
-```r
 #List files and directories
 list.files()
 ```
 
 ```
-##  [1] "01_basics.md"     "01_basics.Rmd"    "02_data.md"      
-##  [4] "02_data.Rmd"      "03_wrangling.md"  "03_wrangling.Rmd"
-##  [7] "04_viz.md"        "04_viz.Rmd"       "figures"         
-## [10] "intro_r_code.R"   "purl_all.R"
+##  [1] "abline_examp_lm-1.png"       "abline_examp-1.png"         
+##  [3] "base_hist_examp-1.png"       "base_hist_examp-2.png"      
+##  [5] "boxplot_examp-1.png"         "boxplot_grps_examp-1.png"   
+##  [7] "cdf_examp-1.png"             "facet_grid_example-1.png"   
+##  [9] "facet_grid_example-2.png"    "facet_grid_nla-1.png"       
+## [11] "facet_grid_nla-2.png"        "gg_bar_examp2-1.png"        
+## [13] "gg_box_examp-1.png"          "gg_hist_examp-1.png"        
+## [15] "iris_colors-1.png"           "iris_labels-1.png"          
+## [17] "iris_lm_color-1.png"         "iris_lm_groups-1.png"       
+## [19] "iris_lm-1.png"               "iris_loess-1.png"           
+## [21] "pairs_examp-1.png"           "plot_examp_2-1.png"         
+## [23] "plot_examp-1.png"            "points_examp-1.png"         
+## [25] "points_examp-2.png"          "rstudio_proj.jpg"           
+## [27] "rstudio_script.jpg"          "rstudio.jpg"                
+## [29] "themes_examp_custom-1.png"   "themes_examp_polished-1.png"
+## [31] "themes_examp_stock-1.png"    "themes_examp_stock-2.png"   
+## [33] "themes_examp-1.png"
 ```
 
 While you can do this directly from the console, it is going to be better practice to mostly use RStudio projects to manage your folders, working directory etc.  You can also navigate using the Files, etc. pane. 
 
 ##Exercise 1.3
-For this excercise I am actually going to ignore my workflow advice from above.  We are still in explore mode and saving this as a script doesn't yet make a whole lot of sense. Remember to use the green stickies when you have completed, and red stickies if you are running into problems. So, for this exercise:
+Remember to add each of these as new lines to your `lesson1.R` script.  Also, please still use the green stickies when you have completed, and red stickies if you are running into problems. So, for this exercise:
 
 1. Create two objects named `number1` and `number2` and give them the values of 25 and 4, respectively 
 2. Create two more objects named `string1` and `string2`, give them any character string that you would like. 

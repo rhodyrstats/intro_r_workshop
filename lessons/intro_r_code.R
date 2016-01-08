@@ -90,7 +90,7 @@ save(a,y,file="lesson2_ay.RData")
 getwd()
 
 #Change the directory
-setwd("temp")
+setwd("figures")
 
 #List files and directories
 list.files()
