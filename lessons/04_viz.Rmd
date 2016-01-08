@@ -16,8 +16,7 @@ library("dplyr")
 
 # Data Visualization
 
-Visualizing  data is an area where R really shines.  Again, will split our focus between base and and installed package, `ggplot2`.  I will show some quick and easy graphics that we can produce with base R, but we won't spend anytime customizing them. Instead, we will move on quickly to `ggplot2`, which is now (I have no data to back this up), the de-facto standard for visualizing data in R.  We have only a very short time to
-spend on this, but hopefully it will provide enough of a foundation for future learning.
+Visualizing  data is an area where R really shines.  Again, will split our focus between base and an installed package, `ggplot2`.  I will show some quick and easy graphics that we can produce with base R, but we won't spend anytime customizing them. Instead, we will move on quickly to `ggplot2`, which is now (I have no data to back this up), the de-facto standard for visualizing data in R.  We have only a very short time to spend on this, but hopefully it will provide enough of a foundation for future learning.
 
 ## Lesson Outline:
 
@@ -31,7 +30,7 @@ spend on this, but hopefully it will provide enough of a foundation for future l
 - [Exercise 4.2](#exercise-42)
 
 ##Simple plots with base R
-Exploratory data analysis tends to be a little bit about stats and a lot about visualization.  Later we are going to go into more detail on `ggplot2` which is becoming the gold standard of viz in R, but for now we will look at some of the simple, yet very useful, plots that come with base R.  I find these to be great ways to quickly explore data.  
+When you first get a dataset and are just starting to explore it, you want do be able to quickly visualize different bits and pieces about the data.  I tend to do this, initially, with base R. We will cover some quick plots with base R.  Later we are going to go into more detail on `ggplot2` which is becoming the gold standard of viz in R.  For now we will look at some of the simple, yet very useful, plots that come with base R.  
 
 The workhorse function for plotting data in R is `plot()`.  With this one command you can create almost any plot you can conceive of, but for this workshop we are just going to look at the very basics of the function.  The most common way to use `plot()` is for scatterplots.  Let's look at the `mtcars` data.
 
@@ -75,7 +74,7 @@ plot(iris$Petal.Width,iris$Petal.Length, main="Petal Dimensions")
 abline(lm(Petal.Length~Petal.Width,data=iris))
 ```
 
-So, we detoured a bit.  Let's get back to a few more examples of exploratory plots.  We will look at boxplots, histograms, and cumulative distribution functions then call it quits on the exploratory analyis (and the first day, whew!)
+Next, let's look at boxplots, histograms, and cumulative distribution functions then call it quits on the base R plots.
 
 Two great ways to use boxplots are straight up and then by groups in a factor. For this we will use `boxplot()` and in this case it is looking for a vector as input. Sticking with `iris`:
 
@@ -83,7 +82,7 @@ Two great ways to use boxplots are straight up and then by groups in a factor. F
 boxplot(iris$Petal.Length, main="Boxplot of Petal Length",ylab="Length(cm)")
 ```
 
-As plots go, well, um, not great.  Let's try it with a bit more info and create a boxplot for each of the groups.
+As plots go, well, um, not great.  Let's try it with a bit more info and create a boxplot for each of the groups.  This is using formula notation which is in the base form of `y ~ x`.  Thinking about this form a 2-dimensional plot standpoint it makes sense as your x-axis is the species and y is the value of interest.
 
 ```{r boxplot_grps_examp}
 boxplot(iris$Petal.Length~iris$Species, main="Boxplot of Petal Length by Species",ylab="Length(cm)")
@@ -123,9 +122,9 @@ First thing we need to do is to create our ggplot object.  Everything we do will
 iris_gg<-ggplot(iris,aes(x=Petal.Length,y=Petal.Width))
 ```
 
-Great, nothing happened...  All we did at this point is create an object that contains our data and what we want on the x and y axes.  We haven't said anything about what type of plot we want to make.  That comes next with the use of geometries.  
+Great, nothing happened...  All we did at this point is create an object that contains our data and what we want on the x and y axes.  We haven't said anything about what type of plot we want to make.  That comes next with the use of geometries or `geom_`'s.  
 
-So if we want to simply plot points we can add it to the ggplot object.  These are known as the geometries.  
+So if we want to simply plot points we can add that geometry to the ggplot object.  
 
 A side note on syntax.  You will notice that we add new "things" to a ggplot object by adding new functions.  In concept this is very similar to the piping we talked about earlier.  Essentially it takes the output from the first function as the input to the second.  So to add points and create the plot, we would do:
 
@@ -161,7 +160,9 @@ iris_scatter<- iris_scatter +
 iris_scatter
 ```
 
-Much easier than using base.  Now `ggplot2` really shines when you want to add stats (regression lines, intervals, etc.). 
+You'll notice we used `aes()` again, but this time inside of the geometry.  This tells ggplot2 that this aes only applies to the points.  Other geometeries will not be affected by this.
+
+In short, this is much easier than using base.  Now `ggplot2` really shines when you want to add stats (regression lines, intervals, etc.). 
 
 Lets add a loess line with 95% confidence intervals
 
@@ -200,11 +201,11 @@ iris_scatter_lm_color
 ```
 
 
-You'll notice that I had to specify the `aes()` again, but for `geom_smooth()`.  We only specified the x and y in the original `ggplot` object, so if want to do something different in the subsequent functions we need to overwrite it for the function in which we want a different mapping (i.e. groups).
+I mentioned this above, but not again, that we specified the `aes()` again, but for `geom_smooth()`.  We only specified the x and y in the original `ggplot` object, so if want to do something different in the subsequent functions we need to overwrite it for the function in which we want a different mapping (i.e. groups).
 
 In short, some of the initial setup for ggplot is a bit more verbose than base R, but when we want to do some more complex plots it is much easier in `ggplot2`.  
 
-Before we get into another exercise, lets look at some of the other geometries.  In particular, boxplots, histograms, and bar charts.  If you want to see all that you can do, take a look at the list of `ggplot2` [geom functions](http://docs.ggplot2.org/0.9.3.1/index.html).
+Before we get into another exercise, lets look at some of the other geometries.  In particular, boxplots, histograms, and bar charts.  If you want to see all that you can do, take a look at the list of `ggplot2` [geom functions](http://docs.ggplot2.org/current/).
 
 
 ###Boxplots
@@ -354,7 +355,7 @@ tp_chla +
 
 ###Sources of Help on `ggplot2`
 - [Winston Chang's Cookbook](http://www.cookbook-r.com/Graphs/): Many great step-by-step examples.  Good starting point for you own plots
-- [Offical `ggplot2` documentation](http://docs.ggplot2.org/current/): The authoritative source.  Also many great examples.
+- [Offical `ggplot2` documentation](http://docs.ggplot2.org/current/): The authoritative source.  Also many great examples.  The [aesthetics vignette](http://docs.ggplot2.org/current/vignettes/ggplot2-specs.html) is good to know about.
 
 ###R Data Viz Examples
 - Cool rCharts examples: [rCharts Gallery](http://rcharts.io/gallery/)
