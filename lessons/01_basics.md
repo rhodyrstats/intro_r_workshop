@@ -29,7 +29,7 @@ Find the RStudio shortcut or menu (OS specific of course) and fire it up.  Once 
 ![rstudio](figures/rstudio.jpg)
 
 ###Create a Project
-Projects are a way to organize your work in RStudio.  Essentially they are simply folders, but with a few added files so that you can manage some options on a per project basis.  To create a new projecect use File:New Project, or use the dropdown on the top right of the RStudio window.  It will look like this after you select "New Project..."
+Projects are a way to organize your work in RStudio.  Essentially they are simply folders, but with a few added files so that you can manage some options on a per project basis.  To create a new project use File:New Project, or use the drop-down on the top right of the RStudio window.  It will look like this after you select "New Project..."
 
 ![rstudio proj](figures/rstudio_proj.jpg)
 
@@ -95,21 +95,21 @@ rnorm(100,mean=10,sd=2)
 ```
 
 ```
-##   [1]  7.231961 13.165360  7.872159  6.361365  8.189678 10.921240  9.280605
-##   [8]  9.483567 13.891638 10.869648 13.109308  8.493192 11.806309 10.024787
-##  [15]  8.623052  9.430759 11.154636  9.601158  8.807766 10.649750 10.503611
-##  [22] 10.178590 12.097972  8.248356 11.504627  8.270888  8.458476  7.320197
-##  [29] 12.245265  9.730863  8.826531 12.783734 12.427084 12.157860  7.938126
-##  [36]  8.359723 10.380824 10.459463  6.931437  6.668098  8.801776 10.335934
-##  [43]  6.680043  9.850224 11.387494 12.461898  9.568078  9.252362  6.056281
-##  [50]  8.843857 14.163437  7.995819 10.218011  9.589292  7.701610 11.117396
-##  [57] 11.017302 10.933255  8.362784 10.253360  5.215154  6.906530  7.586481
-##  [64]  9.522100 13.537432  8.685994  9.037410 11.606745  7.851116  9.797842
-##  [71]  9.073337  8.799807 10.268179 10.123286 10.955453 12.512415 11.333131
-##  [78] 11.504225 10.898037  7.504828  7.806781  6.404368  7.831100  9.646890
-##  [85]  8.094416  6.386310  9.370105 10.299834 11.472947  6.726300 11.849530
-##  [92] 12.240473  8.967628  9.861790  9.510496  9.214280 10.626424  8.934512
-##  [99]  9.163168 10.993130
+##   [1] 14.044736  9.684033  8.800673  9.220376 13.487744  9.605085 14.232770
+##   [8] 11.545946  9.843319 11.919571 11.217189  9.358893 14.987021 12.304491
+##  [15]  9.552828 11.454177 10.788889 14.322173  8.782561 11.954177  7.996965
+##  [22]  6.850785  8.143068 11.052952  8.506925 11.504368 10.230481 10.260372
+##  [29]  9.075502 11.599768 11.186352  8.977501 11.808839 10.601769  9.861571
+##  [36]  8.939001 10.914569  8.233454  8.756041 10.302033  8.303101 13.388704
+##  [43] 12.855190  8.980979  9.829612 11.248548  8.817567 13.327898  8.552516
+##  [50] 12.768837 12.332415 11.333398  7.222997 12.199258 10.714769  6.198756
+##  [57]  9.268870  9.543393  9.644788  8.084872 13.169919  9.711777 13.423163
+##  [64] 11.152835 14.892674 10.468704  7.628580  7.202515  8.529471  6.250375
+##  [71]  8.148544 12.464521  5.734045  9.875730  5.803798  6.363629 12.399438
+##  [78] 10.635988  9.211926 13.322890  9.764898  7.690987 14.763103  9.423389
+##  [85] 10.928847  8.977589  9.660654  8.161678  8.207103 11.416517  9.377510
+##  [92] 10.508390  7.759167 15.290620 12.052089 15.409863  4.824192 10.234081
+##  [99] 12.800891 10.985744
 ```
 
 ```r
@@ -118,7 +118,7 @@ mean(rnorm(100))
 ```
 
 ```
-## [1] -0.1038513
+## [1] -0.03884395
 ```
 
 ```r
@@ -127,10 +127,10 @@ sum(rnorm(100))
 ```
 
 ```
-## [1] 10.41072
+## [1] -5.337057
 ```
 
-A few side notes.  The `#` indicates a comment.  You can put whatever else you'd like after this, but on the same line as the `#`.  R will not evaluate it. Mulitple `#####`, are still just seen as a comment.  When commenting your code, err on the side of too much!  Also, you will see `()`, `[]`, and `{}` used in R code.  The `()` indicates a function (almost always), the `[]` indicates indexing (grabbing values by the location), and the `{}` groups code that is meant to be run together and is usually used when programming functions in R.
+A few side notes.  The `#` indicates a comment.  You can put whatever else you'd like after this, but on the same line as the `#`.  R will not evaluate it. Multiple `#####`, are still just seen as a comment.  When commenting your code, err on the side of too much!  Also, you will see `()`, `[]`, and `{}` used in R code.  The `()` indicates a function (almost always), the `[]` indicates indexing (grabbing values by the location), and the `{}` groups code that is meant to be run together and is usually used when programming functions in R.
 
 ##Packages
 
@@ -157,7 +157,7 @@ install.packages("ggplot2")
 ```
 ## 
 ## The downloaded source packages are in
-## 	'/tmp/RtmpQXWHvP/downloaded_packages'
+## 	'/tmp/Rtmp6uu1wu/downloaded_packages'
 ```
 
 ```r
@@ -172,7 +172,7 @@ install.packages("dplyr")
 ```
 ## 
 ## The downloaded source packages are in
-## 	'/tmp/RtmpQXWHvP/downloaded_packages'
+## 	'/tmp/Rtmp6uu1wu/downloaded_packages'
 ```
 
 ```r
@@ -188,7 +188,7 @@ install.packages(c("randomForest","formatR"))
 ```
 ## 
 ## The downloaded source packages are in
-## 	'/tmp/RtmpQXWHvP/downloaded_packages'
+## 	'/tmp/Rtmp6uu1wu/downloaded_packages'
 ```
 
 ###Loading packages
@@ -242,18 +242,17 @@ available.packages()
 update.packages()
 ```
 
-Lastly, a quick note on pacakges and libraries.  You will often hear people use the terms interchangably.  This is not correct.  A package is what is submitted to CRAN, it is what contains a group of functions that address a common problem, and it is what has allowed R to expand.  A library is, more or less, where you packages are stored.  You have a path to that library and this is where R puts new packages that you install (e.g. via `install.packages()`).  These two terms are related, but most certainly different.  Apologies up front if I slip and use one when I actually mean the other...
+Lastly, a quick note on packages and libraries.  You will often hear people use the terms interchangeably.  This is not correct.  A package is what is submitted to CRAN, it is what contains a group of functions that address a common problem, and it is what has allowed R to expand.  A library is, more or less, where you packages are stored.  You have a path to that library and this is where R puts new packages that you install (e.g. via `install.packages()`).  These two terms are related, but most certainly different.  Apologies up front if I slip and use one when I actually mean the other...
 
 ##Exercise 1.2
 For this second exercise we are going to get used to using some basic functions, working with scripts and not just the console, and look through some task views and get used to basic navigation around packages.  Use the green stickies when you have completed, and red stickies if you are running into problems.
 
 1. If it is not already open, open the "lesson1.R" file you created in Exercise 1. Enter your commands into this script.
-2. Add the `print` function to your script.  Copy/past this or use the "run" button in RSutdio to have R interpret it and print something to the screen.
+2. Add the `print` function to your script.  Copy/past this or use the "run" button in RStudio to have R interpret it and print something to the screen.
 3. Combine `mean` and `rnorm` to return the mean value of a set of random numbers.
-4. Install the pacakge, `dplyr`
+4. Install the package, `dplyr`
 5. Load `dplyr` into your library.
-6. Open the help for the `dplyr`.
-7. Make sure to save all these functions inside your "lesson1.R" script.  
+6. Make sure to save all these functions inside your "lesson1.R" script.  
 
 ##Operators and objects
 As I mentioned above, the console and using R interactively is very powerful.  We will do this quite a bit.  Let's spend a little time playing around in the console and learn a few new functions.
@@ -441,7 +440,7 @@ save.image("lesson2.RData")
 save(a,y,file="lesson2_ay.RData")
 ```
 
-This is probably a good spot to bring up quotes vs no quotes around arguments in a function.  This is a very common stumbling block.  The general rule is that no quotes are used only when referring to an object that currently exists.  Quotes are used in all other cases.  For instance in `save(a,y,file="lesson2_ay.RData")` the objects `a` and `y` are not quoted becuase they are objects in the workspace.  `file` is an argument of save and arguments are never quoted.  We quote the name of the file "lesson2_ay.RData" becuase it is not an R object but the name of a file to be created.  You will likely still have some issues with this.  My recomendation is to think about if it is an object in your R workspace or not.  If so, no quotes! This isn't foolproof, but works well most of the time.
+This is probably a good spot to bring up quotes vs no quotes around arguments in a function.  This is a very common stumbling block.  The general rule is that no quotes are used only when referring to an object that currently exists.  Quotes are used in all other cases.  For instance in `save(a,y,file="lesson2_ay.RData")` the objects `a` and `y` are not quoted because they are objects in the workspace.  `file` is an argument of save and arguments are never quoted.  We quote the name of the file "lesson2_ay.RData" because it is not an R object but the name of a file to be created.  You will likely still have some issues with this.  My recommendation is to think about if it is an object in your R workspace or not.  If so, no quotes! This isn't foolproof, but works well most of the time.
 
 Next thing you might want to do is navigate around your files and directories.
 
