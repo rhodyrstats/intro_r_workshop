@@ -114,16 +114,6 @@ na.omit()#na.omit - removes them
 na.exclude()#similar to omit, but has different behavior with some functions.
 is.na()#Will tell you if a value is NA
 
-## ------------------------------------------------------------------------
-1/0
-# [1] Inf
-1/Inf
-# [1] 0
-
-## ------------------------------------------------------------------------
-0/0
-NaN.
-
 ## ----use_c---------------------------------------------------------------
 char_vector <- c("Joe","Bob","Sue")
 num_vector <- c(1,6,99,-2)
@@ -323,20 +313,21 @@ group_by(iris,Species)%>%
             mean(Petal.Width))
 
 ## ----arrange_example-----------------------------------------------------
-head(mtcars)
+#dplyr provides its own object type, tbl that has lots of nice properties
+mtcars_tbl <- as.tbl(mtcars)
 #ascending order is default
-head(arrange(mtcars,mpg))
+arrange(mtcars_tbl,mpg)
 #descending
-head(arrange(mtcars,desc(mpg)))
+arrange(mtcars_tbl,desc(mpg))
 #multiple columns: most cyl with best mpg at top
-head(arrange(mtcars,desc(cyl),desc(mpg)))
+arrange(mtcars_tbl,desc(cyl),desc(mpg))
 
 ## ----slice_example-------------------------------------------------------
 #grab rows 3 through 10
-slice(mtcars,3:10)
+slice(mtcars_tbl,3:10)
 
 ## ----mutate_example------------------------------------------------------
-head(mutate(mtcars,kml=mpg*0.425))
+mutate(mtcars_tbl,kml=mpg*0.425)
 
 ## ----rowwise_examp-------------------------------------------------------
 #First a dataset of temperatures, recorded weekly at 100 sites.

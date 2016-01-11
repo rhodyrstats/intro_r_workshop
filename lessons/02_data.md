@@ -2,7 +2,7 @@
 
 # Working With Data in R
 
-In this lesson we are going to focus on data and how it is dealt with by R.  This will include a discussion of the basic data types as well as data structures.  Lastly we will cover ways to get data that lives in other files into R.  We will work through examples using base R. I will demo other ways of getting data into R with some additional packages
+In this lesson we are going to focus on data and how it is dealt with by R.  This will include a discussion of the basic data types and data structures.  Lastly we will cover how to get data that lives in other files into R.  We will work through examples using base R. I will demo other ways of getting data into R with some additional packages
 
 ## Lesson Outline:
 
@@ -38,7 +38,7 @@ In this workshop we will deal almost exclusively with three (and these are, in m
 ### NA, Inf, and NaN
 There are values that you will run across on ocassion that aren't really data types but are important to know about.  
 
-`NA` is R's value for missing data.  You will see this often and need to figure out how to deal with them in your analysis.  A few built in functions are useful for dealing with `NA`.  We will show their usage a bit later.
+`NA` is R's value for missing data.  You will see this often and need to figure out how to deal with them in your analysis.  A few built in functions are useful for dealing with `NA`.  
 
 
 ```r
@@ -47,48 +47,7 @@ na.exclude()#similar to omit, but has different behavior with some functions.
 is.na()#Will tell you if a value is NA
 ```
 
-`Inf` is infinity. You can have positive or negative infinity.
-
-
-```r
-1/0
-```
-
-```
-## [1] Inf
-```
-
-```r
-# [1] Inf
-1/Inf
-```
-
-```
-## [1] 0
-```
-
-```r
-# [1] 0
-```
-
-`NaN` means Not a number. it's an undefined value.
-
-
-```r
-0/0
-```
-
-```
-## [1] NaN
-```
-
-```r
-NaN.
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'NaN.' not found
-```
+`Inf` is infinity. You can have positive or negative infinity and `NaN` means "not a number."  It's an undefined value.
 
 ###Data structures
 The next set of information relates to the many data structures in R.  
@@ -102,7 +61,7 @@ The data structures in base R include:
 - factors
 - tables
 
-Our efforts will focus on vectors and data frames.  We will discuss just the basics of lists and factors.  I will leave it to your curiousity to explore the matrix and table data structures.
+Our efforts will focus on vectors, and data frames.  We will discuss just the basics of lists and factors. We  will leave it to your curiousity to explore the matrix and table data structures.
 
 ### Vectors
 A vector is the most common and basic data structure in `R` and is pretty much the workhorse of R. 
@@ -236,7 +195,7 @@ laugh
 ##  [99] "Ha" "Ha"
 ```
 
-Lastly, R can operate directly on vectors.  This means we can use use our arithmetic functions on vectors and also many functions can deal with vectors directly.  The result of this is another vector, equal to the length of the longest one.
+Lastly, R can operate directly on vectors.  This means we can use use our arithmetic functions on vectors and also many functions can deal with vectors directly.  The result of this is another vector, equal to the length of the longest one.  You will hear this referred to as "vectorized" operations.
 
 
 ```r
@@ -529,20 +488,20 @@ If you want to learn more about lists or any other data structure, [Hadley Wickh
 
 For the first exercise of lesson 2, we are going to build a data frame from scratch.  
 
-1.) Create a new script for this exercise and call it "exercise2_1.R".  All of the code for this exercise will be put into this script.  Don't forget to use comments!
+1.) Create a new script for this exercise and call it "lesson2.R".  All of the code for this exercise will be put into this script.  Don't forget to use comments!
 
 2.) Create three vectors.  One with numeric data, one with character, and a third with boolean data.  Each vector must contain at least 10 values.
 
-3.) Combine these three vectors into a data frame (hint: `data.frame()`) that isstored in an object called `my_df`.
+3.) Combine these three vectors into a data frame (hint: `data.frame()`) that is stored in an object called `my_df`.
 
-4.) Now from the console, explore `my_df` with some of the functions we talkedabout earlier.
+4.) Now from the console, explore `my_df` with some of the functions we talked about earlier.
 
 ##Reading external data
 Completely creating a data frame from scratch is useful (especially when you start writing your own functions), but more often than not data is stored in an external file that you need to read into R.  These may be delimited text files, spreadsheets, relational databases, SAS files ...  You get the idea.  Instead of treating this subject exhaustively, we will focus just on a single file type, `.csv` that is very commonly encountered and (usually) easy to create from other file types.  For this, we will use `read.csv()`. 
 
-`read.csv()` is a specialized version of `read.table()` that focuses on, big surprise here, .csv files. This command assumes a header row with column names and that the delimiter is a comma. The expected no data value is NA and by default, strings are converted to factors (this can trip people up).
+`read.csv()` is a specialized version of `read.table()` that focuses on, big surprise here, .csv files. This command assumes a header row with column names and that the delimiter is a comma. The expected no data value is NA and by default, strings are converted to factors by default (this can trip people up).
 
-Source files for read.csv() can either be on a local hard drive or, and this is pretty cool, on the web. We will be using the later for our examples and exercises. If you had a local file it would be accessed like `mydf <- read.csv("C:/path/to/local/file.csv")`. As an aside, paths and use of forward vs back slash is important. R is looking for forward slashes ("/"), or unix-like paths. You can use these in place of the back slash and be fine. You can use a back slash but it needs to be a double back slash ("\"). This is becuase the single backslash in an escape character that is used to indicate things like newlines or tabs. 
+Source files for `read.csv()` can either be on a local hard drive or, and this is pretty cool, on the web. We will be using the later for our examples and exercises. If you had a local file it would be accessed like `mydf <- read.csv("C:/path/to/local/file.csv")`. As an aside, paths and use of forward vs back slash is important. R is looking for forward slashes ("/"), or unix-like paths. You can use these in place of the back slash and be fine. You can use a back slash but it needs to be a double back slash ("\"). This is becuase the single backslash in an escape character that is used to indicate things like newlines or tabs. 
 
 For now we are going to be focusing on grabbing data from a website, which just requires using an URL in the read.csv() function.
 
@@ -623,7 +582,7 @@ From here on out I hope to have these exercises begin to build on each other. We
 Although, `read.csv()` and `read.table()` are very flexible, they are not the only options for reading in data.  In this section we will discuss some other packages developed for reading in data.  
 
 ###readr and readxl
-Two packages developed by Hadley Wickham for reading in data are `readr` and `readxl`.  `readr` was developed to provide a more consistent and firendlier interface for reading in data.  It also address many of the idiosyncracies (annoyances??) in `read.csv()`.  The `readxl` pacakge does just that, it readsin Excel spreadsheets.  Other packages also exist for this but they all have external dependencies (e.g. Java or perl) that can make install a bit more challenging.  Both of these are available from CRAN. Links to the GitHub repositories are below:
+Two packages developed by Hadley Wickham for reading in data are `readr` and `readxl`.  `readr` was developed to provide a more consistent and friendlier interface for reading in data.  It also address many of the idiosyncracies (annoyances??) in `read.csv()`.  The `readxl` pacakge does just that, it reads in Excel spreadsheets.  Other packages also exist for this but they all have external dependencies (e.g. Java or perl) that can make install a bit more challenging.  Both of these are available from CRAN. Links to the GitHub repositories are below:
 
 - [readr](https://github.com/hadley/readr)
 - [readxl](https://github.com/hadley/readxl)
@@ -637,4 +596,4 @@ This is a big topic, so we clearly won't really be addressing it.  That being sa
 - `DBI`: This package, short for database interface, supports connections to a number of databases, including SQLite, MySQL, and PostgreSQL.
 - `RODBC`: This is an R implementation of the ODBC connectivity.  It allows you to connect with, among other things, Microsoft Access databases.  
 
-Each of these provide a fairly low-level interface and have a bit of a learning curve.  An higher-level way to access your dabases is through the use of `dplyr`. `dplyr` uses DBI to connect direcly to databases and allows query of that database through the use of the `dplyr` functions.  To learn more, read the [vignette on databases](https://cran.r-project.org/web/packages/dplyr/vignettes/databases.html).  That provides a lot of good examples.  We will be working some with `dplyr` in the next lesson, but won't have time to get into the database connections.
+Each of these provide a fairly low-level interface and have a bit of a learning curve.  A higher-level way to access your databases is through the use of `dplyr`. `dplyr` uses DBI to connect direcly to databases and allows query of that database through the use of the `dplyr` functions.  To learn more, read the [vignette on databases](https://cran.r-project.org/web/packages/dplyr/vignettes/databases.html).  That provides a lot of good examples.  We will be working some with `dplyr` in the next lesson, but won't have time to get into the database connections.

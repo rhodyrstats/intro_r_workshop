@@ -2,7 +2,7 @@
 
 # Basic Data Wrangling with R
 
-Data wrangling (manipulation, jujitsu, cleaning, etc.) is the part of any data analysis that will take the most time.  While it may not necessarily be fun, it is foundational to all the work that follows.  For this workshop we are just going to cover the bare essentialls of working with data frames in R.  We will see how to do this with base R and will practice how to do it with Hadley Wickham's `dplyr` package.
+Data wrangling (manipulation, jujitsu, cleaning, etc.) is the part of any data analysis that will take the most time.  While it may not necessarily be fun, it is foundational to all the work that follows.  For this workshop we are just going to cover the bare essentials of data wrangling in R.  We will see how to do this with base R and will practice how to do it with Hadley Wickham's `dplyr` package.
 
 ## Lesson Outline:
 
@@ -87,7 +87,6 @@ x[x%%2==0]
 ```
 ## [1] 10 12 14 16 18
 ```
-
 
 ##Indexing lists
 Basic indexing of lists isn't too much different than indexing a vector, but remember for our discussion of lists, that you can have any R object stored in a list (e.g., a vector, another list, a data.frame).  So to get the item you want can be a bit tricky.  A few simple examples.
@@ -283,7 +282,7 @@ head(virginica_iris)
 
 ##dplyr
 
-The package `dplyr` is a fairly new (2014) package that tries to provide easy tools for the most common data manipulation tasks.  It is built to work directly with data frames.  The thinking behind it was largely inspired by the package `plyr` which has been in use for some time but suffered from being slow in some cases.  `dplyr` addresses this by porting much of the computation to C++.  An additional feature is the ability to work with data stored directly in an external database.  The benefits of doing this are that the data can be managed natively in a relational database, queries can be conducted on that database, and only the results of the query returned.  
+The package `dplyr` is a fairly new (2014) package that tries to provide easy tools for the most common data manipulation tasks.  It is built to work directly with data frames.  The thinking behind it was largely inspired by the package `plyr` which has been in use for some time but suffered from being slow in some cases.  `dplyr` addresses this by porting much of the computation to c++.  An additional feature is the ability to work with data stored directly in an external database.  The benefits of doing this are that the data can be managed natively in a relational database, queries can be conducted on that database, and only the results of the query returned.  
 
 This addresses a common problem with R in that all operations are conducted in memory and thus the amount of data you can work with is limited by available memory.  The database connections essentially remove that limitation in that you can have a database of many 100s GB, conduct queries on it directly and pull back just what you need for analysis in R.  There is a lot of great info on `dplyr`.  If you have an interest, i'd encourage you to look more.  The vignettes are particulary good.
 
@@ -404,7 +403,7 @@ This exercise is going to focus on using what we just covered on `dplyr` to star
 6. Last thing we are going to need to do is get a subset of the observations.  We need only the lakes with VISIT_NO equal to 1 and SITE_TYPE equal to "PROB_Lake".  Keep the same name, `nla_wq_subset`, for this data frames.
 
 ###Modifying and summarizing with dplyr
-One area where it really shines is in modifying and summarizing.   We will do more here than we did with base, but first lets walk through one of the examples we did previously, aggregating.  We can do this with `group_by()` and  `summarize()`.
+One area where `dplyr` really shines is in aggregating, modifying and summarizing.  Let's start with aggregation.  We can do this with `group_by()` and  `summarize()`.
 
 First, we'll look at an example of grouping a data frame and summarizing the data within those groups.
 
@@ -435,62 +434,74 @@ First `arrange()` will re-order a data frame based on the values of a columns.  
 
 
 ```r
-head(mtcars)
-```
-
-```
-##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
-## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
-## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
-## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
-## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
-## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
-```
-
-```r
+#dplyr provides its own object type, tbl that has lots of nice properties
+mtcars_tbl <- as.tbl(mtcars)
 #ascending order is default
-head(arrange(mtcars,mpg))
+arrange(mtcars_tbl,mpg)
 ```
 
 ```
-##    mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## 1 10.4   8  472 205 2.93 5.250 17.98  0  0    3    4
-## 2 10.4   8  460 215 3.00 5.424 17.82  0  0    3    4
-## 3 13.3   8  350 245 3.73 3.840 15.41  0  0    3    4
-## 4 14.3   8  360 245 3.21 3.570 15.84  0  0    3    4
-## 5 14.7   8  440 230 3.23 5.345 17.42  0  0    3    4
-## 6 15.0   8  301 335 3.54 3.570 14.60  0  1    5    8
+## Source: local data frame [32 x 11]
+## 
+##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl)
+## 1   10.4     8 472.0   205  2.93 5.250 17.98     0     0     3     4
+## 2   10.4     8 460.0   215  3.00 5.424 17.82     0     0     3     4
+## 3   13.3     8 350.0   245  3.73 3.840 15.41     0     0     3     4
+## 4   14.3     8 360.0   245  3.21 3.570 15.84     0     0     3     4
+## 5   14.7     8 440.0   230  3.23 5.345 17.42     0     0     3     4
+## 6   15.0     8 301.0   335  3.54 3.570 14.60     0     1     5     8
+## 7   15.2     8 275.8   180  3.07 3.780 18.00     0     0     3     3
+## 8   15.2     8 304.0   150  3.15 3.435 17.30     0     0     3     2
+## 9   15.5     8 318.0   150  2.76 3.520 16.87     0     0     3     2
+## 10  15.8     8 351.0   264  4.22 3.170 14.50     0     1     5     4
+## ..   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...
 ```
 
 ```r
 #descending
-head(arrange(mtcars,desc(mpg)))
+arrange(mtcars_tbl,desc(mpg))
 ```
 
 ```
-##    mpg cyl  disp  hp drat    wt  qsec vs am gear carb
-## 1 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
-## 2 32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
-## 3 30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
-## 4 30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
-## 5 27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
-## 6 26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Source: local data frame [32 x 11]
+## 
+##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl)
+## 1   33.9     4  71.1    65  4.22 1.835 19.90     1     1     4     1
+## 2   32.4     4  78.7    66  4.08 2.200 19.47     1     1     4     1
+## 3   30.4     4  75.7    52  4.93 1.615 18.52     1     1     4     2
+## 4   30.4     4  95.1   113  3.77 1.513 16.90     1     1     5     2
+## 5   27.3     4  79.0    66  4.08 1.935 18.90     1     1     4     1
+## 6   26.0     4 120.3    91  4.43 2.140 16.70     0     1     5     2
+## 7   24.4     4 146.7    62  3.69 3.190 20.00     1     0     4     2
+## 8   22.8     4 108.0    93  3.85 2.320 18.61     1     1     4     1
+## 9   22.8     4 140.8    95  3.92 3.150 22.90     1     0     4     2
+## 10  21.5     4 120.1    97  3.70 2.465 20.01     1     0     3     1
+## ..   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...
 ```
 
 ```r
 #multiple columns: most cyl with best mpg at top
-head(arrange(mtcars,desc(cyl),desc(mpg)))
+arrange(mtcars_tbl,desc(cyl),desc(mpg))
 ```
 
 ```
-##    mpg cyl  disp  hp drat    wt  qsec vs am gear carb
-## 1 19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
-## 2 18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
-## 3 17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
-## 4 16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
-## 5 15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
-## 6 15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## Source: local data frame [32 x 11]
+## 
+##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl)
+## 1   19.2     8 400.0   175  3.08 3.845 17.05     0     0     3     2
+## 2   18.7     8 360.0   175  3.15 3.440 17.02     0     0     3     2
+## 3   17.3     8 275.8   180  3.07 3.730 17.60     0     0     3     3
+## 4   16.4     8 275.8   180  3.07 4.070 17.40     0     0     3     3
+## 5   15.8     8 351.0   264  4.22 3.170 14.50     0     1     5     4
+## 6   15.5     8 318.0   150  2.76 3.520 16.87     0     0     3     2
+## 7   15.2     8 275.8   180  3.07 3.780 18.00     0     0     3     3
+## 8   15.2     8 304.0   150  3.15 3.435 17.30     0     0     3     2
+## 9   15.0     8 301.0   335  3.54 3.570 14.60     0     1     5     8
+## 10  14.7     8 440.0   230  3.23 5.345 17.42     0     0     3     4
+## ..   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...
 ```
 
 Now `slice()` which accomplishes what we did with the numeric indices before.  Remembering back to that, we'd could grab rows of the data frame with something like `x[1:3,]`.  
@@ -498,36 +509,48 @@ Now `slice()` which accomplishes what we did with the numeric indices before.  R
 
 ```r
 #grab rows 3 through 10
-slice(mtcars,3:10)
+slice(mtcars_tbl,3:10)
 ```
 
 ```
-##    mpg cyl  disp  hp drat    wt  qsec vs am gear carb
-## 1 22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
-## 2 21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
-## 3 18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
-## 4 18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
-## 5 14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
-## 6 24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
-## 7 22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
-## 8 19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Source: local data frame [8 x 11]
+## 
+##     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##   (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl)
+## 1  22.8     4 108.0    93  3.85 2.320 18.61     1     1     4     1
+## 2  21.4     6 258.0   110  3.08 3.215 19.44     1     0     3     1
+## 3  18.7     8 360.0   175  3.15 3.440 17.02     0     0     3     2
+## 4  18.1     6 225.0   105  2.76 3.460 20.22     1     0     3     1
+## 5  14.3     8 360.0   245  3.21 3.570 15.84     0     0     3     4
+## 6  24.4     4 146.7    62  3.69 3.190 20.00     1     0     4     2
+## 7  22.8     4 140.8    95  3.92 3.150 22.90     1     0     4     2
+## 8  19.2     6 167.6   123  3.92 3.440 18.30     1     0     4     4
 ```
 
 `mutate()` allows us to add new columns based on expressions applied to existing columns
 
 
 ```r
-head(mutate(mtcars,kml=mpg*0.425))
+mutate(mtcars_tbl,kml=mpg*0.425)
 ```
 
 ```
-##    mpg cyl disp  hp drat    wt  qsec vs am gear carb    kml
-## 1 21.0   6  160 110 3.90 2.620 16.46  0  1    4    4 8.9250
-## 2 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4 8.9250
-## 3 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1 9.6900
-## 4 21.4   6  258 110 3.08 3.215 19.44  1  0    3    1 9.0950
-## 5 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2 7.9475
-## 6 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1 7.6925
+## Source: local data frame [32 x 12]
+## 
+##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl)
+## 1   21.0     6 160.0   110  3.90 2.620 16.46     0     1     4     4
+## 2   21.0     6 160.0   110  3.90 2.875 17.02     0     1     4     4
+## 3   22.8     4 108.0    93  3.85 2.320 18.61     1     1     4     1
+## 4   21.4     6 258.0   110  3.08 3.215 19.44     1     0     3     1
+## 5   18.7     8 360.0   175  3.15 3.440 17.02     0     0     3     2
+## 6   18.1     6 225.0   105  2.76 3.460 20.22     1     0     3     1
+## 7   14.3     8 360.0   245  3.21 3.570 15.84     0     0     3     4
+## 8   24.4     4 146.7    62  3.69 3.190 20.00     1     0     4     2
+## 9   22.8     4 140.8    95  3.92 3.150 22.90     1     0     4     2
+## 10  19.2     6 167.6   123  3.92 3.440 18.30     1     0     4     4
+## ..   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...
+## Variables not shown: kml (dbl)
 ```
 
 Lastly, one more function, `rowwise()` allows us run rowwise, operations.  Let's use a bit of a contrived example for this.
@@ -542,12 +565,12 @@ head(temp_df)
 
 ```
 ##   id    week1    week2    week3    week4
-## 1  1 24.24051 22.78783 24.56553 18.32588
-## 2  2 21.62073 20.21796 20.80626 22.42832
-## 3  3 24.07638 20.17650 19.48044 21.05857
-## 4  4 22.28287 22.13759 23.43707 22.33961
-## 5  5 20.20335 20.91566 22.67006 17.19318
-## 6  6 20.94812 23.80542 18.40719 18.71113
+## 1  1 21.26412 23.80550 25.59946 17.10810
+## 2  2 23.37607 19.48375 19.89223 18.25643
+## 3  3 22.85700 22.08863 22.78485 21.91263
+## 4  4 21.35746 20.68021 23.27667 18.32722
+## 5  5 22.72783 20.01417 18.15456 18.99393
+## 6  6 24.49092 20.31440 18.11191 20.53616
 ```
 
 ```r
@@ -563,12 +586,12 @@ head(temp_df2)
 ## 
 ##      id    week1    week2    week3    week4 site_mean
 ##   (int)    (dbl)    (dbl)    (dbl)    (dbl)     (dbl)
-## 1     1 24.24051 22.78783 24.56553 18.32588  22.47993
-## 2     2 21.62073 20.21796 20.80626 22.42832  21.26832
-## 3     3 24.07638 20.17650 19.48044 21.05857  21.19797
-## 4     4 22.28287 22.13759 23.43707 22.33961  22.54928
-## 5     5 20.20335 20.91566 22.67006 17.19318  20.24556
-## 6     6 20.94812 23.80542 18.40719 18.71113  20.46796
+## 1     1 21.26412 23.80550 25.59946 17.10810  21.94429
+## 2     2 23.37607 19.48375 19.89223 18.25643  20.25212
+## 3     3 22.85700 22.08863 22.78485 21.91263  22.41078
+## 4     4 21.35746 20.68021 23.27667 18.32722  20.91039
+## 5     5 22.72783 20.01417 18.15456 18.99393  19.97262
+## 6     6 24.49092 20.31440 18.11191 20.53616  20.86335
 ```
 
 We now have quite a few tools that we can use to clean and manipulate data in R.  We have barely touched what both base R and `dplyr` are capable of accomplishing, but hopefully you now have some basics to build on.  I personally think the database connection in `dplyr` are going to prove very useful.

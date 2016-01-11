@@ -15,7 +15,7 @@ library("dplyr")
 
 # Basic Data Wrangling with R
 
-Data wrangling (manipulation, jujitsu, cleaning, etc.) is the part of any data analysis that will take the most time.  While it may not necessarily be fun, it is foundational to all the work that follows.  For this workshop we are just going to cover the bare essentialls of working with data frames in R.  We will see how to do this with base R and will practice how to do it with Hadley Wickham's `dplyr` package.
+Data wrangling (manipulation, jujitsu, cleaning, etc.) is the part of any data analysis that will take the most time.  While it may not necessarily be fun, it is foundational to all the work that follows.  For this workshop we are just going to cover the bare essentials of data wrangling in R.  We will see how to do this with base R and will practice how to do it with Hadley Wickham's `dplyr` package.
 
 ## Lesson Outline:
 
@@ -53,7 +53,6 @@ x[c(TRUE,FALSE)]
 #Can even get fancy
 x[x%%2==0]
 ```
-
 
 ##Indexing lists
 Basic indexing of lists isn't too much different than indexing a vector, but remember for our discussion of lists, that you can have any R object stored in a list (e.g., a vector, another list, a data.frame).  So to get the item you want can be a bit tricky.  A few simple examples.
@@ -107,7 +106,7 @@ head(virginica_iris)
 
 ##dplyr
 
-The package `dplyr` is a fairly new (2014) package that tries to provide easy tools for the most common data manipulation tasks.  It is built to work directly with data frames.  The thinking behind it was largely inspired by the package `plyr` which has been in use for some time but suffered from being slow in some cases.  `dplyr` addresses this by porting much of the computation to C++.  An additional feature is the ability to work with data stored directly in an external database.  The benefits of doing this are that the data can be managed natively in a relational database, queries can be conducted on that database, and only the results of the query returned.  
+The package `dplyr` is a fairly new (2014) package that tries to provide easy tools for the most common data manipulation tasks.  It is built to work directly with data frames.  The thinking behind it was largely inspired by the package `plyr` which has been in use for some time but suffered from being slow in some cases.  `dplyr` addresses this by porting much of the computation to c++.  An additional feature is the ability to work with data stored directly in an external database.  The benefits of doing this are that the data can be managed natively in a relational database, queries can be conducted on that database, and only the results of the query returned.  
 
 This addresses a common problem with R in that all operations are conducted in memory and thus the amount of data you can work with is limited by available memory.  The database connections essentially remove that limitation in that you can have a database of many 100s GB, conduct queries on it directly and pull back just what you need for analysis in R.  There is a lot of great info on `dplyr`.  If you have an interest, i'd encourage you to look more.  The vignettes are particulary good.
 
@@ -173,7 +172,7 @@ This exercise is going to focus on using what we just covered on `dplyr` to star
 6. Last thing we are going to need to do is get a subset of the observations.  We need only the lakes with VISIT_NO equal to 1 and SITE_TYPE equal to "PROB_Lake".  Keep the same name, `nla_wq_subset`, for this data frames.
 
 ###Modifying and summarizing with dplyr
-One area where it really shines is in modifying and summarizing.   We will do more here than we did with base, but first lets walk through one of the examples we did previously, aggregating.  We can do this with `group_by()` and  `summarize()`.
+One area where `dplyr` really shines is in aggregating, modifying and summarizing.  Let's start with aggregation.  We can do this with `group_by()` and  `summarize()`.
 
 First, we'll look at an example of grouping a data frame and summarizing the data within those groups.
 
@@ -191,26 +190,27 @@ There are many other functions in `dplyr` that are useful.  Much of what they do
 First `arrange()` will re-order a data frame based on the values of a columns.  It will take multiple columns and can be in descending or ascending order. I think `iris` is getting a bit tired, let's try a different stock data frame this time:  `mtcars`.  If you are interested you can try `data()` to see what is available.
 
 ```{r arrange_example}
-head(mtcars)
+#dplyr provides its own object type, tbl that has lots of nice properties
+mtcars_tbl <- as.tbl(mtcars)
 #ascending order is default
-head(arrange(mtcars,mpg))
+arrange(mtcars_tbl,mpg)
 #descending
-head(arrange(mtcars,desc(mpg)))
+arrange(mtcars_tbl,desc(mpg))
 #multiple columns: most cyl with best mpg at top
-head(arrange(mtcars,desc(cyl),desc(mpg)))
+arrange(mtcars_tbl,desc(cyl),desc(mpg))
 ```
 
 Now `slice()` which accomplishes what we did with the numeric indices before.  Remembering back to that, we'd could grab rows of the data frame with something like `x[1:3,]`.  
 
 ```{r slice_example}
 #grab rows 3 through 10
-slice(mtcars,3:10)
+slice(mtcars_tbl,3:10)
 ```
 
 `mutate()` allows us to add new columns based on expressions applied to existing columns
 
 ```{r mutate_example}
-head(mutate(mtcars,kml=mpg*0.425))
+mutate(mtcars_tbl,kml=mpg*0.425)
 ```
 
 Lastly, one more function, `rowwise()` allows us run rowwise, operations.  Let's use a bit of a contrived example for this.

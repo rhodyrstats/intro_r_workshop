@@ -34,6 +34,4 @@ Marzia Tamanna
 
 Mike MacArthur
 
-Nikelle Petrillo
-
 Rachel Stearns
