@@ -168,7 +168,7 @@ This exercise is going to focus on using what we just covered on `dplyr` to star
 1. If it isn't already open, make sure you have the script we created, "nla_analysis.R" opened up.
 2. Start a new section of code in this script by simply putting in a line or two of comments indicating what it is this set of code does.
 3. Our goal for this is to create a new data frame that represents a subset of the observations as well as a subset of the columns. 
-4. Subset the water quality data from `nla_wq` and store that in a new data frame calles `nla_wq_subset`.  The columns we want for this are: SITE_ID, VISIT_NO, SITE_TYPE, ST, EPA_REG, LAKE_ORIGIN, WSA_ECO9, TURB, NTL, PTL, CHLA, and SECMEAN. 
+4. Subset the water quality data from `nla_wq` and store that in a new data frame calles `nla_wq_subset`.  The columns we want for this are: SITE_ID, VISIT_NO, SITE_TYPE, ST, EPA_REG, LAKE_ORIGIN, WSA_ECO9, TURB, NTL, PTL, and CHLA. 
 6. Last thing we are going to need to do is get a subset of the observations.  We need only the lakes with VISIT_NO equal to 1 and SITE_TYPE equal to "PROB_Lake".  Keep the same name, `nla_wq_subset`, for this data frames.
 
 ###Modifying and summarizing with dplyr
@@ -237,6 +237,6 @@ Let's practice some of these last functions with our NLA data.
 Add a new section to our script to calculate the nla water quality means. 
 
 1. Use `nla_wq_subset` that we created in the previous exercise.
-2. Add some lines to your script to calculate the mean by LAKE_ORIGIN, for TURB, NTL, PTL,CHLA, and SECMEAN. Save to a data frame named nla_wq_means_orig.
+2. Add some lines to your script to calculate the mean by LAKE_ORIGIN, for TURB, NTL, PTL, and CHLA. Save to a data frame named nla_wq_means_orig.
 3. Repeat the same analysis but for the WSA_ECO9 ecoregions.  Save this to a data frame named `nla_wq_means_eco`.
 4. It might be interesting to compare the grouped means to the means of each value for the entire dataset.  Using `summarize()`, calculate the mean wq for all lakes (hint: no groups!).  Save this as `nla_wq_means`.
