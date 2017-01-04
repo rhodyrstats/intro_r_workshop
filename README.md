@@ -1,34 +1,21 @@
 # rhodyRstats: Introduction to R Workshop
 
-This repository contains the materials for the Introduction to R Workshops being
-held on Tuesday, Jan 12 and Wednesday, Jan 13 at the University of Rhode Island's
-Coatstal Institute.  For directions and brief overview of the workshop visit
-<http://rhodyrstats.org/intro_r_workshop>. For more details on schedule and 
-workshop outline see below.
+This repository contains the materials for the Introduction to R Workshops being held on Thursday, Jan 19 at the University of Rhode Island's Coatstal Institute.  For directions and brief overview of the workshop visit <https://www.eventbrite.com/e/rhodyrstats-introduction-to-r-workshop-tickets-30721367437>. For more details on schedule and workshop outline see below.
 
 ## Instructor
  - Jeff Hollister
  
 ## Helpers
- - Betty Kreakie, US EPA (Tues and Wed) 
+ - Q Kellogg, URI
  - TBD
 
-## Rosters
-
- - [Tuesday, January 12](tuesday_roster.md)
- - [Wednesday, January 13](wednesday_roster.md)
  
 ## Software 
 
-For this workshop will be using R and RStudio. We won't have much time to test 
-and troubleshoot installations so, you will need to have these installed and 
-working prior to the workshop.  Installation is straightforward for both.  Just
-download and install the version appropriate for your operating system.  The 
-latest versions for Mac and Windows are linked below.  If you run into issus, 
-please contact Jeff.
+For this workshop will be using R and RStudio. We won't have much time to test and troubleshoot installations so, you will need to have these installed and working prior to the workshop.  Installation is straightforward for both.  Just download and install the version appropriate for your operating system.  The latest versions for Mac and Windows are linked below.  If you run into issues, please contact Jeff.
 
 - R: [Windows](https://cran.r-project.org/bin/windows/base/R-3.2.3-win.exe) | [Mac OS X 10.9+ (Mavericks) ](https://cran.r-project.org/bin/macosx/R-3.2.3.pkg) |  [Others](https://cran.r-project.org/)
-- RStudio: [Windows](https://download1.rstudio.org/RStudio-0.99.491.exe) | [Mac OS X 10.6+ (Snow Leopard) ](https://download1.rstudio.org/RStudio-0.99.491.dmg) |  [Others](https://www.rstudio.com/products/rstudio/download/)
+- RStudio: [Windows](https://download1.rstudio.org/RStudio-1.0.136.exe) | [Mac OS X 10.6+ (Snow Leopard) ](https://download1.rstudio.org/RStudio-1.0.136.dmg) |  [Others](https://www.rstudio.com/products/rstudio/download/)
 
 # Workshop Schedule and Links to Materials
 
@@ -43,7 +30,7 @@ please contact Jeff.
 | 1:00 PM - 2:15 PM   | [Data Wrangling](lessons/03_wrangling.md) |
 | 2:15 PM - 2:30 PM   | *BREAK*                                   |
 | 2:30 PM - 4:30 PM   | [Data Viz](lessons/04_viz.md)             |
-
+| TBD                 | Social Time For Those Interested (Location: TBD) |
 
 ###Note: 
 Much of the material for this workshop was (slightly) modified from <http://usepa.github.io/introR>.  Similarity between the two workshops is intentional!
