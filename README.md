@@ -1,6 +1,6 @@
 # rhodyRstats: Introduction to R Workshop
 
-This repository contains the materials for the Introduction to R Workshops being held on Thursday, Jan 19 at the University of Rhode Island's Coatstal Institute.  For directions and brief overview of the workshop visit <https://www.eventbrite.com/e/rhodyrstats-introduction-to-r-workshop-tickets-30721367437>. For more details on schedule and workshop outline see below.
+This repository contains the materials for the Introduction to R Workshops being held on Thursday, Jan 19 2017 at the University of Rhode Island's Coatstal Institute.  For directions and brief overview of the workshop visit <https://www.eventbrite.com/e/rhodyrstats-introduction-to-r-workshop-tickets-30721367437>. For more details on schedule and workshop outline see below.
 
 ## Instructor
  - Jeff Hollister
@@ -30,7 +30,7 @@ For this workshop will be using R and RStudio. We won't have much time to test a
 | 1:00 PM - 2:15 PM   | [Data Wrangling](lessons/03_wrangling.md) |
 | 2:15 PM - 2:30 PM   | *BREAK*                                   |
 | 2:30 PM - 4:30 PM   | [Data Viz](lessons/04_viz.md)             |
-| TBD                 | Social Time For Those Interested (Location: TBD) |
+| TBD                 | Dinner For Those Interested (Location: TBD) |
 
 ###Note: 
 Much of the material for this workshop was (slightly) modified from <http://usepa.github.io/introR>.  Similarity between the two workshops is intentional!
