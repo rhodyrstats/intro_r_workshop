@@ -14,7 +14,7 @@ This repository contains the materials for the Introduction to R Workshops being
 
 For this workshop will be using R and RStudio. We won't have much time to test and troubleshoot installations so, you will need to have these installed and working prior to the workshop.  Installation is straightforward for both.  Just download and install the version appropriate for your operating system.  The latest versions for Mac and Windows are linked below.  If you run into issues, please contact Jeff.
 
-- R: [Windows](https://cran.r-project.org/bin/windows/base/R-3.2.3-win.exe) | [Mac OS X 10.9+ (Mavericks) ](https://cran.r-project.org/bin/macosx/R-3.2.3.pkg) |  [Others](https://cran.r-project.org/)
+- R: [Windows](https://cran.r-project.org/bin/windows/base/R-3.3.2-win.exe) | [Mac OS X 10.9+ (Mavericks) ](https://cran.r-project.org/bin/macosx/R-3.3.2.pkg) |  [Others](https://cran.r-project.org/)
 - RStudio: [Windows](https://download1.rstudio.org/RStudio-1.0.136.exe) | [Mac OS X 10.6+ (Snow Leopard) ](https://download1.rstudio.org/RStudio-1.0.136.dmg) |  [Others](https://www.rstudio.com/products/rstudio/download/)
 
 # Workshop Schedule and Links to Materials
