@@ -1,7 +1,7 @@
 <div align="center" style="text-align:center">
-![CI Logo](ci_logo_trans_small.png)
+<img src="ci_logo_trans_small.png"/>
 
-*This rhodyRstats workshop is made possible with the support of the [URI Coastal Institute](http://web.uri.edu/coastalinstitute/)*
+<h3 style="font-style: italic;">This rhodyRstats workshop is made possible with the support of the [URI Coastal Institute](http://web.uri.edu/coastalinstitute/)</h2>
 </div>
 
 # rhodyRstats: Introduction to R Workshop
