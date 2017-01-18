@@ -1,3 +1,6 @@
+![CI Logo](ci_logo_trans_small.png)
+* **This rhodyRstats workshop is made possible with the support of the [URI Coastal Institute](http://web.uri.edu/coastalinstitute/)** *
+
 # rhodyRstats: Introduction to R Workshop
 
 This repository contains the materials for the Introduction to R Workshops being held on Thursday, Jan 19 2017 at the University of Rhode Island's Coatstal Institute.  For directions and brief overview of the workshop visit <https://www.eventbrite.com/e/rhodyrstats-introduction-to-r-workshop-tickets-30721367437>. For more details on schedule and workshop outline see below.
