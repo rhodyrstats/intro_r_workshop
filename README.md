@@ -1,9 +1,8 @@
-<center>
+<div align="center" style="text-align:center">
 ![CI Logo](ci_logo_trans_small.png)
 
 *This rhodyRstats workshop is made possible with the support of the [URI Coastal Institute](http://web.uri.edu/coastalinstitute/)*
-</center>
-
+</div>
 
 # rhodyRstats: Introduction to R Workshop
 
