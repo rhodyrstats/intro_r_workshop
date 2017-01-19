@@ -102,7 +102,7 @@ x_list
 ##  [1]  1  2  3  4  5  6  7  8  9 10
 ## 
 ## [[2]]
-##  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j"
+##  [1] NA  "a" "b" "c" "d" "e" "f" "g" "h" "i"
 ```
 
 ```r
@@ -120,7 +120,7 @@ x_list[[2]]
 ```
 
 ```
-##  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j"
+##  [1] NA  "a" "b" "c" "d" "e" "f" "g" "h" "i"
 ```
 
 ```r
@@ -129,7 +129,7 @@ x_list[[2]][7]
 ```
 
 ```
-## [1] "g"
+## [1] "f"
 ```
 
 ##Indexing data frames
@@ -399,7 +399,7 @@ This exercise is going to focus on using what we just covered on `dplyr` to star
 1. If it isn't already open, make sure you have the script we created, "nla_analysis.R" opened up.
 2. Start a new section of code in this script by simply putting in a line or two of comments indicating what it is this set of code does.
 3. Our goal for this is to create a new data frame that represents a subset of the observations as well as a subset of the columns. 
-4. Subset the water quality data from `nla_wq` and store that in a new data frame calles `nla_wq_subset`.  The columns we want for this are: SITE_ID, VISIT_NO, SITE_TYPE, ST, EPA_REG, LAKE_ORIGIN, WSA_ECO9, TURB, NTL, PTL, CHLA, and SECMEAN. 
+4. Subset the water quality data from `nla_wq` and store that in a new data frame calles `nla_wq_subset`.  The columns we want for this are: SITE_ID, VISIT_NO, SITE_TYPE, ST, EPA_REG, LAKE_ORIGIN, WSA_ECO9, TURB, NTL, PTL, and CHLA. 
 6. Last thing we are going to need to do is get a subset of the observations.  We need only the lakes with VISIT_NO equal to 1 and SITE_TYPE equal to "PROB_Lake".  Keep the same name, `nla_wq_subset`, for this data frames.
 
 ###Modifying and summarizing with dplyr
@@ -418,14 +418,13 @@ group_by(iris,Species)%>%
 ```
 
 ```
-## Source: local data frame [3 x 5]
-## 
-##      Species mean(Sepal.Length) mean(Sepal.Width) mean(Petal.Length)
-##       (fctr)              (dbl)             (dbl)              (dbl)
-## 1     setosa              5.006             3.428              1.462
-## 2 versicolor              5.936             2.770              4.260
-## 3  virginica              6.588             2.974              5.552
-## Variables not shown: mean(Petal.Width) (dbl)
+## # A tibble: 3 × 5
+##      Species `mean(Sepal.Length)` `mean(Sepal.Width)` `mean(Petal.Length)`
+##       <fctr>                <dbl>               <dbl>                <dbl>
+## 1     setosa                5.006               3.428                1.462
+## 2 versicolor                5.936               2.770                4.260
+## 3  virginica                6.588               2.974                5.552
+## # ... with 1 more variables: `mean(Petal.Width)` <dbl>
 ```
 
 There are many other functions in `dplyr` that are useful.  Much of what they do, can certainly be accomplished with base R, but not quite as intuitively.  Let's run through some examples with `arrange()`, `slice()`,  and `mutate()`.
@@ -441,10 +440,9 @@ arrange(mtcars_tbl,mpg)
 ```
 
 ```
-## Source: local data frame [32 x 11]
-## 
+## # A tibble: 32 × 11
 ##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
-##    (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl)
+##    <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
 ## 1   10.4     8 472.0   205  2.93 5.250 17.98     0     0     3     4
 ## 2   10.4     8 460.0   215  3.00 5.424 17.82     0     0     3     4
 ## 3   13.3     8 350.0   245  3.73 3.840 15.41     0     0     3     4
@@ -455,7 +453,7 @@ arrange(mtcars_tbl,mpg)
 ## 8   15.2     8 304.0   150  3.15 3.435 17.30     0     0     3     2
 ## 9   15.5     8 318.0   150  2.76 3.520 16.87     0     0     3     2
 ## 10  15.8     8 351.0   264  4.22 3.170 14.50     0     1     5     4
-## ..   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...
+## # ... with 22 more rows
 ```
 
 ```r
@@ -464,10 +462,9 @@ arrange(mtcars_tbl,desc(mpg))
 ```
 
 ```
-## Source: local data frame [32 x 11]
-## 
+## # A tibble: 32 × 11
 ##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
-##    (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl)
+##    <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
 ## 1   33.9     4  71.1    65  4.22 1.835 19.90     1     1     4     1
 ## 2   32.4     4  78.7    66  4.08 2.200 19.47     1     1     4     1
 ## 3   30.4     4  75.7    52  4.93 1.615 18.52     1     1     4     2
@@ -478,7 +475,7 @@ arrange(mtcars_tbl,desc(mpg))
 ## 8   22.8     4 108.0    93  3.85 2.320 18.61     1     1     4     1
 ## 9   22.8     4 140.8    95  3.92 3.150 22.90     1     0     4     2
 ## 10  21.5     4 120.1    97  3.70 2.465 20.01     1     0     3     1
-## ..   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...
+## # ... with 22 more rows
 ```
 
 ```r
@@ -487,10 +484,9 @@ arrange(mtcars_tbl,desc(cyl),desc(mpg))
 ```
 
 ```
-## Source: local data frame [32 x 11]
-## 
+## # A tibble: 32 × 11
 ##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
-##    (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl)
+##    <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
 ## 1   19.2     8 400.0   175  3.08 3.845 17.05     0     0     3     2
 ## 2   18.7     8 360.0   175  3.15 3.440 17.02     0     0     3     2
 ## 3   17.3     8 275.8   180  3.07 3.730 17.60     0     0     3     3
@@ -501,7 +497,7 @@ arrange(mtcars_tbl,desc(cyl),desc(mpg))
 ## 8   15.2     8 304.0   150  3.15 3.435 17.30     0     0     3     2
 ## 9   15.0     8 301.0   335  3.54 3.570 14.60     0     1     5     8
 ## 10  14.7     8 440.0   230  3.23 5.345 17.42     0     0     3     4
-## ..   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...
+## # ... with 22 more rows
 ```
 
 Now `slice()` which accomplishes what we did with the numeric indices before.  Remembering back to that, we'd could grab rows of the data frame with something like `x[1:3,]`.  
@@ -513,10 +509,9 @@ slice(mtcars_tbl,3:10)
 ```
 
 ```
-## Source: local data frame [8 x 11]
-## 
+## # A tibble: 8 × 11
 ##     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
-##   (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl)
+##   <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
 ## 1  22.8     4 108.0    93  3.85 2.320 18.61     1     1     4     1
 ## 2  21.4     6 258.0   110  3.08 3.215 19.44     1     0     3     1
 ## 3  18.7     8 360.0   175  3.15 3.440 17.02     0     0     3     2
@@ -535,10 +530,9 @@ mutate(mtcars_tbl,kml=mpg*0.425)
 ```
 
 ```
-## Source: local data frame [32 x 12]
-## 
+## # A tibble: 32 × 12
 ##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
-##    (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl)
+##    <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
 ## 1   21.0     6 160.0   110  3.90 2.620 16.46     0     1     4     4
 ## 2   21.0     6 160.0   110  3.90 2.875 17.02     0     1     4     4
 ## 3   22.8     4 108.0    93  3.85 2.320 18.61     1     1     4     1
@@ -549,8 +543,7 @@ mutate(mtcars_tbl,kml=mpg*0.425)
 ## 8   24.4     4 146.7    62  3.69 3.190 20.00     1     0     4     2
 ## 9   22.8     4 140.8    95  3.92 3.150 22.90     1     0     4     2
 ## 10  19.2     6 167.6   123  3.92 3.440 18.30     1     0     4     4
-## ..   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...
-## Variables not shown: kml (dbl)
+## # ... with 22 more rows, and 1 more variables: kml <dbl>
 ```
 
 Lastly, one more function, `rowwise()` allows us run rowwise, operations.  Let's use a bit of a contrived example for this.
@@ -565,12 +558,12 @@ head(temp_df)
 
 ```
 ##   id    week1    week2    week3    week4
-## 1  1 21.26412 23.80550 25.59946 17.10810
-## 2  2 23.37607 19.48375 19.89223 18.25643
-## 3  3 22.85700 22.08863 22.78485 21.91263
-## 4  4 21.35746 20.68021 23.27667 18.32722
-## 5  5 22.72783 20.01417 18.15456 18.99393
-## 6  6 24.49092 20.31440 18.11191 20.53616
+## 1  1 23.62152 23.62467 18.73509 21.58847
+## 2  2 20.48514 22.90934 18.77553 19.00641
+## 3  3 24.11576 22.18306 20.97141 18.51648
+## 4  4 21.36506 21.77818 25.38850 19.34857
+## 5  5 24.07175 21.68793 18.75625 18.35796
+## 6  6 22.78194 20.24073 24.83460 18.70614
 ```
 
 ```r
@@ -582,16 +575,15 @@ head(temp_df2)
 ```
 
 ```
-## Source: local data frame [6 x 6]
-## 
+## # A tibble: 6 × 6
 ##      id    week1    week2    week3    week4 site_mean
-##   (int)    (dbl)    (dbl)    (dbl)    (dbl)     (dbl)
-## 1     1 21.26412 23.80550 25.59946 17.10810  21.94429
-## 2     2 23.37607 19.48375 19.89223 18.25643  20.25212
-## 3     3 22.85700 22.08863 22.78485 21.91263  22.41078
-## 4     4 21.35746 20.68021 23.27667 18.32722  20.91039
-## 5     5 22.72783 20.01417 18.15456 18.99393  19.97262
-## 6     6 24.49092 20.31440 18.11191 20.53616  20.86335
+##   <int>    <dbl>    <dbl>    <dbl>    <dbl>     <dbl>
+## 1     1 23.62152 23.62467 18.73509 21.58847  21.89244
+## 2     2 20.48514 22.90934 18.77553 19.00641  20.29410
+## 3     3 24.11576 22.18306 20.97141 18.51648  21.44668
+## 4     4 21.36506 21.77818 25.38850 19.34857  21.97008
+## 5     5 24.07175 21.68793 18.75625 18.35796  20.71847
+## 6     6 22.78194 20.24073 24.83460 18.70614  21.64085
 ```
 
 We now have quite a few tools that we can use to clean and manipulate data in R.  We have barely touched what both base R and `dplyr` are capable of accomplishing, but hopefully you now have some basics to build on.  I personally think the database connection in `dplyr` are going to prove very useful.
@@ -604,6 +596,6 @@ Let's practice some of these last functions with our NLA data.
 Add a new section to our script to calculate the nla water quality means. 
 
 1. Use `nla_wq_subset` that we created in the previous exercise.
-2. Add some lines to your script to calculate the mean by LAKE_ORIGIN, for TURB, NTL, PTL,CHLA, and SECMEAN. Save to a data frame named nla_wq_means_orig.
+2. Add some lines to your script to calculate the mean by LAKE_ORIGIN, for TURB, NTL, PTL, and CHLA. Save to a data frame named nla_wq_means_orig.
 3. Repeat the same analysis but for the WSA_ECO9 ecoregions.  Save this to a data frame named `nla_wq_means_eco`.
 4. It might be interesting to compare the grouped means to the means of each value for the entire dataset.  Using `summarize()`, calculate the mean wq for all lakes (hint: no groups!).  Save this as `nla_wq_means`.
