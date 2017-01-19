@@ -248,7 +248,7 @@ From here on out I hope to have these exercises begin to build on each other. We
 
 1. Create a new script in RStudio.  Name it "nla_analysis.R"
 2. As you write the script comment as you go.
-3. Add commands to your script that creates one data frames named `nla_wq` that contains all of the data located at http://bit.ly/nla_water. This link points to a .csv file on the NLA water quality data
+3. Add commands to your script that creates one data frames named `nla_wq` that contains all of the data located at https://bit.ly/nla_water. This link points to a .csv file on the NLA water quality data
 4. Add commands to your script that will provides details on the structure (hint: `str`) of the newly created data frame
 5. Run the script and make sure it doesn't throw any errors and you do in fact get a data frame.
 6. Explore the data frames using some of the functions we covered (e.g. `head()`,`summary()`, or `str()`).  This part does not need to be included in the script. 
